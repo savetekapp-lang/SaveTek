@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- اردو -->
+<resources>
+    <string name="tab_home">ہوم</string>
+    <string name="tab_downloads">میری ڈاؤن لوڈز</string>
+    <string name="tab_settings">ترتیبات</string>
+    <string name="tab_with_count">%1$s (%2$d)</string>
+
+    <string name="url_label">ویڈیو کا لنک</string>
+    <string name="paste">پیسٹ</string>
+    <string name="engine_preparing">ڈاؤن لوڈ انجن تیار ہو رہا ہے… (پہلی بار ایک منٹ لگ سکتا ہے)</string>
+    <string name="show_qualities">دستیاب کوالٹیز دکھائیں</string>
+    <string name="fetching_info">ویڈیو کی معلومات حاصل کی جا رہی ہیں…</string>
+    <string name="choose_quality">کوالٹی منتخب کریں</string>
+    <string name="download">ڈاؤن لوڈ</string>
+    <string name="cd_video_thumbnail">ویڈیو کی تصویر</string>
+    <string name="size_unknown">سائز معلوم نہیں</string>
+    <string name="quality_best">سب سے اعلیٰ کوالٹی</string>
+    <string name="quality_best_available">بہترین کوالٹی</string>
+    <string name="quality_mp3">MP3 آڈیو</string>
+    <string name="default_video_title">ویڈیو</string>
+
+    <string name="disclaimer_title">اہم اطلاع</string>
+    <string name="disclaimer">یہ ایپ صرف اس مواد کو ڈاؤن لوڈ کرنے کے لیے ہے جس کے آپ مالک ہیں یا جسے ڈاؤن لوڈ کرنے کی آپ کو اجازت ہے۔ مواد کے مالکان کے حقوق اور ویب سائٹس کی شرائط کا احترام آپ کی ذمہ داری ہے۔</string>
+    <string name="agree">میں سمجھ گیا اور متفق ہوں</string>
+
+    <string name="eta_moments">چند لمحے</string>
+    <string name="eta_seconds">%1$d سیکنڈ</string>
+    <string name="eta_minutes">%1$d منٹ %2$d سیکنڈ</string>
+    <string name="preparing">تیاری ہو رہی ہے…</string>
+    <string name="percent_value">%1$d٪</string>
+    <string name="progress_with_eta">%1$d٪ — %2$s باقی</string>
+
+    <string name="msg_engine_init_failed">ڈاؤن لوڈ انجن تیار نہیں ہو سکا: %1$s</string>
+    <string name="msg_invalid_url">لنک درست نہیں۔ یہ http یا https سے شروع ہونا چاہیے۔</string>
+    <string name="msg_read_failed">لنک پڑھا نہیں جا سکا:\n%1$s\n\nلنک چیک کریں، یا ترتیبات سے انجن اپ ڈیٹ کر کے دیکھیں۔</string>
+    <string name="msg_wifi_blocked">\"صرف وائی فائی پر ڈاؤن لوڈ\" آن ہے، اور آپ اس وقت وائی فائی سے منسلک نہیں ہیں۔\nوائی فائی سے جڑیں یا ترتیبات سے یہ آپشن بند کریں۔</string>
+    <string name="msg_download_started">ڈاؤن لوڈ شروع ہو گیا ✅ اسے \"میری ڈاؤن لوڈز\" میں دیکھیں۔</string>
+    <string name="msg_convert_started">تبدیلی شروع ہو گئی ✅ اسے \"میری ڈاؤن لوڈز\" میں دیکھیں۔</string>
+    <string name="msg_delete_partial">فہرست سے ہٹا دیا گیا، لیکن فائل حذف نہیں ہو سکی۔ اسے گیلری سے خود حذف کریں۔</string>
+    <string name="msg_update_wait">جاری کام ختم ہونے تک انتظار کریں، پھر انجن اپ ڈیٹ کریں۔</string>
+    <string name="msg_update_failed">اپ ڈیٹ ناکام ہو گئی۔ اپنا انٹرنیٹ کنکشن چیک کریں۔</string>
+    <string name="storage_needed">ویڈیو کو گیلری میں محفوظ کرنے کے لیے اسٹوریج کی اجازت ضروری ہے</string>
+
+    <string name="convert_from_device">ڈیوائس سے ویڈیو تبدیل کریں</string>
+    <string name="no_downloads_title">ابھی کوئی ڈاؤن لوڈ نہیں</string>
+    <string name="no_downloads_hint">ہوم میں لنک پیسٹ کریں اور پہلا ڈاؤن لوڈ شروع کریں</string>
+    <string name="section_running">جاری (%1$d)</string>
+    <string name="section_completed">مکمل (%1$d)</string>
+    <string name="section_failed">ناکام (%1$d)</string>
+    <string name="delete_title">فائل حذف کریں؟</string>
+    <string name="delete_done_message">\"%1$s\" آپ کے فون سے مستقل طور پر حذف ہو جائے گی۔</string>
+    <string name="delete_failed_message">یہ آئٹم فہرست سے ہٹا دیا جائے گا۔</string>
+    <string name="delete">حذف کریں</string>
+    <string name="cancel">منسوخ</string>
+    <string name="done_label">%1$s • مکمل ✅</string>
+    <string name="failed_label">ناکام: %1$s</string>
+    <string name="play">چلائیں</string>
+    <string name="share">شیئر</string>
+    <string name="share_via">اس کے ذریعے شیئر کریں</string>
+    <string name="retry">دوبارہ کوشش</string>
+    <string name="file_unavailable">فائل دستیاب نہیں۔ اسے گیلری سے کھولیں۔</string>
+
+    <string name="convert_to_mp3">MP3 آڈیو میں تبدیل کریں</string>
+    <string name="convert_title">MP3 آڈیو میں تبدیل کریں</string>
+    <string name="audio_quality">آڈیو کوالٹی</string>
+    <string name="bitrate_default">%1$d kbps (طے شدہ)</string>
+    <string name="bitrate_value">%1$d kbps</string>
+    <string name="convert_note">اصل ویڈیو جوں کی توں رہے گی۔ آڈیو فائل Music/SaveTek میں محفوظ ہوگی۔</string>
+    <string name="convert">تبدیل کریں</string>
+
+    <string name="settings_title">ترتیبات</string>
+    <string name="appearance">ظاہری شکل</string>
+    <string name="theme_navy_gold">نیوی اور سنہری</string>
+    <string name="theme_navy_gold_desc">ایپ کی اصل شناخت</string>
+    <string name="theme_light">ہلکا</string>
+    <string name="theme_light_desc">سفید پس منظر اور گہرا متن</string>
+    <string name="theme_dark">گہرا</string>
+    <string name="theme_dark_desc">سیاہ پس منظر، AMOLED اسکرینوں کے لیے موزوں اور بیٹری بچاتا ہے</string>
+    <string name="theme_system">ڈیوائس کے مطابق</string>
+    <string name="theme_system_desc">فون کے موڈ کے مطابق خودبخود ہلکا یا گہرا</string>
+    <string name="language">زبان</string>
+    <string name="language_system">ڈیوائس کے مطابق</string>
+    <string name="default_quality">طے شدہ کوالٹی</string>
+    <string name="default_quality_desc">کوالٹیز دکھاتے وقت خودبخود منتخب ہوتی ہے، اور آپ ہر ویڈیو کے لیے اسے بدل سکتے ہیں۔</string>
+    <string name="wifi_only">صرف وائی فائی پر ڈاؤن لوڈ</string>
+    <string name="wifi_only_desc">ڈیٹا بچانے کے لیے: ڈاؤن لوڈ صرف وائی فائی پر شروع ہوگا، اور وائی فائی منقطع ہونے پر رک جائے گا۔</string>
+    <string name="engine_title">ڈاؤن لوڈ انجن (yt-dlp)</string>
+    <string name="engine_version">موجودہ ورژن: %1$s</string>
+    <string name="engine_last_update">آخری اپ ڈیٹ: %1$s</string>
+    <string name="never_updated">ابھی اپ ڈیٹ نہیں ہوا</string>
+    <string name="unknown">نامعلوم</string>
+    <string name="engine_auto_desc">ایپ کھولنے پر ہر بار نئے ورژن کی جانچ کرتا ہے، اور جب کوئی سائٹ ڈاؤن لوڈ سے انکار کرے (ایرر 403)۔</string>
+    <string name="update_engine">انجن اپ ڈیٹ کریں</string>
+    <string name="updating">اپ ڈیٹ ہو رہا ہے…</string>
+    <string name="update_done">کامیابی سے اپ ڈیٹ ہو گیا ✅ ورژن: %1$s</string>
+    <string name="update_latest">آپ کے پاس پہلے سے تازہ ترین ورژن ہے (%1$s)</string>
+    <string name="update_finished">اپ ڈیٹ مکمل۔ موجودہ ورژن: %1$s</string>
+    <string name="notifications_off_title">اطلاعات بند ہیں</string>
+    <string name="notifications_off_desc">ڈاؤن لوڈ کی پیش رفت دیکھنے اور اس کے مکمل ہونے کی خبر پانے کے لیے انہیں آن کریں، چاہے ایپ بند ہو۔</string>
+    <string name="enable_notifications">اطلاعات آن کریں</string>
+
+    <string name="about">ایپ کے بارے میں</string>
+    <string name="back">واپس</string>
+    <string name="version_label">ورژن %1$s</string>
+    <string name="tagline">اپنی ویڈیوز سب سے اعلیٰ کوالٹی میں محفوظ کریں</string>
+    <string name="open_source_title">اوپن سورس اجزاء</string>
+    <string name="open_source_text">یہ ایپ اوپن سورس منصوبوں yt-dlp اور FFmpeg پر مبنی ہے (GPL-3.0 لائسنس)۔</string>
+
+    <string name="notif_rationale_title">اطلاعات کی اجازت دیں</string>
+    <string name="notif_rationale_text">ہمیں ڈاؤن لوڈ کی پیش رفت دکھانے اور اس کے مکمل یا ناکام ہونے کی خبر دینے کے لیے اطلاعات کی ضرورت ہے، چاہے آپ ایپ بند کر دیں یا اسکرین بند کر دیں۔\n\nہم آپ کو کوئی اور اطلاع نہیں بھیجیں گے۔</string>
+    <string name="allow">اجازت دیں</string>
+    <string name="not_now">ابھی نہیں</string>
+
+    <string name="channel_progress">جاری ڈاؤن لوڈز</string>
+    <string name="channel_done">مکمل اور ناکام کام</string>
+    <string name="notif_converting_percent">MP3 میں تبدیلی · %1$d٪</string>
+    <string name="notif_running_count">%1$d کام جاری ہیں</string>
+    <string name="notif_download_complete">ڈاؤن لوڈ مکمل ✅</string>
+    <string name="notif_download_failed">ڈاؤن لوڈ ناکام ❌</string>
+    <string name="notif_convert_complete">تبدیلی مکمل ✅</string>
+    <string name="notif_convert_failed">تبدیلی ناکام ❌</string>
+    <string name="note_403_retry">سائٹ نے درخواست مسترد کر دی (403)۔ انجن اپ ڈیٹ کر کے دوبارہ کوشش کی جا رہی ہے…</string>
+    <string name="note_preparing_file">فائل تیار کی جا رہی ہے…</string>
+    <string name="note_saving">گیلری میں محفوظ کیا جا رہا ہے…</string>
+
+    <string name="error_wifi_lost">وائی فائی منقطع ہونے کی وجہ سے ڈاؤن لوڈ رک گیا (\"صرف وائی فائی\" آن ہے)۔</string>
+    <string name="error_source_missing">اصل ویڈیو نہیں ملی۔</string>
+    <string name="error_convert_failed">یہ فائل تبدیل نہیں ہو سکی</string>
+    <string name="error_unknown">ایک نامعلوم خرابی پیش آئی</string>
+    <string name="error_file_not_found">ڈاؤن لوڈ مکمل ہوا لیکن فائل نہیں ملی</string>
+    <string name="error_gallery_create">گیلری میں فائل نہیں بن سکی</string>
+
+    <string name="open_with_other_app">کسی اور ایپ سے کھولیں</string>
+    <string name="no_other_app">اس فائل کو چلانے کے لیے کوئی اور ایپ نہیں</string>
+    <string name="rewind_10">10 سیکنڈ پیچھے</string>
+    <string name="forward_10">10 سیکنڈ آگے</string>
+    <string name="ten_seconds">10 سیکنڈ</string>
+    <string name="mute">آواز بند</string>
+    <string name="volume">آواز</string>
+    <string name="fullscreen">پوری اسکرین</string>
+    <string name="exit_fullscreen">پوری اسکرین سے باہر</string>
+    <string name="pause">روکیں</string>
+    <string name="audio_file_label">MP3 آڈیو فائل</string>
+
+    <string name="ad_space">اشتہار کی جگہ (%1$s)</string>
+
+    <string name="update_available_title">نیا ورژن دستیاب ہے</string>
+    <string name="update_required_title">اپ ڈیٹ ضروری ہے</string>
+    <string name="update_required_text">یہ ورژن اب سپورٹ نہیں ہوتا۔ SaveTek استعمال جاری رکھنے کے لیے براہ کرم اپ ڈیٹ کریں۔</string>
+    <string name="whats_new">نیا کیا ہے</string>
+    <string name="update_now">ابھی اپ ڈیٹ کریں</string>
+    <string name="later">بعد میں</string>
+    <string name="update_downloading_title">اپ ڈیٹ ڈاؤن لوڈ ہو رہی ہے</string>
+    <string name="update_verifying">فائل کی تصدیق ہو رہی ہے…</string>
+    <string name="update_ready_title">اپ ڈیٹ تیار ہے</string>
+    <string name="update_ready_text">اگر انسٹال کی اسکرین نہیں آئی تو \"انسٹال کریں\" دبائیں۔</string>
+    <string name="install">انسٹال کریں</string>
+    <string name="install_permission_title">ایک آخری قدم</string>
+    <string name="install_permission_text">SaveTek کو اپنی اپ ڈیٹس انسٹال کرنے کے لیے اینڈرائیڈ کو آپ کی اجازت درکار ہے۔\n\n\"ترتیبات کھولیں\" دبائیں، \"اس ذریعہ سے اجازت دیں\" آن کریں، پھر ایپ میں واپس آئیں اور انسٹالیشن جاری رہے گی۔</string>
+    <string name="open_settings">ترتیبات کھولیں</string>
+    <string name="update_error_title">اپ ڈیٹ نہیں ہو سکی</string>
+    <string name="update_error_download">اپ ڈیٹ ڈاؤن لوڈ نہیں ہو سکی۔ اپنا انٹرنیٹ چیک کریں اور دوبارہ کوشش کریں۔</string>
+    <string name="update_error_hash">ڈاؤن لوڈ شدہ فائل شائع شدہ فنگر پرنٹ (SHA-256) سے میل نہیں کھاتی، اس لیے آپ کی حفاظت کے لیے حذف کر دی گئی۔</string>
+    <string name="update_error_signature">اپ ڈیٹ فائل SaveTek کی کلید سے سائن نہیں ہے، اس لیے آپ کی حفاظت کے لیے مسترد کر کے حذف کر دی گئی۔</string>
+    <string name="close">بند کریں</string>
+    <string name="app_updates">ایپ اپ ڈیٹس</string>
+    <string name="current_app_version">موجودہ ورژن: %1$s</string>
+    <string name="check_updates">اپ ڈیٹس چیک کریں</string>
+    <string name="checking_updates">چیک ہو رہا ہے…</string>
+    <string name="update_to">ورژن %1$s پر اپ ڈیٹ کریں</string>
+    <string name="up_to_date">آپ تازہ ترین ورژن استعمال کر رہے ہیں ✅</string>
+    <string name="update_check_failed">اپ ڈیٹس چیک نہیں ہو سکیں۔ اپنا انٹرنیٹ کنکشن چیک کریں۔</string>
+
+    <string name="contact_title">ہم سے رابطہ کریں</string>
+    <string name="contact_desc">کوئی سوال، تجویز یا مسئلہ؟ ہمیں لکھیں:</string>
+    <string name="contact_subject">SaveTek - استفسار</string>
+    <string name="contact_body">\n\n\n---\nایپ ورژن: %1$s\nاینڈرائیڈ: %2$s\nڈیوائس: %3$s</string>
+    <string name="no_email_app">اس فون پر کوئی ای میل ایپ نہیں ملی</string>
+</resources>

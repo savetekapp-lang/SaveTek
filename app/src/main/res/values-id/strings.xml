@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Bahasa Indonesia (نسخة مطابقة لـ values-in، للأجهزة التي تستخدم الرمز الحديث "id") -->
+<resources>
+    <string name="tab_home">Beranda</string>
+    <string name="tab_downloads">Unduhan saya</string>
+    <string name="tab_settings">Setelan</string>
+    <string name="tab_with_count">%1$s (%2$d)</string>
+
+    <string name="url_label">Tautan video</string>
+    <string name="paste">Tempel</string>
+    <string name="engine_preparing">Menyiapkan mesin unduhan… (pertama kali bisa memakan waktu semenit)</string>
+    <string name="show_qualities">Tampilkan kualitas yang tersedia</string>
+    <string name="fetching_info">Mengambil info video…</string>
+    <string name="choose_quality">Pilih kualitas</string>
+    <string name="download">Unduh</string>
+    <string name="cd_video_thumbnail">Gambar mini video</string>
+    <string name="size_unknown">Ukuran tidak diketahui</string>
+    <string name="quality_best">Kualitas tertinggi</string>
+    <string name="quality_best_available">Kualitas terbaik</string>
+    <string name="quality_mp3">Audio MP3</string>
+    <string name="default_video_title">Video</string>
+
+    <string name="disclaimer_title">Pemberitahuan penting</string>
+    <string name="disclaimer">Aplikasi ini hanya untuk mengunduh konten milik Anda atau yang diizinkan untuk diunduh. Anda bertanggung jawab menghormati hak pemilik konten dan ketentuan penggunaan situs.</string>
+    <string name="agree">Saya mengerti dan setuju</string>
+
+    <string name="eta_moments">sebentar lagi</string>
+    <string name="eta_seconds">%1$d dtk</string>
+    <string name="eta_minutes">%1$d mnt %2$d dtk</string>
+    <string name="preparing">Menyiapkan…</string>
+    <string name="percent_value">%1$d%%</string>
+    <string name="progress_with_eta">%1$d%% — sisa %2$s</string>
+
+    <string name="msg_engine_init_failed">Gagal menyiapkan mesin unduhan: %1$s</string>
+    <string name="msg_invalid_url">Tautan tidak valid. Harus diawali http atau https.</string>
+    <string name="msg_read_failed">Tidak dapat membaca tautan:\n%1$s\n\nPeriksa tautan, atau coba perbarui mesin dari Setelan.</string>
+    <string name="msg_wifi_blocked">\"Unduh hanya lewat Wi-Fi\" aktif, dan saat ini Anda tidak terhubung ke Wi-Fi.\nHubungkan ke Wi-Fi atau matikan opsi ini di Setelan.</string>
+    <string name="msg_download_started">Unduhan dimulai ✅ Pantau di \"Unduhan saya\".</string>
+    <string name="msg_convert_started">Konversi dimulai ✅ Pantau di \"Unduhan saya\".</string>
+    <string name="msg_delete_partial">Dihapus dari daftar, tetapi file tidak dapat dihapus. Hapus secara manual dari galeri.</string>
+    <string name="msg_update_wait">Tunggu hingga tugas yang berjalan selesai, lalu perbarui mesin.</string>
+    <string name="msg_update_failed">Pembaruan gagal. Periksa koneksi internet Anda.</string>
+    <string name="storage_needed">Izin penyimpanan diperlukan untuk menyimpan video ke galeri</string>
+
+    <string name="convert_from_device">Konversi video dari perangkat</string>
+    <string name="no_downloads_title">Belum ada unduhan</string>
+    <string name="no_downloads_hint">Tempel tautan di Beranda untuk memulai unduhan pertama Anda</string>
+    <string name="section_running">Berjalan (%1$d)</string>
+    <string name="section_completed">Selesai (%1$d)</string>
+    <string name="section_failed">Gagal (%1$d)</string>
+    <string name="delete_title">Hapus file?</string>
+    <string name="delete_done_message">\"%1$s\" akan dihapus permanen dari ponsel Anda.</string>
+    <string name="delete_failed_message">Item ini akan dihapus dari daftar.</string>
+    <string name="delete">Hapus</string>
+    <string name="cancel">Batal</string>
+    <string name="done_label">%1$s • Selesai ✅</string>
+    <string name="failed_label">Gagal: %1$s</string>
+    <string name="play">Putar</string>
+    <string name="share">Bagikan</string>
+    <string name="share_via">Bagikan lewat</string>
+    <string name="retry">Coba lagi</string>
+    <string name="file_unavailable">File tidak tersedia. Buka dari galeri.</string>
+
+    <string name="convert_to_mp3">Konversi ke MP3</string>
+    <string name="convert_title">Konversi ke MP3</string>
+    <string name="audio_quality">Kualitas audio</string>
+    <string name="bitrate_default">%1$d kbps (bawaan)</string>
+    <string name="bitrate_value">%1$d kbps</string>
+    <string name="convert_note">Video asli tetap utuh. File audio disimpan di Music/SaveTek.</string>
+    <string name="convert">Konversi</string>
+
+    <string name="settings_title">Setelan</string>
+    <string name="appearance">Tampilan</string>
+    <string name="theme_navy_gold">Biru tua dan emas</string>
+    <string name="theme_navy_gold_desc">Tampilan asli aplikasi</string>
+    <string name="theme_light">Terang</string>
+    <string name="theme_light_desc">Latar putih dan teks gelap</string>
+    <string name="theme_dark">Gelap</string>
+    <string name="theme_dark_desc">Latar hitam, cocok untuk layar AMOLED dan menghemat baterai</string>
+    <string name="theme_system">Ikuti perangkat</string>
+    <string name="theme_system_desc">Terang atau gelap otomatis sesuai mode ponsel</string>
+    <string name="language">Bahasa</string>
+    <string name="language_system">Ikuti perangkat</string>
+    <string name="default_quality">Kualitas bawaan</string>
+    <string name="default_quality_desc">Dipilih otomatis saat kualitas ditampilkan; Anda bisa mengubahnya untuk setiap video.</string>
+    <string name="wifi_only">Unduh hanya lewat Wi-Fi</string>
+    <string name="wifi_only_desc">Menghemat data seluler: unduhan hanya dimulai lewat Wi-Fi dan berhenti jika Wi-Fi terputus.</string>
+    <string name="engine_title">Mesin unduhan (yt-dlp)</string>
+    <string name="engine_version">Versi saat ini: %1$s</string>
+    <string name="engine_last_update">Pembaruan terakhir: %1$s</string>
+    <string name="never_updated">Belum diperbarui</string>
+    <string name="unknown">Tidak diketahui</string>
+    <string name="engine_auto_desc">Memeriksa versi baru setiap kali aplikasi dibuka, dan saat situs menolak unduhan (galat 403).</string>
+    <string name="update_engine">Perbarui mesin</string>
+    <string name="updating">Memperbarui…</string>
+    <string name="update_done">Berhasil diperbarui ✅ Versi: %1$s</string>
+    <string name="update_latest">Anda sudah memakai versi terbaru (%1$s)</string>
+    <string name="update_finished">Pembaruan selesai. Versi saat ini: %1$s</string>
+    <string name="notifications_off_title">Notifikasi nonaktif</string>
+    <string name="notifications_off_desc">Aktifkan untuk memantau progres unduhan dan tahu kapan selesai, bahkan saat aplikasi ditutup.</string>
+    <string name="enable_notifications">Aktifkan notifikasi</string>
+
+    <string name="about">Tentang</string>
+    <string name="back">Kembali</string>
+    <string name="version_label">Versi %1$s</string>
+    <string name="tagline">Simpan video Anda dalam kualitas tertinggi</string>
+    <string name="open_source_title">Komponen sumber terbuka</string>
+    <string name="open_source_text">Aplikasi ini menggunakan proyek sumber terbuka yt-dlp dan FFmpeg (lisensi GPL-3.0).</string>
+
+    <string name="notif_rationale_title">Izinkan notifikasi</string>
+    <string name="notif_rationale_text">Kami memerlukan notifikasi untuk menampilkan progres unduhan dan memberi tahu saat selesai atau gagal, meskipun Anda menutup aplikasi atau mematikan layar.\n\nKami tidak akan mengirim notifikasi lain.</string>
+    <string name="allow">Izinkan</string>
+    <string name="not_now">Nanti saja</string>
+
+    <string name="channel_progress">Unduhan berjalan</string>
+    <string name="channel_done">Tugas selesai dan gagal</string>
+    <string name="notif_converting_percent">Mengonversi ke MP3 · %1$d%%</string>
+    <string name="notif_running_count">%1$d tugas berjalan</string>
+    <string name="notif_download_complete">Unduhan selesai ✅</string>
+    <string name="notif_download_failed">Unduhan gagal ❌</string>
+    <string name="notif_convert_complete">Konversi selesai ✅</string>
+    <string name="notif_convert_failed">Konversi gagal ❌</string>
+    <string name="note_403_retry">Situs menolak permintaan (403). Memperbarui mesin dan mencoba lagi…</string>
+    <string name="note_preparing_file">Menyiapkan file…</string>
+    <string name="note_saving">Menyimpan ke galeri…</string>
+
+    <string name="error_wifi_lost">Unduhan berhenti karena Wi-Fi terputus (\"Hanya Wi-Fi\" aktif).</string>
+    <string name="error_source_missing">Video asli tidak ditemukan.</string>
+    <string name="error_convert_failed">Tidak dapat mengonversi file ini</string>
+    <string name="error_unknown">Terjadi galat yang tidak diketahui</string>
+    <string name="error_file_not_found">Unduhan selesai tetapi file tidak ditemukan</string>
+    <string name="error_gallery_create">Tidak dapat membuat file di galeri</string>
+
+    <string name="open_with_other_app">Buka dengan aplikasi lain</string>
+    <string name="no_other_app">Tidak ada aplikasi lain yang dapat memutar file ini</string>
+    <string name="rewind_10">Mundur 10 detik</string>
+    <string name="forward_10">Maju 10 detik</string>
+    <string name="ten_seconds">10 detik</string>
+    <string name="mute">Bisukan</string>
+    <string name="volume">Volume</string>
+    <string name="fullscreen">Layar penuh</string>
+    <string name="exit_fullscreen">Keluar dari layar penuh</string>
+    <string name="pause">Jeda</string>
+    <string name="audio_file_label">File audio MP3</string>
+
+    <string name="ad_space">Ruang iklan (%1$s)</string>
+
+    <string name="update_available_title">Versi baru tersedia</string>
+    <string name="update_required_title">Pembaruan wajib</string>
+    <string name="update_required_text">Versi ini tidak lagi didukung. Perbarui untuk terus menggunakan SaveTek.</string>
+    <string name="whats_new">Yang baru</string>
+    <string name="update_now">Perbarui sekarang</string>
+    <string name="later">Nanti</string>
+    <string name="update_downloading_title">Mengunduh pembaruan</string>
+    <string name="update_verifying">Memverifikasi file…</string>
+    <string name="update_ready_title">Pembaruan siap</string>
+    <string name="update_ready_text">Jika layar pemasangan tidak muncul, ketuk \"Pasang\".</string>
+    <string name="install">Pasang</string>
+    <string name="install_permission_title">Satu langkah lagi</string>
+    <string name="install_permission_text">Agar SaveTek bisa memasang pembaruannya sendiri, Android memerlukan izin Anda.\n\nKetuk \"Buka setelan\", aktifkan \"Izinkan dari sumber ini\", lalu kembali ke aplikasi dan pemasangan akan dilanjutkan.</string>
+    <string name="open_settings">Buka setelan</string>
+    <string name="update_error_title">Tidak dapat memperbarui</string>
+    <string name="update_error_download">Tidak dapat mengunduh pembaruan. Periksa koneksi internet Anda lalu coba lagi.</string>
+    <string name="update_error_hash">File yang diunduh tidak cocok dengan sidik jari yang dipublikasikan (SHA-256), jadi dihapus demi keamanan Anda.</string>
+    <string name="update_error_signature">File pembaruan tidak ditandatangani dengan kunci SaveTek, jadi ditolak dan dihapus demi keamanan Anda.</string>
+    <string name="close">Tutup</string>
+    <string name="app_updates">Pembaruan aplikasi</string>
+    <string name="current_app_version">Versi saat ini: %1$s</string>
+    <string name="check_updates">Periksa pembaruan</string>
+    <string name="checking_updates">Memeriksa…</string>
+    <string name="update_to">Perbarui ke versi %1$s</string>
+    <string name="up_to_date">Anda memakai versi terbaru ✅</string>
+    <string name="update_check_failed">Tidak dapat memeriksa pembaruan. Periksa koneksi internet Anda.</string>
+
+    <string name="contact_title">Hubungi kami</string>
+    <string name="contact_desc">Ada pertanyaan, saran, atau masalah? Tulis kepada kami:</string>
+    <string name="contact_subject">SaveTek - Pertanyaan</string>
+    <string name="contact_body">\n\n\n---\nVersi aplikasi: %1$s\nAndroid: %2$s\nPerangkat: %3$s</string>
+    <string name="no_email_app">Tidak ada aplikasi email di ponsel ini</string>
+</resources>

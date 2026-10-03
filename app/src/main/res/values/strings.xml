@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    النصوص الإنجليزية: هي اللغة الافتراضية، وتظهر إذا كانت لغة الجوال غير مدعومة.
+    كل لغة أخرى لها ملف مماثل في مجلد values-xx (مثل values-ar للعربية).
+-->
+<resources>
+    <!-- لا تُترجم: اسم التطبيق وأسماء اللغات (تُكتب كل لغة بلغتها) -->
+    <string name="app_name" translatable="false">SaveTek</string>
+    <string name="copyright" translatable="false">© 2026 SaveTek</string>
+    <string name="lang_ar" translatable="false">العربية</string>
+    <string name="lang_en" translatable="false">English</string>
+    <string name="lang_ur" translatable="false">اردو</string>
+    <string name="lang_tr" translatable="false">Türkçe</string>
+    <string name="lang_fr" translatable="false">Français</string>
+    <string name="lang_es" translatable="false">Español</string>
+    <string name="lang_id" translatable="false">Bahasa Indonesia</string>
+    <string name="lang_hi" translatable="false">हिन्दी</string>
+
+    <!-- التنقل -->
+    <string name="tab_home">Home</string>
+    <string name="tab_downloads">My downloads</string>
+    <string name="tab_settings">Settings</string>
+    <string name="tab_with_count">%1$s (%2$d)</string>
+
+    <!-- الرئيسية -->
+    <string name="url_label">Video link</string>
+    <string name="paste">Paste</string>
+    <string name="engine_preparing">Preparing the download engine… (the first time may take a minute)</string>
+    <string name="show_qualities">Show available qualities</string>
+    <string name="fetching_info">Fetching video info…</string>
+    <string name="choose_quality">Choose quality</string>
+    <string name="download">Download</string>
+    <string name="cd_video_thumbnail">Video thumbnail</string>
+    <string name="size_unknown">Size unknown</string>
+    <string name="quality_best">Highest quality</string>
+    <string name="quality_best_available">Best quality</string>
+    <string name="quality_mp3">MP3 audio</string>
+    <string name="default_video_title">Video</string>
+
+    <!-- التنبيه -->
+    <string name="disclaimer_title">Important notice</string>
+    <string name="disclaimer">This app is only for downloading content you own or are allowed to download. You are responsible for respecting the rights of content owners and the websites\' terms of use.</string>
+    <string name="agree">I understand and agree</string>
+
+    <!-- الوقت المتبقي والتقدم -->
+    <string name="eta_moments">a few moments</string>
+    <string name="eta_seconds">%1$d sec</string>
+    <string name="eta_minutes">%1$d min %2$d sec</string>
+    <string name="preparing">Preparing…</string>
+    <string name="percent_value">%1$d%%</string>
+    <string name="progress_with_eta">%1$d%% — %2$s left</string>
+
+    <!-- رسائل -->
+    <string name="msg_engine_init_failed">Failed to prepare the download engine: %1$s</string>
+    <string name="msg_invalid_url">Invalid link. It must start with http or https.</string>
+    <string name="msg_read_failed">Couldn\'t read the link:\n%1$s\n\nCheck the link, or try updating the engine from Settings.</string>
+    <string name="msg_wifi_blocked">\"Download over Wi-Fi only\" is on, and you\'re not connected to Wi-Fi right now.\nConnect to Wi-Fi or turn the option off in Settings.</string>
+    <string name="msg_download_started">Download started ✅ Follow it in \"My downloads\".</string>
+    <string name="msg_convert_started">Conversion started ✅ Follow it in \"My downloads\".</string>
+    <string name="msg_delete_partial">Removed from the list, but the file couldn\'t be deleted. Delete it manually from the gallery.</string>
+    <string name="msg_update_wait">Wait until the running tasks finish, then update the engine.</string>
+    <string name="msg_update_failed">Update failed. Check your internet connection.</string>
+    <string name="storage_needed">Storage permission is needed to save the video to the gallery</string>
+
+    <!-- تحميلاتي -->
+    <string name="convert_from_device">Convert a video from your device</string>
+    <string name="no_downloads_title">No downloads yet</string>
+    <string name="no_downloads_hint">Paste a link on the Home tab to start your first download</string>
+    <string name="section_running">Running (%1$d)</string>
+    <string name="section_completed">Completed (%1$d)</string>
+    <string name="section_failed">Failed (%1$d)</string>
+    <string name="delete_title">Delete file?</string>
+    <string name="delete_done_message">\"%1$s\" will be permanently deleted from your phone.</string>
+    <string name="delete_failed_message">This item will be removed from the list.</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="done_label">%1$s • Done ✅</string>
+    <string name="failed_label">Failed: %1$s</string>
+    <string name="play">Play</string>
+    <string name="share">Share</string>
+    <string name="share_via">Share via</string>
+    <string name="retry">Retry</string>
+    <string name="file_unavailable">The file isn\'t available. Open it from the gallery.</string>
+
+    <!-- التحويل إلى صوت -->
+    <string name="convert_to_mp3">Convert to MP3</string>
+    <string name="convert_title">Convert to MP3</string>
+    <string name="audio_quality">Audio quality</string>
+    <string name="bitrate_default">%1$d kbps (default)</string>
+    <string name="bitrate_value">%1$d kbps</string>
+    <string name="convert_note">The original video stays as it is. The audio file is saved in Music/SaveTek.</string>
+    <string name="convert">Convert</string>
+
+    <!-- الإعدادات -->
+    <string name="settings_title">Settings</string>
+    <string name="appearance">Appearance</string>
+    <string name="theme_navy_gold">Navy &amp; gold</string>
+    <string name="theme_navy_gold_desc">The app\'s original look</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_light_desc">White backgrounds and dark text</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_dark_desc">Black backgrounds, great for AMOLED screens and saves battery</string>
+    <string name="theme_system">Follow device</string>
+    <string name="theme_system_desc">Light or dark based on your phone\'s mode</string>
+    <string name="language">Language</string>
+    <string name="language_system">Follow device</string>
+    <string name="default_quality">Default quality</string>
+    <string name="default_quality_desc">Selected automatically when qualities are shown; you can change it for each video.</string>
+    <string name="wifi_only">Download over Wi-Fi only</string>
+    <string name="wifi_only_desc">Saves mobile data: downloads start only on Wi-Fi and stop if Wi-Fi drops.</string>
+    <string name="engine_title">Download engine (yt-dlp)</string>
+    <string name="engine_version">Current version: %1$s</string>
+    <string name="engine_last_update">Last update: %1$s</string>
+    <string name="never_updated">Not updated yet</string>
+    <string name="unknown">Unknown</string>
+    <string name="engine_auto_desc">Checks for a newer version every time the app opens, and when a site refuses a download (error 403).</string>
+    <string name="update_engine">Update engine</string>
+    <string name="updating">Updating…</string>
+    <string name="update_done">Updated successfully ✅ Version: %1$s</string>
+    <string name="update_latest">You already have the latest version (%1$s)</string>
+    <string name="update_finished">Update finished. Current version: %1$s</string>
+    <string name="notifications_off_title">Notifications are off</string>
+    <string name="notifications_off_desc">Turn them on to follow download progress and know when it\'s done, even with the app closed.</string>
+    <string name="enable_notifications">Turn on notifications</string>
+
+    <!-- عن التطبيق -->
+    <string name="about">About</string>
+    <string name="back">Back</string>
+    <string name="version_label">Version %1$s</string>
+    <string name="tagline">Save your videos in the highest quality</string>
+    <string name="open_source_title">Open-source components</string>
+    <string name="open_source_text">The app uses the open-source projects yt-dlp and FFmpeg (GPL-3.0 license).</string>
+
+    <!-- إذن الإشعارات -->
+    <string name="notif_rationale_title">Allow notifications</string>
+    <string name="notif_rationale_text">We need notifications to show download progress and let you know when it finishes or fails, even if you close the app or turn off the screen.\n\nWe won\'t send you any other notifications.</string>
+    <string name="allow">Allow</string>
+    <string name="not_now">Not now</string>
+
+    <!-- الإشعارات -->
+    <string name="channel_progress">Active downloads</string>
+    <string name="channel_done">Completed and failed tasks</string>
+    <string name="notif_converting_percent">Converting to MP3 · %1$d%%</string>
+    <string name="notif_running_count">%1$d tasks running</string>
+    <string name="notif_download_complete">Download complete ✅</string>
+    <string name="notif_download_failed">Download failed ❌</string>
+    <string name="notif_convert_complete">Conversion complete ✅</string>
+    <string name="notif_convert_failed">Conversion failed ❌</string>
+    <string name="note_403_retry">The site refused the request (403). Updating the engine and retrying…</string>
+    <string name="note_preparing_file">Preparing the file…</string>
+    <string name="note_saving">Saving to gallery…</string>
+
+    <!-- أخطاء -->
+    <string name="error_wifi_lost">Download stopped because Wi-Fi disconnected (\"Wi-Fi only\" is on).</string>
+    <string name="error_source_missing">The original video wasn\'t found.</string>
+    <string name="error_convert_failed">Couldn\'t convert this file</string>
+    <string name="error_unknown">An unknown error occurred</string>
+    <string name="error_file_not_found">The download finished but the file wasn\'t found</string>
+    <string name="error_gallery_create">Couldn\'t create the file in the gallery</string>
+
+    <!-- المشغّل -->
+    <string name="open_with_other_app">Open with another app</string>
+    <string name="no_other_app">No other app can play this file</string>
+    <string name="rewind_10">Rewind 10 seconds</string>
+    <string name="forward_10">Forward 10 seconds</string>
+    <string name="ten_seconds">10 seconds</string>
+    <string name="mute">Mute</string>
+    <string name="volume">Volume</string>
+    <string name="fullscreen">Full screen</string>
+    <string name="exit_fullscreen">Exit full screen</string>
+    <string name="pause">Pause</string>
+    <string name="audio_file_label">MP3 audio file</string>
+
+    <!-- الإعلانات (لا تظهر ما دامت الإعلانات مطفأة) -->
+    <string name="ad_space">Ad space (%1$s)</string>
+
+    <!-- تحديث التطبيق -->
+    <string name="update_available_title">A new version is available</string>
+    <string name="update_required_title">Update required</string>
+    <string name="update_required_text">This version is no longer supported. Please update to keep using SaveTek.</string>
+    <string name="whats_new">What\'s new</string>
+    <string name="update_now">Update now</string>
+    <string name="later">Later</string>
+    <string name="update_downloading_title">Downloading the update</string>
+    <string name="update_verifying">Verifying the file…</string>
+    <string name="update_ready_title">Update ready</string>
+    <string name="update_ready_text">If the install screen didn\'t appear, tap \"Install\".</string>
+    <string name="install">Install</string>
+    <string name="install_permission_title">One more step</string>
+    <string name="install_permission_text">For SaveTek to install its own updates, Android needs your permission.\n\nTap \"Open settings\", turn on \"Allow from this source\", then come back to the app and the installation will continue.</string>
+    <string name="open_settings">Open settings</string>
+    <string name="update_error_title">Couldn\'t update</string>
+    <string name="update_error_download">Couldn\'t download the update. Check your internet connection and try again.</string>
+    <string name="update_error_hash">The downloaded file doesn\'t match the published fingerprint (SHA-256), so it was deleted for your safety.</string>
+    <string name="update_error_signature">The update file isn\'t signed with the SaveTek key, so it was rejected and deleted for your safety.</string>
+    <string name="close">Close</string>
+    <string name="app_updates">App updates</string>
+    <string name="current_app_version">Current version: %1$s</string>
+    <string name="check_updates">Check for updates</string>
+    <string name="checking_updates">Checking…</string>
+    <string name="update_to">Update to version %1$s</string>
+    <string name="up_to_date">You\'re using the latest version ✅</string>
+    <string name="update_check_failed">Couldn\'t check for updates. Check your internet connection.</string>
+
+    <!-- تواصل معنا -->
+    <string name="contact_title">Contact us</string>
+    <string name="contact_desc">Questions, suggestions or a problem? Write to us:</string>
+    <string name="contact_subject">SaveTek - Inquiry</string>
+    <string name="contact_body">\n\n\n---\nApp version: %1$s\nAndroid: %2$s\nDevice: %3$s</string>
+    <string name="no_email_app">No email app was found on this phone</string>
+</resources>

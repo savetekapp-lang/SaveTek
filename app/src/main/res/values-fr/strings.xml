@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Français -->
+<resources>
+    <string name="tab_home">Accueil</string>
+    <string name="tab_downloads">Mes téléchargements</string>
+    <string name="tab_settings">Paramètres</string>
+    <string name="tab_with_count">%1$s (%2$d)</string>
+
+    <string name="url_label">Lien de la vidéo</string>
+    <string name="paste">Coller</string>
+    <string name="engine_preparing">Préparation du moteur de téléchargement… (la première fois peut prendre une minute)</string>
+    <string name="show_qualities">Afficher les qualités disponibles</string>
+    <string name="fetching_info">Récupération des infos de la vidéo…</string>
+    <string name="choose_quality">Choisissez la qualité</string>
+    <string name="download">Télécharger</string>
+    <string name="cd_video_thumbnail">Miniature de la vidéo</string>
+    <string name="size_unknown">Taille inconnue</string>
+    <string name="quality_best">Qualité maximale</string>
+    <string name="quality_best_available">Meilleure qualité</string>
+    <string name="quality_mp3">Audio MP3</string>
+    <string name="default_video_title">Vidéo</string>
+
+    <string name="disclaimer_title">Avertissement important</string>
+    <string name="disclaimer">Cette application sert uniquement à télécharger des contenus qui vous appartiennent ou que vous êtes autorisé à télécharger. Il vous incombe de respecter les droits des auteurs et les conditions d\'utilisation des sites.</string>
+    <string name="agree">J\'ai compris et j\'accepte</string>
+
+    <string name="eta_moments">quelques instants</string>
+    <string name="eta_seconds">%1$d s</string>
+    <string name="eta_minutes">%1$d min %2$d s</string>
+    <string name="preparing">Préparation…</string>
+    <string name="percent_value">%1$d %%</string>
+    <string name="progress_with_eta">%1$d %% — %2$s restant</string>
+
+    <string name="msg_engine_init_failed">Impossible de préparer le moteur de téléchargement : %1$s</string>
+    <string name="msg_invalid_url">Lien invalide. Il doit commencer par http ou https.</string>
+    <string name="msg_read_failed">Impossible de lire le lien :\n%1$s\n\nVérifiez le lien ou essayez de mettre à jour le moteur dans les Paramètres.</string>
+    <string name="msg_wifi_blocked">L\'option « Télécharger uniquement en Wi-Fi » est activée et vous n\'êtes pas connecté au Wi-Fi.\nConnectez-vous au Wi-Fi ou désactivez l\'option dans les Paramètres.</string>
+    <string name="msg_download_started">Téléchargement lancé ✅ Suivez-le dans « Mes téléchargements ».</string>
+    <string name="msg_convert_started">Conversion lancée ✅ Suivez-la dans « Mes téléchargements ».</string>
+    <string name="msg_delete_partial">Retiré de la liste, mais le fichier n\'a pas pu être supprimé. Supprimez-le depuis la galerie.</string>
+    <string name="msg_update_wait">Attendez la fin des tâches en cours, puis mettez à jour le moteur.</string>
+    <string name="msg_update_failed">Échec de la mise à jour. Vérifiez votre connexion Internet.</string>
+    <string name="storage_needed">L\'autorisation de stockage est nécessaire pour enregistrer la vidéo dans la galerie</string>
+
+    <string name="convert_from_device">Convertir une vidéo de l\'appareil</string>
+    <string name="no_downloads_title">Aucun téléchargement pour l\'instant</string>
+    <string name="no_downloads_hint">Collez un lien dans l\'Accueil pour lancer votre premier téléchargement</string>
+    <string name="section_running">En cours (%1$d)</string>
+    <string name="section_completed">Terminés (%1$d)</string>
+    <string name="section_failed">Échecs (%1$d)</string>
+    <string name="delete_title">Supprimer le fichier ?</string>
+    <string name="delete_done_message">« %1$s » sera définitivement supprimé de votre téléphone.</string>
+    <string name="delete_failed_message">Cet élément sera retiré de la liste.</string>
+    <string name="delete">Supprimer</string>
+    <string name="cancel">Annuler</string>
+    <string name="done_label">%1$s • Terminé ✅</string>
+    <string name="failed_label">Échec : %1$s</string>
+    <string name="play">Lire</string>
+    <string name="share">Partager</string>
+    <string name="share_via">Partager via</string>
+    <string name="retry">Réessayer</string>
+    <string name="file_unavailable">Le fichier n\'est pas disponible. Ouvrez-le depuis la galerie.</string>
+
+    <string name="convert_to_mp3">Convertir en MP3</string>
+    <string name="convert_title">Convertir en MP3</string>
+    <string name="audio_quality">Qualité audio</string>
+    <string name="bitrate_default">%1$d kbps (par défaut)</string>
+    <string name="bitrate_value">%1$d kbps</string>
+    <string name="convert_note">La vidéo d\'origine reste intacte. Le fichier audio est enregistré dans Music/SaveTek.</string>
+    <string name="convert">Convertir</string>
+
+    <string name="settings_title">Paramètres</string>
+    <string name="appearance">Apparence</string>
+    <string name="theme_navy_gold">Marine et or</string>
+    <string name="theme_navy_gold_desc">L\'apparence d\'origine de l\'application</string>
+    <string name="theme_light">Clair</string>
+    <string name="theme_light_desc">Fonds blancs et textes foncés</string>
+    <string name="theme_dark">Sombre</string>
+    <string name="theme_dark_desc">Fonds noirs, idéal pour les écrans AMOLED et économise la batterie</string>
+    <string name="theme_system">Selon l\'appareil</string>
+    <string name="theme_system_desc">Clair ou sombre selon le mode du téléphone</string>
+    <string name="language">Langue</string>
+    <string name="language_system">Selon l\'appareil</string>
+    <string name="default_quality">Qualité par défaut</string>
+    <string name="default_quality_desc">Sélectionnée automatiquement à l\'affichage des qualités ; vous pouvez la changer pour chaque vidéo.</string>
+    <string name="wifi_only">Télécharger uniquement en Wi-Fi</string>
+    <string name="wifi_only_desc">Économise les données mobiles : les téléchargements ne démarrent qu\'en Wi-Fi et s\'arrêtent si le Wi-Fi se coupe.</string>
+    <string name="engine_title">Moteur de téléchargement (yt-dlp)</string>
+    <string name="engine_version">Version actuelle : %1$s</string>
+    <string name="engine_last_update">Dernière mise à jour : %1$s</string>
+    <string name="never_updated">Pas encore mis à jour</string>
+    <string name="unknown">Inconnue</string>
+    <string name="engine_auto_desc">Vérifie s\'il existe une version plus récente à chaque ouverture de l\'application, et quand un site refuse un téléchargement (erreur 403).</string>
+    <string name="update_engine">Mettre à jour le moteur</string>
+    <string name="updating">Mise à jour…</string>
+    <string name="update_done">Mise à jour réussie ✅ Version : %1$s</string>
+    <string name="update_latest">Vous avez déjà la dernière version (%1$s)</string>
+    <string name="update_finished">Mise à jour terminée. Version actuelle : %1$s</string>
+    <string name="notifications_off_title">Notifications désactivées</string>
+    <string name="notifications_off_desc">Activez-les pour suivre la progression et savoir quand c\'est terminé, même application fermée.</string>
+    <string name="enable_notifications">Activer les notifications</string>
+
+    <string name="about">À propos</string>
+    <string name="back">Retour</string>
+    <string name="version_label">Version %1$s</string>
+    <string name="tagline">Enregistrez vos vidéos en qualité maximale</string>
+    <string name="open_source_title">Composants open source</string>
+    <string name="open_source_text">L\'application utilise les projets open source yt-dlp et FFmpeg (licence GPL-3.0).</string>
+
+    <string name="notif_rationale_title">Autoriser les notifications</string>
+    <string name="notif_rationale_text">Les notifications nous permettent d\'afficher la progression et de vous prévenir quand un téléchargement se termine ou échoue, même si vous fermez l\'application ou éteignez l\'écran.\n\nNous ne vous enverrons aucune autre notification.</string>
+    <string name="allow">Autoriser</string>
+    <string name="not_now">Pas maintenant</string>
+
+    <string name="channel_progress">Téléchargements en cours</string>
+    <string name="channel_done">Tâches terminées et échouées</string>
+    <string name="notif_converting_percent">Conversion en MP3 · %1$d %%</string>
+    <string name="notif_running_count">%1$d tâches en cours</string>
+    <string name="notif_download_complete">Téléchargement terminé ✅</string>
+    <string name="notif_download_failed">Échec du téléchargement ❌</string>
+    <string name="notif_convert_complete">Conversion terminée ✅</string>
+    <string name="notif_convert_failed">Échec de la conversion ❌</string>
+    <string name="note_403_retry">Le site a refusé la requête (403). Mise à jour du moteur et nouvel essai…</string>
+    <string name="note_preparing_file">Préparation du fichier…</string>
+    <string name="note_saving">Enregistrement dans la galerie…</string>
+
+    <string name="error_wifi_lost">Téléchargement arrêté car le Wi-Fi s\'est déconnecté (« Wi-Fi uniquement » activé).</string>
+    <string name="error_source_missing">La vidéo d\'origine est introuvable.</string>
+    <string name="error_convert_failed">Impossible de convertir ce fichier</string>
+    <string name="error_unknown">Une erreur inconnue s\'est produite</string>
+    <string name="error_file_not_found">Le téléchargement est terminé mais le fichier est introuvable</string>
+    <string name="error_gallery_create">Impossible de créer le fichier dans la galerie</string>
+
+    <string name="open_with_other_app">Ouvrir avec une autre application</string>
+    <string name="no_other_app">Aucune autre application ne peut lire ce fichier</string>
+    <string name="rewind_10">Reculer de 10 secondes</string>
+    <string name="forward_10">Avancer de 10 secondes</string>
+    <string name="ten_seconds">10 secondes</string>
+    <string name="mute">Couper le son</string>
+    <string name="volume">Volume</string>
+    <string name="fullscreen">Plein écran</string>
+    <string name="exit_fullscreen">Quitter le plein écran</string>
+    <string name="pause">Pause</string>
+    <string name="audio_file_label">Fichier audio MP3</string>
+
+    <string name="ad_space">Espace publicitaire (%1$s)</string>
+
+    <string name="update_available_title">Une nouvelle version est disponible</string>
+    <string name="update_required_title">Mise à jour requise</string>
+    <string name="update_required_text">Cette version n\'est plus prise en charge. Mettez à jour pour continuer à utiliser SaveTek.</string>
+    <string name="whats_new">Nouveautés</string>
+    <string name="update_now">Mettre à jour</string>
+    <string name="later">Plus tard</string>
+    <string name="update_downloading_title">Téléchargement de la mise à jour</string>
+    <string name="update_verifying">Vérification du fichier…</string>
+    <string name="update_ready_title">Mise à jour prête</string>
+    <string name="update_ready_text">Si l\'écran d\'installation ne s\'est pas affiché, appuyez sur « Installer ».</string>
+    <string name="install">Installer</string>
+    <string name="install_permission_title">Une dernière étape</string>
+    <string name="install_permission_text">Pour que SaveTek puisse installer ses mises à jour, Android a besoin de votre autorisation.\n\nAppuyez sur « Ouvrir les paramètres », activez « Autoriser cette source », puis revenez dans l\'application : l\'installation continuera.</string>
+    <string name="open_settings">Ouvrir les paramètres</string>
+    <string name="update_error_title">Mise à jour impossible</string>
+    <string name="update_error_download">Impossible de télécharger la mise à jour. Vérifiez votre connexion Internet et réessayez.</string>
+    <string name="update_error_hash">Le fichier téléchargé ne correspond pas à l\'empreinte publiée (SHA-256) ; il a été supprimé pour votre sécurité.</string>
+    <string name="update_error_signature">Le fichier de mise à jour n\'est pas signé avec la clé de SaveTek ; il a été refusé et supprimé pour votre sécurité.</string>
+    <string name="close">Fermer</string>
+    <string name="app_updates">Mises à jour de l\'application</string>
+    <string name="current_app_version">Version actuelle : %1$s</string>
+    <string name="check_updates">Rechercher des mises à jour</string>
+    <string name="checking_updates">Recherche…</string>
+    <string name="update_to">Mettre à jour vers la version %1$s</string>
+    <string name="up_to_date">Vous utilisez la dernière version ✅</string>
+    <string name="update_check_failed">Impossible de rechercher des mises à jour. Vérifiez votre connexion Internet.</string>
+
+    <string name="contact_title">Nous contacter</string>
+    <string name="contact_desc">Une question, une suggestion ou un problème ? Écrivez-nous :</string>
+    <string name="contact_subject">SaveTek - Demande</string>
+    <string name="contact_body">\n\n\n---\nVersion de l\'application : %1$s\nAndroid : %2$s\nAppareil : %3$s</string>
+    <string name="no_email_app">Aucune application de messagerie trouvée sur ce téléphone</string>
+</resources>

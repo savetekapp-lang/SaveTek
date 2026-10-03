@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        أندرويد 11 وما قبله: لا توجد شاشة بداية من النظام، يظهر لون الخلفية فقط
+        (بلون شاشة الشعار) ثم شاشة الشعار مباشرة.
+    -->
+    <style name="Theme.SaveTek" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/splash_bg</item>
+        <item name="android:statusBarColor">@color/splash_bg</item>
+        <item name="android:navigationBarColor">@color/splash_bg</item>
+    </style>
+
+    <!-- شاشة المشغّل: خلفية سوداء -->
+    <style name="Theme.SaveTek.Player" parent="Theme.SaveTek">
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+</resources>

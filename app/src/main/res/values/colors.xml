@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="navy">#FF1E2A47</color>
+    <color name="gold">#FFD4A853</color>
+    <!-- لون خلفية صورة الشعار، لتندمج شاشة البداية معها بلا حواف -->
+    <color name="splash_bg">#FF11141E</color>
+    <color name="transparent">#00000000</color>
+</resources>

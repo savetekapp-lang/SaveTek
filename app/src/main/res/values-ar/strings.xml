@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- النصوص العربية -->
+<resources>
+    <string name="tab_home">الرئيسية</string>
+    <string name="tab_downloads">تحميلاتي</string>
+    <string name="tab_settings">الإعدادات</string>
+    <string name="tab_with_count">%1$s (%2$d)</string>
+
+    <string name="url_label">رابط الفيديو</string>
+    <string name="paste">لصق</string>
+    <string name="engine_preparing">جارٍ تجهيز محرك التحميل… (أول مرة قد تستغرق دقيقة)</string>
+    <string name="show_qualities">عرض الجودات المتاحة</string>
+    <string name="fetching_info">جارٍ جلب معلومات الفيديو…</string>
+    <string name="choose_quality">اختر الجودة</string>
+    <string name="download">تحميل</string>
+    <string name="cd_video_thumbnail">صورة الفيديو</string>
+    <string name="size_unknown">الحجم غير معروف</string>
+    <string name="quality_best">أعلى جودة</string>
+    <string name="quality_best_available">أفضل جودة</string>
+    <string name="quality_mp3">صوت MP3</string>
+    <string name="default_video_title">فيديو</string>
+
+    <string name="disclaimer_title">تنبيه مهم</string>
+    <string name="disclaimer">هذا التطبيق مخصّص لتحميل المحتوى الذي تملكه أو المسموح لك بتحميله فقط. أنت المسؤول عن احترام حقوق أصحاب المحتوى وشروط استخدام المواقع.</string>
+    <string name="agree">فهمت وأوافق</string>
+
+    <string name="eta_moments">لحظات</string>
+    <string name="eta_seconds">%1$d ثانية</string>
+    <string name="eta_minutes">%1$d د %2$d ث</string>
+    <string name="preparing">جارٍ التحضير…</string>
+    <string name="percent_value">%1$d٪</string>
+    <string name="progress_with_eta">%1$d٪ — متبقٍّ %2$s</string>
+
+    <string name="msg_engine_init_failed">فشل تجهيز محرك التحميل: %1$s</string>
+    <string name="msg_invalid_url">الرابط غير صحيح. يجب أن يبدأ بـ http أو https</string>
+    <string name="msg_read_failed">تعذّر قراءة الرابط:\n%1$s\n\nتأكد من الرابط، أو جرّب تحديث المحرك من الإعدادات.</string>
+    <string name="msg_wifi_blocked">خيار \"التحميل عبر الواي فاي فقط\" مفعّل، وأنت غير متصل بالواي فاي الآن.\nاتصل بالواي فاي أو أطفئ الخيار من الإعدادات.</string>
+    <string name="msg_download_started">بدأ التحميل ✅ تابعه في قسم \"تحميلاتي\"</string>
+    <string name="msg_convert_started">بدأ التحويل ✅ تابعه في قسم \"تحميلاتي\"</string>
+    <string name="msg_delete_partial">أُزيل من القائمة، لكن تعذّر حذف الملف. احذفه يدوياً من المعرض.</string>
+    <string name="msg_update_wait">انتظر حتى تنتهي المهام الجارية، ثم حدّث المحرك.</string>
+    <string name="msg_update_failed">فشل التحديث. تأكد من اتصالك بالإنترنت.</string>
+    <string name="storage_needed">يلزم إذن التخزين لحفظ الفيديو في المعرض</string>
+
+    <string name="convert_from_device">تحويل فيديو من الجهاز</string>
+    <string name="no_downloads_title">لا توجد تحميلات بعد</string>
+    <string name="no_downloads_hint">الصق رابطاً في الرئيسية وابدأ أول تحميل</string>
+    <string name="section_running">جارية (%1$d)</string>
+    <string name="section_completed">مكتملة (%1$d)</string>
+    <string name="section_failed">فشلت (%1$d)</string>
+    <string name="delete_title">حذف الملف؟</string>
+    <string name="delete_done_message">سيُحذف \"%1$s\" من جوالك نهائياً.</string>
+    <string name="delete_failed_message">سيُزال هذا العنصر من القائمة.</string>
+    <string name="delete">حذف</string>
+    <string name="cancel">إلغاء</string>
+    <string name="done_label">%1$s • تم ✅</string>
+    <string name="failed_label">فشل: %1$s</string>
+    <string name="play">تشغيل</string>
+    <string name="share">مشاركة</string>
+    <string name="share_via">مشاركة عبر</string>
+    <string name="retry">إعادة المحاولة</string>
+    <string name="file_unavailable">الملف غير متاح. افتحه من المعرض.</string>
+
+    <string name="convert_to_mp3">تحويل إلى صوت MP3</string>
+    <string name="convert_title">تحويل إلى صوت MP3</string>
+    <string name="audio_quality">جودة الصوت</string>
+    <string name="bitrate_default">%1$d kbps (الافتراضي)</string>
+    <string name="bitrate_value">%1$d kbps</string>
+    <string name="convert_note">الفيديو الأصلي يبقى كما هو. ملف الصوت يُحفظ في Music/SaveTek.</string>
+    <string name="convert">تحويل</string>
+
+    <string name="settings_title">الإعدادات</string>
+    <string name="appearance">المظهر</string>
+    <string name="theme_navy_gold">كحلي وذهبي</string>
+    <string name="theme_navy_gold_desc">الهوية الأساسية للتطبيق</string>
+    <string name="theme_light">فاتح</string>
+    <string name="theme_light_desc">خلفيات بيضاء ونصوص داكنة</string>
+    <string name="theme_dark">داكن</string>
+    <string name="theme_dark_desc">خلفيات سوداء، مناسب لشاشات AMOLED ويوفّر البطارية</string>
+    <string name="theme_system">حسب الجهاز</string>
+    <string name="theme_system_desc">فاتح أو داكن حسب وضع الجوال تلقائياً</string>
+    <string name="language">اللغة</string>
+    <string name="language_system">حسب الجهاز</string>
+    <string name="default_quality">الجودة الافتراضية</string>
+    <string name="default_quality_desc">تُختار تلقائياً عند عرض الجودات، ويمكنك تغييرها لكل فيديو.</string>
+    <string name="wifi_only">التحميل عبر الواي فاي فقط</string>
+    <string name="wifi_only_desc">لتوفير باقة البيانات: لا يبدأ التحميل إلا على الواي فاي، ويتوقف إذا انقطع.</string>
+    <string name="engine_title">محرك التحميل (yt-dlp)</string>
+    <string name="engine_version">الإصدار الحالي: %1$s</string>
+    <string name="engine_last_update">آخر تحديث: %1$s</string>
+    <string name="never_updated">لم يُحدَّث بعد</string>
+    <string name="unknown">غير معروف</string>
+    <string name="engine_auto_desc">يتحقق من وجود إصدار أحدث عند كل فتح للتطبيق، وعند رفض الموقع للتحميل (خطأ 403).</string>
+    <string name="update_engine">تحديث المحرك</string>
+    <string name="updating">جارٍ التحديث…</string>
+    <string name="update_done">تم التحديث بنجاح ✅ الإصدار: %1$s</string>
+    <string name="update_latest">لديك أحدث إصدار بالفعل (%1$s)</string>
+    <string name="update_finished">انتهى التحديث. الإصدار الحالي: %1$s</string>
+    <string name="notifications_off_title">الإشعارات معطّلة</string>
+    <string name="notifications_off_desc">فعّلها لتتابع تقدّم التحميل وتعرف متى يكتمل، حتى والتطبيق مغلق.</string>
+    <string name="enable_notifications">تفعيل الإشعارات</string>
+
+    <string name="about">عن التطبيق</string>
+    <string name="back">رجوع</string>
+    <string name="version_label">الإصدار %1$s</string>
+    <string name="tagline">احفظ فيديوهاتك بأعلى جودة</string>
+    <string name="open_source_title">مكونات مفتوحة المصدر</string>
+    <string name="open_source_text">يعتمد التطبيق على مشروعَي yt-dlp و FFmpeg مفتوحَي المصدر (رخصة GPL-3.0).</string>
+
+    <string name="notif_rationale_title">اسمح بالإشعارات</string>
+    <string name="notif_rationale_text">نحتاج الإشعارات لنعرض لك تقدّم التحميل، ونخبرك عند اكتماله أو فشله، حتى لو أغلقت التطبيق أو أطفأت الشاشة.\n\nلن نرسل لك أي إشعارات أخرى.</string>
+    <string name="allow">سماح</string>
+    <string name="not_now">ليس الآن</string>
+
+    <string name="channel_progress">التحميلات الجارية</string>
+    <string name="channel_done">المهام المكتملة والفاشلة</string>
+    <string name="notif_converting_percent">جارٍ التحويل إلى MP3 · %1$d٪</string>
+    <string name="notif_running_count">%1$d مهام جارية</string>
+    <string name="notif_download_complete">اكتمل التحميل ✅</string>
+    <string name="notif_download_failed">فشل التحميل ❌</string>
+    <string name="notif_convert_complete">اكتمل التحويل ✅</string>
+    <string name="notif_convert_failed">فشل التحويل ❌</string>
+    <string name="note_403_retry">رفض الموقع الطلب (403)، جارٍ تحديث المحرك وإعادة المحاولة…</string>
+    <string name="note_preparing_file">جارٍ تجهيز الملف…</string>
+    <string name="note_saving">جارٍ الحفظ في المعرض…</string>
+
+    <string name="error_wifi_lost">توقف التحميل لانقطاع الواي فاي (خيار \"الواي فاي فقط\" مفعّل).</string>
+    <string name="error_source_missing">لم يُعثر على الفيديو الأصلي.</string>
+    <string name="error_convert_failed">تعذّر تحويل هذا الملف</string>
+    <string name="error_unknown">حدث خطأ غير معروف</string>
+    <string name="error_file_not_found">انتهى التحميل لكن لم يُعثر على الملف</string>
+    <string name="error_gallery_create">تعذّر إنشاء الملف في المعرض</string>
+
+    <string name="open_with_other_app">فتح بتطبيق آخر</string>
+    <string name="no_other_app">لا يوجد تطبيق آخر لتشغيل هذا الملف</string>
+    <string name="rewind_10">ترجيع 10 ثوانٍ</string>
+    <string name="forward_10">تقديم 10 ثوانٍ</string>
+    <string name="ten_seconds">10 ثوانٍ</string>
+    <string name="mute">كتم الصوت</string>
+    <string name="volume">التحكم بالصوت</string>
+    <string name="fullscreen">ملء الشاشة</string>
+    <string name="exit_fullscreen">الخروج من ملء الشاشة</string>
+    <string name="pause">إيقاف مؤقت</string>
+    <string name="audio_file_label">ملف صوتي MP3</string>
+
+    <string name="ad_space">مساحة إعلانية (%1$s)</string>
+
+    <string name="update_available_title">يتوفر إصدار جديد</string>
+    <string name="update_required_title">التحديث مطلوب</string>
+    <string name="update_required_text">هذا الإصدار لم يعد مدعوماً. يرجى التحديث لمتابعة استخدام SaveTek.</string>
+    <string name="whats_new">ما الجديد</string>
+    <string name="update_now">تحديث الآن</string>
+    <string name="later">لاحقاً</string>
+    <string name="update_downloading_title">جارٍ تحميل التحديث</string>
+    <string name="update_verifying">جارٍ التحقق من الملف…</string>
+    <string name="update_ready_title">التحديث جاهز</string>
+    <string name="update_ready_text">إذا لم تظهر شاشة التثبيت، اضغط \"تثبيت\".</string>
+    <string name="install">تثبيت</string>
+    <string name="install_permission_title">خطوة أخيرة</string>
+    <string name="install_permission_text">حتى يستطيع SaveTek تثبيت تحديثاته، يحتاج أندرويد إلى موافقتك.\n\nاضغط \"فتح الإعدادات\"، وفعّل خيار \"السماح من هذا المصدر\"، ثم ارجع إلى التطبيق وسيكمل التثبيت.</string>
+    <string name="open_settings">فتح الإعدادات</string>
+    <string name="update_error_title">تعذّر التحديث</string>
+    <string name="update_error_download">تعذّر تحميل التحديث. تأكد من اتصالك بالإنترنت وحاول مجدداً.</string>
+    <string name="update_error_hash">الملف المحمَّل لا يطابق البصمة المنشورة (SHA-256)، لذلك حُذف حفاظاً على أمانك.</string>
+    <string name="update_error_signature">ملف التحديث غير موقّع بمفتاح SaveTek، لذلك رُفض وحُذف حفاظاً على أمانك.</string>
+    <string name="close">إغلاق</string>
+    <string name="app_updates">تحديثات التطبيق</string>
+    <string name="current_app_version">الإصدار الحالي: %1$s</string>
+    <string name="check_updates">التحقق من التحديثات</string>
+    <string name="checking_updates">جارٍ التحقق…</string>
+    <string name="update_to">تحديث إلى الإصدار %1$s</string>
+    <string name="up_to_date">أنت تستخدم أحدث إصدار ✅</string>
+    <string name="update_check_failed">تعذّر التحقق من التحديثات. تأكد من اتصالك بالإنترنت.</string>
+
+    <string name="contact_title">تواصل معنا</string>
+    <string name="contact_desc">لديك سؤال أو اقتراح أو مشكلة؟ راسلنا على:</string>
+    <string name="contact_subject">SaveTek - استفسار</string>
+    <string name="contact_body">\n\n\n---\nإصدار التطبيق: %1$s\nأندرويد: %2$s\nالجوال: %3$s</string>
+    <string name="no_email_app">لا يوجد تطبيق بريد على هذا الجوال</string>
+</resources>

@@ -1,0 +1,36 @@
+# ===== أسرار: لا تُرفع أبداً =====
+# مفاتيح التوقيع (محفوظة خارج المشروع أصلاً، وهذه حماية إضافية)
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+keystore.properties
+keystore*.properties
+signing.properties
+*.env
+.env*
+# يحتوي على مسار SDK في جهازك
+local.properties
+
+# ===== ملفات البناء والمؤقتات =====
+.gradle/
+.kotlin/
+build/
+/app/build
+/app/release
+.externalNativeBuild
+.cxx
+/captures
+*.apk
+*.aab
+*.ap_
+*.dex
+/release
+
+# ===== إعدادات المحرر =====
+*.iml
+/.idea
+.DS_Store
+Thumbs.db

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    منع أي اتصال غير مشفّر (HTTP) نهائياً من التطبيق، والثقة فقط بشهادات النظام
+    (لا نثق بشهادات يضيفها المستخدم، فلا يمكن اعتراض اتصالات التحديث بشهادة مزيّفة).
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

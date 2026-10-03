@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Türkçe -->
+<resources>
+    <string name="tab_home">Ana sayfa</string>
+    <string name="tab_downloads">İndirdiklerim</string>
+    <string name="tab_settings">Ayarlar</string>
+    <string name="tab_with_count">%1$s (%2$d)</string>
+
+    <string name="url_label">Video bağlantısı</string>
+    <string name="paste">Yapıştır</string>
+    <string name="engine_preparing">İndirme motoru hazırlanıyor… (ilk seferde bir dakika sürebilir)</string>
+    <string name="show_qualities">Mevcut kaliteleri göster</string>
+    <string name="fetching_info">Video bilgileri alınıyor…</string>
+    <string name="choose_quality">Kalite seçin</string>
+    <string name="download">İndir</string>
+    <string name="cd_video_thumbnail">Video küçük resmi</string>
+    <string name="size_unknown">Boyut bilinmiyor</string>
+    <string name="quality_best">En yüksek kalite</string>
+    <string name="quality_best_available">En iyi kalite</string>
+    <string name="quality_mp3">MP3 ses</string>
+    <string name="default_video_title">Video</string>
+
+    <string name="disclaimer_title">Önemli uyarı</string>
+    <string name="disclaimer">Bu uygulama yalnızca size ait olan veya indirmenize izin verilen içerikleri indirmek içindir. İçerik sahiplerinin haklarına ve sitelerin kullanım koşullarına uymak sizin sorumluluğunuzdadır.</string>
+    <string name="agree">Anladım ve kabul ediyorum</string>
+
+    <string name="eta_moments">birkaç saniye</string>
+    <string name="eta_seconds">%1$d sn</string>
+    <string name="eta_minutes">%1$d dk %2$d sn</string>
+    <string name="preparing">Hazırlanıyor…</string>
+    <string name="percent_value">%%%1$d</string>
+    <string name="progress_with_eta">%%%1$d — %2$s kaldı</string>
+
+    <string name="msg_engine_init_failed">İndirme motoru hazırlanamadı: %1$s</string>
+    <string name="msg_invalid_url">Geçersiz bağlantı. http veya https ile başlamalıdır.</string>
+    <string name="msg_read_failed">Bağlantı okunamadı:\n%1$s\n\nBağlantıyı kontrol edin veya Ayarlar\'dan motoru güncellemeyi deneyin.</string>
+    <string name="msg_wifi_blocked">\"Yalnızca Wi-Fi ile indir\" açık ve şu anda Wi-Fi\'a bağlı değilsiniz.\nWi-Fi\'a bağlanın veya bu seçeneği Ayarlar\'dan kapatın.</string>
+    <string name="msg_download_started">İndirme başladı ✅ \"İndirdiklerim\" bölümünden takip edin.</string>
+    <string name="msg_convert_started">Dönüştürme başladı ✅ \"İndirdiklerim\" bölümünden takip edin.</string>
+    <string name="msg_delete_partial">Listeden kaldırıldı ancak dosya silinemedi. Galeriden elle silin.</string>
+    <string name="msg_update_wait">Devam eden işlemler bitene kadar bekleyin, sonra motoru güncelleyin.</string>
+    <string name="msg_update_failed">Güncelleme başarısız. İnternet bağlantınızı kontrol edin.</string>
+    <string name="storage_needed">Videoyu galeriye kaydetmek için depolama izni gerekli</string>
+
+    <string name="convert_from_device">Cihazdan video dönüştür</string>
+    <string name="no_downloads_title">Henüz indirme yok</string>
+    <string name="no_downloads_hint">İlk indirmenizi başlatmak için Ana sayfaya bir bağlantı yapıştırın</string>
+    <string name="section_running">Devam eden (%1$d)</string>
+    <string name="section_completed">Tamamlanan (%1$d)</string>
+    <string name="section_failed">Başarısız (%1$d)</string>
+    <string name="delete_title">Dosya silinsin mi?</string>
+    <string name="delete_done_message">\"%1$s\" telefonunuzdan kalıcı olarak silinecek.</string>
+    <string name="delete_failed_message">Bu öğe listeden kaldırılacak.</string>
+    <string name="delete">Sil</string>
+    <string name="cancel">İptal</string>
+    <string name="done_label">%1$s • Tamamlandı ✅</string>
+    <string name="failed_label">Başarısız: %1$s</string>
+    <string name="play">Oynat</string>
+    <string name="share">Paylaş</string>
+    <string name="share_via">Şununla paylaş</string>
+    <string name="retry">Tekrar dene</string>
+    <string name="file_unavailable">Dosya kullanılamıyor. Galeriden açın.</string>
+
+    <string name="convert_to_mp3">MP3\'e dönüştür</string>
+    <string name="convert_title">MP3\'e dönüştür</string>
+    <string name="audio_quality">Ses kalitesi</string>
+    <string name="bitrate_default">%1$d kbps (varsayılan)</string>
+    <string name="bitrate_value">%1$d kbps</string>
+    <string name="convert_note">Orijinal video olduğu gibi kalır. Ses dosyası Music/SaveTek klasörüne kaydedilir.</string>
+    <string name="convert">Dönüştür</string>
+
+    <string name="settings_title">Ayarlar</string>
+    <string name="appearance">Görünüm</string>
+    <string name="theme_navy_gold">Lacivert ve altın</string>
+    <string name="theme_navy_gold_desc">Uygulamanın özgün görünümü</string>
+    <string name="theme_light">Açık</string>
+    <string name="theme_light_desc">Beyaz arka plan ve koyu yazılar</string>
+    <string name="theme_dark">Koyu</string>
+    <string name="theme_dark_desc">Siyah arka plan, AMOLED ekranlar için ideal ve pil tasarrufu sağlar</string>
+    <string name="theme_system">Cihaza göre</string>
+    <string name="theme_system_desc">Telefonun moduna göre otomatik açık veya koyu</string>
+    <string name="language">Dil</string>
+    <string name="language_system">Cihaza göre</string>
+    <string name="default_quality">Varsayılan kalite</string>
+    <string name="default_quality_desc">Kaliteler gösterildiğinde otomatik seçilir; her video için değiştirebilirsiniz.</string>
+    <string name="wifi_only">Yalnızca Wi-Fi ile indir</string>
+    <string name="wifi_only_desc">Mobil veriden tasarruf: indirmeler yalnızca Wi-Fi\'da başlar ve Wi-Fi kesilirse durur.</string>
+    <string name="engine_title">İndirme motoru (yt-dlp)</string>
+    <string name="engine_version">Mevcut sürüm: %1$s</string>
+    <string name="engine_last_update">Son güncelleme: %1$s</string>
+    <string name="never_updated">Henüz güncellenmedi</string>
+    <string name="unknown">Bilinmiyor</string>
+    <string name="engine_auto_desc">Uygulama her açıldığında ve bir site indirmeyi reddettiğinde (hata 403) yeni sürümü kontrol eder.</string>
+    <string name="update_engine">Motoru güncelle</string>
+    <string name="updating">Güncelleniyor…</string>
+    <string name="update_done">Başarıyla güncellendi ✅ Sürüm: %1$s</string>
+    <string name="update_latest">Zaten en son sürüme sahipsiniz (%1$s)</string>
+    <string name="update_finished">Güncelleme bitti. Mevcut sürüm: %1$s</string>
+    <string name="notifications_off_title">Bildirimler kapalı</string>
+    <string name="notifications_off_desc">Uygulama kapalıyken bile indirmenin ilerlemesini takip etmek ve ne zaman bittiğini öğrenmek için açın.</string>
+    <string name="enable_notifications">Bildirimleri aç</string>
+
+    <string name="about">Hakkında</string>
+    <string name="back">Geri</string>
+    <string name="version_label">Sürüm %1$s</string>
+    <string name="tagline">Videolarınızı en yüksek kalitede kaydedin</string>
+    <string name="open_source_title">Açık kaynak bileşenler</string>
+    <string name="open_source_text">Uygulama, açık kaynaklı yt-dlp ve FFmpeg projelerini kullanır (GPL-3.0 lisansı).</string>
+
+    <string name="notif_rationale_title">Bildirimlere izin verin</string>
+    <string name="notif_rationale_text">Uygulamayı kapatsanız veya ekranı kapatsanız bile indirme ilerlemesini göstermek ve indirmenin bittiğini ya da başarısız olduğunu bildirmek için bildirimlere ihtiyacımız var.\n\nSize başka hiçbir bildirim göndermeyeceğiz.</string>
+    <string name="allow">İzin ver</string>
+    <string name="not_now">Şimdi değil</string>
+
+    <string name="channel_progress">Devam eden indirmeler</string>
+    <string name="channel_done">Tamamlanan ve başarısız işlemler</string>
+    <string name="notif_converting_percent">MP3\'e dönüştürülüyor · %%%1$d</string>
+    <string name="notif_running_count">%1$d işlem devam ediyor</string>
+    <string name="notif_download_complete">İndirme tamamlandı ✅</string>
+    <string name="notif_download_failed">İndirme başarısız ❌</string>
+    <string name="notif_convert_complete">Dönüştürme tamamlandı ✅</string>
+    <string name="notif_convert_failed">Dönüştürme başarısız ❌</string>
+    <string name="note_403_retry">Site isteği reddetti (403). Motor güncelleniyor ve yeniden deneniyor…</string>
+    <string name="note_preparing_file">Dosya hazırlanıyor…</string>
+    <string name="note_saving">Galeriye kaydediliyor…</string>
+
+    <string name="error_wifi_lost">Wi-Fi bağlantısı kesildiği için indirme durdu (\"Yalnızca Wi-Fi\" açık).</string>
+    <string name="error_source_missing">Orijinal video bulunamadı.</string>
+    <string name="error_convert_failed">Bu dosya dönüştürülemedi</string>
+    <string name="error_unknown">Bilinmeyen bir hata oluştu</string>
+    <string name="error_file_not_found">İndirme bitti ancak dosya bulunamadı</string>
+    <string name="error_gallery_create">Dosya galeride oluşturulamadı</string>
+
+    <string name="open_with_other_app">Başka bir uygulamayla aç</string>
+    <string name="no_other_app">Bu dosyayı oynatabilecek başka uygulama yok</string>
+    <string name="rewind_10">10 saniye geri</string>
+    <string name="forward_10">10 saniye ileri</string>
+    <string name="ten_seconds">10 saniye</string>
+    <string name="mute">Sessize al</string>
+    <string name="volume">Ses düzeyi</string>
+    <string name="fullscreen">Tam ekran</string>
+    <string name="exit_fullscreen">Tam ekrandan çık</string>
+    <string name="pause">Duraklat</string>
+    <string name="audio_file_label">MP3 ses dosyası</string>
+
+    <string name="ad_space">Reklam alanı (%1$s)</string>
+
+    <string name="update_available_title">Yeni bir sürüm mevcut</string>
+    <string name="update_required_title">Güncelleme gerekli</string>
+    <string name="update_required_text">Bu sürüm artık desteklenmiyor. SaveTek\'i kullanmaya devam etmek için lütfen güncelleyin.</string>
+    <string name="whats_new">Yenilikler</string>
+    <string name="update_now">Şimdi güncelle</string>
+    <string name="later">Daha sonra</string>
+    <string name="update_downloading_title">Güncelleme indiriliyor</string>
+    <string name="update_verifying">Dosya doğrulanıyor…</string>
+    <string name="update_ready_title">Güncelleme hazır</string>
+    <string name="update_ready_text">Yükleme ekranı açılmadıysa \"Yükle\" düğmesine dokunun.</string>
+    <string name="install">Yükle</string>
+    <string name="install_permission_title">Son bir adım</string>
+    <string name="install_permission_text">SaveTek\'in kendi güncellemelerini yükleyebilmesi için Android\'in izninize ihtiyacı var.\n\n\"Ayarları aç\" düğmesine dokunun, \"Bu kaynaktan izin ver\" seçeneğini açın, ardından uygulamaya geri dönün; yükleme devam edecek.</string>
+    <string name="open_settings">Ayarları aç</string>
+    <string name="update_error_title">Güncellenemedi</string>
+    <string name="update_error_download">Güncelleme indirilemedi. İnternet bağlantınızı kontrol edip tekrar deneyin.</string>
+    <string name="update_error_hash">İndirilen dosya yayımlanan parmak iziyle (SHA-256) eşleşmiyor, bu yüzden güvenliğiniz için silindi.</string>
+    <string name="update_error_signature">Güncelleme dosyası SaveTek anahtarıyla imzalanmamış, bu yüzden güvenliğiniz için reddedildi ve silindi.</string>
+    <string name="close">Kapat</string>
+    <string name="app_updates">Uygulama güncellemeleri</string>
+    <string name="current_app_version">Mevcut sürüm: %1$s</string>
+    <string name="check_updates">Güncellemeleri denetle</string>
+    <string name="checking_updates">Denetleniyor…</string>
+    <string name="update_to">%1$s sürümüne güncelle</string>
+    <string name="up_to_date">En son sürümü kullanıyorsunuz ✅</string>
+    <string name="update_check_failed">Güncellemeler denetlenemedi. İnternet bağlantınızı kontrol edin.</string>
+
+    <string name="contact_title">Bize ulaşın</string>
+    <string name="contact_desc">Sorunuz, öneriniz veya bir sorununuz mu var? Bize yazın:</string>
+    <string name="contact_subject">SaveTek - Soru</string>
+    <string name="contact_body">\n\n\n---\nUygulama sürümü: %1$s\nAndroid: %2$s\nCihaz: %3$s</string>
+    <string name="no_email_app">Bu telefonda e-posta uygulaması bulunamadı</string>
+</resources>

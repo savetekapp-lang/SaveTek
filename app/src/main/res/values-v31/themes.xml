@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        أندرويد 12 فما فوق يعرض شاشة بداية إجبارية من النظام.
+        نجعل أيقونتها وخلفية الأيقونة شفافتين، والخلفية بلون شاشة الشعار،
+        فيبدو الانتقال مباشراً إلى شاشة الشعار بدون أي أيقونة قبلها.
+    -->
+    <style name="Theme.SaveTek" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/splash_bg</item>
+        <item name="android:statusBarColor">@color/splash_bg</item>
+        <item name="android:navigationBarColor">@color/splash_bg</item>
+        <item name="android:windowSplashScreenBackground">@color/splash_bg</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_transparent_icon</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@android:color/transparent</item>
+        <item name="android:windowSplashScreenAnimationDuration">0</item>
+    </style>
+</resources>
