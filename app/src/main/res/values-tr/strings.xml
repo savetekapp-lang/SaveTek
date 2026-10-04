@@ -105,7 +105,9 @@
     <string name="version_label">Sürüm %1$s</string>
     <string name="tagline">Videolarınızı en yüksek kalitede kaydedin</string>
     <string name="open_source_title">Açık kaynak bileşenler</string>
-    <string name="open_source_text">Uygulama, açık kaynaklı yt-dlp ve FFmpeg projelerini kullanır (GPL-3.0 lisansı).</string>
+    <string name="open_source_text">SaveTek, her biri kendi lisansına sahip şu açık kaynak projeler üzerine kuruludur:</string>
+    <string name="source_code_desc">SaveTek\'in kendisi de GPL-3.0 lisansıyla açık kaynaktır; kaynak kodunun tamamını inceleyebilirsiniz.</string>
+    <string name="source_code">Kaynak kodu</string>
 
     <string name="notif_rationale_title">Bildirimlere izin verin</string>
     <string name="notif_rationale_text">Uygulamayı kapatsanız veya ekranı kapatsanız bile indirme ilerlemesini göstermek ve indirmenin bittiğini ya da başarısız olduğunu bildirmek için bildirimlere ihtiyacımız var.\n\nSize başka hiçbir bildirim göndermeyeceğiz.</string>

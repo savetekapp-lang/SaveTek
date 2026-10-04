@@ -105,7 +105,9 @@
     <string name="version_label">ورژن %1$s</string>
     <string name="tagline">اپنی ویڈیوز سب سے اعلیٰ کوالٹی میں محفوظ کریں</string>
     <string name="open_source_title">اوپن سورس اجزاء</string>
-    <string name="open_source_text">یہ ایپ اوپن سورس منصوبوں yt-dlp اور FFmpeg پر مبنی ہے (GPL-3.0 لائسنس)۔</string>
+    <string name="open_source_text">SaveTek ان اوپن سورس منصوبوں پر بنایا گیا ہے، ہر ایک کا اپنا لائسنس ہے:</string>
+    <string name="source_code_desc">SaveTek خود GPL-3.0 لائسنس کے تحت اوپن سورس ہے، اور آپ اس کا مکمل سورس کوڈ دیکھ سکتے ہیں۔</string>
+    <string name="source_code">سورس کوڈ</string>
 
     <string name="notif_rationale_title">اطلاعات کی اجازت دیں</string>
     <string name="notif_rationale_text">ہمیں ڈاؤن لوڈ کی پیش رفت دکھانے اور اس کے مکمل یا ناکام ہونے کی خبر دینے کے لیے اطلاعات کی ضرورت ہے، چاہے آپ ایپ بند کر دیں یا اسکرین بند کر دیں۔\n\nہم آپ کو کوئی اور اطلاع نہیں بھیجیں گے۔</string>

@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
+import androidx.compose.material.icons.filled.Code
 import androidx.compose.material.icons.filled.Email
 import com.nazeeltek.savetek.AppConfig
 import com.nazeeltek.savetek.UpdateManager
@@ -422,6 +423,21 @@ private fun sendContactEmail(context: Context) {
     }
 }
 
+/** المكونات مفتوحة المصدر وتراخيصها (أسماء المشاريع والتراخيص لا تُترجم). */
+private val ThirdPartyComponents = listOf(
+    "yt-dlp" to "Unlicense",
+    "FFmpeg" to "LGPL/GPL",
+    "youtubedl-android" to "GPL-3.0",
+    "AndroidX & Jetpack Compose" to "Apache-2.0",
+    "Media3" to "Apache-2.0",
+    "Coil" to "Apache-2.0",
+)
+
+private fun openUrl(context: Context, url: String) {
+    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+    runCatching { context.startActivity(intent) }
+}
+
 private fun appVersion(context: Context): String = runCatching {
     context.packageManager.getPackageInfo(context.packageName, 0).versionName
 }.getOrNull() ?: "?"
@@ -458,6 +474,25 @@ fun AboutScreen(onBack: () -> Unit) {
         SettingsCard {
             SectionTitle(stringResource(R.string.open_source_title))
             Text(stringResource(R.string.open_source_text), color = colors.onSurface)
+            Spacer(Modifier.height(6.dp))
+            // نفس القائمة والتراخيص الموجودة في قسم Third-party components في README
+            ThirdPartyComponents.forEach { (name, license) ->
+                Row(Modifier.fillMaxWidth().padding(vertical = 3.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Text("• $name", color = colors.onSurface, modifier = Modifier.weight(1f))
+                    Text(license, color = colors.primary, fontSize = 13.sp, fontWeight = FontWeight.Bold)
+                }
+            }
+            Spacer(Modifier.height(10.dp))
+            MutedText(stringResource(R.string.source_code_desc))
+            Spacer(Modifier.height(6.dp))
+            OutlinedButton(
+                onClick = { openUrl(context, AppConfig.SOURCE_CODE_URL) },
+                border = BorderStroke(1.dp, colors.primary),
+            ) {
+                Icon(Icons.Filled.Code, null, tint = colors.primary, modifier = Modifier.size(18.dp))
+                Spacer(Modifier.width(8.dp))
+                Text(stringResource(R.string.source_code), color = colors.primary)
+            }
         }
 
         // ── تواصل معنا: يفتح تطبيق البريد برسالة جاهزة ──

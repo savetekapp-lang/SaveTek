@@ -129,7 +129,9 @@
     <string name="version_label">Version %1$s</string>
     <string name="tagline">Save your videos in the highest quality</string>
     <string name="open_source_title">Open-source components</string>
-    <string name="open_source_text">The app uses the open-source projects yt-dlp and FFmpeg (GPL-3.0 license).</string>
+    <string name="open_source_text">SaveTek is built on these open-source projects, each under its own license:</string>
+    <string name="source_code_desc">SaveTek itself is open source under the GPL-3.0 license. You can review its full source code.</string>
+    <string name="source_code">Source code</string>
 
     <!-- إذن الإشعارات -->
     <string name="notif_rationale_title">Allow notifications</string>

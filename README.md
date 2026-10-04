@@ -38,7 +38,7 @@
 يتطلب أندرويد 7.0 فما فوق. بعد التثبيت الأول، يحدّث التطبيق نفسه من داخله.
 
 ### ⚠️ تنبيه الاستخدام المسؤول
-SaveTek أداة لحفظ المحتوى الذي تملكه أو المسموح لك بتحميله فقط. المستخدم وحده مسؤول عن المحتوى الذي يحمّله، وعليه احترام حقوق أصحابه، والقوانين المعمول بها، وشروط استخدام المواقع. راجع [شروط الاستخدام](docs/terms.html) و[سياسة الخصوصية](docs/privacy.html).
+SaveTek أداة لحفظ المحتوى الذي تملكه أو المسموح لك بتحميله فقط. المستخدم وحده مسؤول عن المحتوى الذي يحمّله، وعليه احترام حقوق أصحابه، والقوانين المعمول بها، وشروط استخدام المواقع. راجع [شروط الاستخدام](https://savetekapp-lang.github.io/SaveTek/terms.html) و[سياسة الخصوصية](https://savetekapp-lang.github.io/SaveTek/privacy.html).
 
 ### الترخيص
 الكود المصدري مرخّص بترخيص **GNU GPL-3.0** — انظر ملف [LICENSE](LICENSE).
@@ -76,7 +76,7 @@ SaveTek أداة لحفظ المحتوى الذي تملكه أو المسموح
 Requires Android 7.0 or later. After the first install, the app updates itself.
 
 ### ⚠️ Responsible use
-SaveTek is a tool for saving content you own or are allowed to download. Users alone are responsible for the content they download and must respect the rights of its owners, applicable laws, and the websites' terms of use. See the [Terms of use](docs/terms.html) and [Privacy policy](docs/privacy.html).
+SaveTek is a tool for saving content you own or are allowed to download. Users alone are responsible for the content they download and must respect the rights of its owners, applicable laws, and the websites' terms of use. See the [Terms of use](https://savetekapp-lang.github.io/SaveTek/terms.html) and [Privacy policy](https://savetekapp-lang.github.io/SaveTek/privacy.html).
 
 ### License
 The source code is licensed under the **GNU GPL-3.0** — see [LICENSE](LICENSE).

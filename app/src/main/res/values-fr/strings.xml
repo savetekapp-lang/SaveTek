@@ -105,7 +105,9 @@
     <string name="version_label">Version %1$s</string>
     <string name="tagline">Enregistrez vos vidéos en qualité maximale</string>
     <string name="open_source_title">Composants open source</string>
-    <string name="open_source_text">L\'application utilise les projets open source yt-dlp et FFmpeg (licence GPL-3.0).</string>
+    <string name="open_source_text">SaveTek repose sur ces projets open source, chacun sous sa propre licence :</string>
+    <string name="source_code_desc">SaveTek est lui-même open source sous licence GPL-3.0 ; vous pouvez consulter l\'intégralité de son code source.</string>
+    <string name="source_code">Code source</string>
 
     <string name="notif_rationale_title">Autoriser les notifications</string>
     <string name="notif_rationale_text">Les notifications nous permettent d\'afficher la progression et de vous prévenir quand un téléchargement se termine ou échoue, même si vous fermez l\'application ou éteignez l\'écran.\n\nNous ne vous enverrons aucune autre notification.</string>

@@ -21,6 +21,9 @@ object AppConfig {
     /** موقع التطبيق الرسمي (GitHub Pages): منه يحمّل المستخدم آخر إصدار يدوياً. */
     const val WEBSITE_URL = "https://$GITHUB_USER.github.io/$GITHUB_REPO/"
 
+    /** صفحة الكود المصدري. */
+    const val SOURCE_CODE_URL = "https://github.com/$GITHUB_USER/$GITHUB_REPO"
+
     /** بريد التواصل. */
     const val CONTACT_EMAIL = "savetek.app@gmail.com"
 

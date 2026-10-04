@@ -105,7 +105,9 @@
     <string name="version_label">الإصدار %1$s</string>
     <string name="tagline">احفظ فيديوهاتك بأعلى جودة</string>
     <string name="open_source_title">مكونات مفتوحة المصدر</string>
-    <string name="open_source_text">يعتمد التطبيق على مشروعَي yt-dlp و FFmpeg مفتوحَي المصدر (رخصة GPL-3.0).</string>
+    <string name="open_source_text">SaveTek مبني على هذه المشاريع مفتوحة المصدر، ولكلٍّ منها ترخيصه:</string>
+    <string name="source_code_desc">SaveTek نفسه مفتوح المصدر بترخيص GPL-3.0، ويمكنك مراجعة كوده كاملاً.</string>
+    <string name="source_code">الكود المصدري</string>
 
     <string name="notif_rationale_title">اسمح بالإشعارات</string>
     <string name="notif_rationale_text">نحتاج الإشعارات لنعرض لك تقدّم التحميل، ونخبرك عند اكتماله أو فشله، حتى لو أغلقت التطبيق أو أطفأت الشاشة.\n\nلن نرسل لك أي إشعارات أخرى.</string>

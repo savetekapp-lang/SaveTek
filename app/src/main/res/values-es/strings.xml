@@ -105,7 +105,9 @@
     <string name="version_label">Versión %1$s</string>
     <string name="tagline">Guarda tus videos en la máxima calidad</string>
     <string name="open_source_title">Componentes de código abierto</string>
-    <string name="open_source_text">La aplicación usa los proyectos de código abierto yt-dlp y FFmpeg (licencia GPL-3.0).</string>
+    <string name="open_source_text">SaveTek se basa en estos proyectos de código abierto, cada uno con su propia licencia:</string>
+    <string name="source_code_desc">SaveTek también es de código abierto con licencia GPL-3.0; puedes revisar todo su código fuente.</string>
+    <string name="source_code">Código fuente</string>
 
     <string name="notif_rationale_title">Permite las notificaciones</string>
     <string name="notif_rationale_text">Necesitamos las notificaciones para mostrarte el progreso y avisarte cuando una descarga termine o falle, aunque cierres la aplicación o apagues la pantalla.\n\nNo te enviaremos ninguna otra notificación.</string>
