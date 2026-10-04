@@ -1,300 +1,102 @@
-/* =========================================================
-   SaveTek — تنسيق الموقع (مشترك بين كل الصفحات)
-   الهوية: كحلي #1E2A47 وذهبي #D4A853
-   لا خطوط خارجية ولا أدوات تتبع: كل شيء من هذا الملف.
-   ========================================================= */
+/* SaveTek — shared style for the text pages (privacy, terms, 404); matches index.html
+   fonts are self-hosted (SIL OFL 1.1, licenses in assets/fonts) — no requests to third parties */
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/ibmplexsansarabic-400-arabic.woff2) format('woff2');unicode-range:U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/ibmplexsansarabic-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/ibmplexsansarabic-500-arabic.woff2) format('woff2');unicode-range:U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/ibmplexsansarabic-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/ibmplexsansarabic-600-arabic.woff2) format('woff2');unicode-range:U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/ibmplexsansarabic-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Readex Pro';font-style:normal;font-weight:400 700;font-display:swap;src:url(assets/fonts/readexpro-arabic.woff2) format('woff2');unicode-range:U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1}
+@font-face{font-family:'Readex Pro';font-style:normal;font-weight:400 700;font-display:swap;src:url(assets/fonts/readexpro-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 
-:root {
-  --navy: #1E2A47;
-  --navy-deep: #11141E;
-  --navy-light: #2A3A60;
-  --navy-line: #33456F;
-  --gold: #D4A853;
-  --gold-soft: rgba(212, 168, 83, 0.14);
-  --text: #F2F2F2;
-  --muted: #B9C0CF;
-  --radius: 16px;
-  --max: 1100px;
-  color-scheme: dark;
+:root{
+  --ink:#11141E;
+  --navy:#1A2033;
+  --navy-2:#242C45;
+  --gold:#D9A441;
+  --gold-soft:#F3E3B8;
+  --gold-deep:#8F6513;  /* gold text on light backgrounds (contrast 4.8:1) */
+  --paper:#F4F6F9;
+  --white:#FFFFFF;
+  --text:#1D2233;
+  --muted:#5B6275;
+  --line:#DDE2EA;
+  --head:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --body:"IBM Plex Sans Arabic","Readex Pro",system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
 }
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--body);color:var(--text);background:var(--paper);line-height:1.8;font-size:17px;min-height:100vh;display:flex;flex-direction:column}
+main{flex:1}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:clamp(20px,4vw,40px)}
 
-* { box-sizing: border-box; }
+/* bilingual */
+html[lang="ar"] .en{display:none!important}
+html[lang="en"] .ar{display:none!important}
+html[lang="en"] body{font-family:"Readex Pro",system-ui,sans-serif}
 
-html { scroll-behavior: smooth; }
+/* ---------- header ---------- */
+.hdr{background:var(--ink);padding-top:env(safe-area-inset-top,0px)}
+.hdr .wrap{display:flex;align-items:center;gap:24px;height:72px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-family:var(--head);font-weight:600;font-size:20px}
+.brand img{width:34px;height:34px;border-radius:9px}
+.nav{display:flex;gap:24px;margin-inline-start:auto}
+.nav a{color:rgba(255,255,255,.78);text-decoration:none;font-size:15px;padding:6px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.nav a:hover{color:#fff;border-color:var(--gold)}
+.lang{border:1px solid rgba(255,255,255,.25);background:none;color:#fff;border-radius:999px;padding:6px 14px;font-size:14px;transition:border-color .2s,background .2s}
+.lang:hover{border-color:var(--gold);background:rgba(217,164,65,.1)}
+@media (max-width:640px){.nav{display:none}.lang{margin-inline-start:auto}}
 
-body {
-  margin: 0;
-  background: var(--navy);
-  color: var(--text);
-  font-family: "Segoe UI", Tahoma, "Noto Sans Arabic", "Geeza Pro", system-ui, -apple-system, Roboto, sans-serif;
-  font-size: 17px;
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-}
+/* ---------- title band ---------- */
+.band{background:var(--ink);color:#fff;padding:36px 0 96px;position:relative;overflow:hidden}
+.band::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 70% 30%,#000 10%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 70% 30%,#000 10%,transparent 70%)}
+.band .wrap{position:relative;max-width:900px}
+.band h1{font-family:var(--head);font-weight:600;font-size:clamp(30px,5vw,46px);line-height:1.25}
+.band h1 b{color:var(--gold);font-weight:700}
+.band p{color:rgba(255,255,255,.6);margin-top:8px;font-size:15px}
 
-/* تبديل اللغة: نُظهر نصوص اللغة الحالية فقط */
-html[lang="ar"] .en,
-html[lang="en"] .ar { display: none !important; }
+/* ---------- document card ---------- */
+.doc{margin-top:-64px;padding-bottom:clamp(56px,8vw,96px);position:relative}
+.doc .wrap{max-width:900px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:clamp(24px,5vw,56px);box-shadow:0 30px 60px -40px rgba(17,20,30,.35)}
+.card>p:first-child{font-size:18px}
+.card h2{font-family:var(--head);font-weight:600;font-size:clamp(20px,2.4vw,24px);color:var(--ink);margin:36px 0 10px;line-height:1.45}
+.card h2:first-child{margin-top:0}
+.card p{margin-bottom:12px}
+.card ul{padding-inline-start:22px;margin-bottom:12px}
+.card li{margin-bottom:8px}
+.card li::marker{color:var(--gold-deep)}
+.card strong{color:var(--ink)}
+.card a{color:var(--gold-deep);font-weight:500}
+.warning{border-inline-start:4px solid var(--gold);background:#FBF6EA;border-radius:16px;padding:20px 24px;margin-bottom:8px}
+.warning h2{margin-top:0}
+.warning p{margin:0}
 
-a { color: var(--gold); }
-a:hover { text-decoration: none; }
-img { max-width: 100%; height: auto; display: block; }
+/* ---------- 404 ---------- */
+.nf{display:grid;place-items:center;text-align:center;padding:clamp(56px,10vw,120px) 0}
+.nf .code{font-family:var(--head);font-weight:700;font-size:clamp(88px,18vw,160px);line-height:1;color:var(--gold-deep);letter-spacing:.02em}
+.nf h1{font-family:var(--head);font-weight:600;font-size:clamp(24px,3.4vw,34px);color:var(--ink);margin:18px 0 8px}
+.nf p{color:var(--muted);max-width:30em;margin-inline:auto}
+.nf .row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--ink);text-decoration:none;font-family:var(--head);font-weight:600;font-size:16px;padding:14px 26px;border-radius:14px;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(217,164,65,.7)}
+.btn.ghost{background:none;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--gold-deep)}
 
-.wrap {
-  width: 100%;
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 20px;
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-bottom:env(safe-area-inset-bottom,0px)}
+.f-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;padding-block:40px 28px}
+.f-top a{color:var(--gold-soft)}
+.f-links{display:flex;flex-wrap:wrap;gap:12px 28px}
+.f-links a{color:rgba(255,255,255,.75);text-decoration:none}
+.f-links a:hover{color:#fff;text-decoration:underline}
+.f-bot{border-top:1px solid rgba(255,255,255,.08);padding-block:20px;font-size:13.5px}
+@media (pointer:coarse){
+  .f-links a,.f-top a{display:inline-block;padding-block:10px}
+  .f-links{gap:0 24px}
 }
-
-/* ---------- الشريط العلوي ---------- */
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(17, 20, 30, 0.92);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--navy-line);
-}
-.topbar .wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  min-height: 60px;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--gold);
-  font-weight: 800;
-  font-size: 20px;
-  text-decoration: none;
-}
-.brand img { width: 34px; height: 34px; border-radius: 9px; }
-.nav { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-.nav a { color: var(--muted); text-decoration: none; font-size: 15px; }
-.nav a:hover { color: var(--gold); }
-.lang-btn {
-  border: 1px solid var(--gold);
-  background: transparent;
-  color: var(--gold);
-  border-radius: 999px;
-  padding: 6px 14px;
-  font: inherit;
-  font-size: 14px;
-  cursor: pointer;
-}
-.lang-btn:hover { background: var(--gold-soft); }
-@media (max-width: 760px) {
-  .nav a { display: none; }
-}
-
-/* ---------- الواجهة ---------- */
-.hero {
-  background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy-deep) 55%, var(--navy) 100%);
-  text-align: center;
-  padding: 24px 0 32px;
-}
-.hero .logo {
-  width: min(720px, 100%);
-  margin: 0 auto;
-  /* تذويب حواف صورة الشعار في الخلفية */
-  -webkit-mask-image: radial-gradient(ellipse 70% 70% at center, #000 55%, transparent 100%);
-  mask-image: radial-gradient(ellipse 70% 70% at center, #000 55%, transparent 100%);
-}
-.hero h1 {
-  margin: 8px 0 6px;
-  font-size: clamp(26px, 5vw, 42px);
-  line-height: 1.3;
-}
-.hero p.lead {
-  margin: 0 auto 26px;
-  max-width: 620px;
-  color: var(--muted);
-}
-
-.btn-download {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  background: var(--gold);
-  color: var(--navy);
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 22px;
-  padding: 16px 40px;
-  border-radius: 999px;
-  box-shadow: 0 10px 30px rgba(212, 168, 83, 0.25);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-.btn-download:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(212, 168, 83, 0.35); }
-.btn-download small { font-weight: 600; font-size: 14px; opacity: 0.85; }
-.hero .alt {
-  margin-top: 14px;
-  font-size: 14px;
-  color: var(--muted);
-}
-
-/* ---------- الأقسام ---------- */
-section { padding: 56px 0; }
-section.alt-bg { background: var(--navy-deep); }
-h2 {
-  font-size: clamp(24px, 4vw, 32px);
-  margin: 0 0 8px;
-  color: var(--gold);
-}
-.section-lead { color: var(--muted); margin: 0 0 28px; }
-
-/* بطاقات الميزات */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 16px;
-}
-.card {
-  background: var(--navy-light);
-  border: 1px solid var(--navy-line);
-  border-radius: var(--radius);
-  padding: 20px;
-}
-.card h3 { margin: 10px 0 4px; font-size: 19px; }
-.card p { margin: 0; color: var(--muted); font-size: 15px; }
-.icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
-  background: var(--gold-soft);
-  color: var(--gold);
-  display: grid;
-  place-items: center;
-}
-.icon svg { width: 26px; height: 26px; }
-
-/* صور الشاشات */
-.shots {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 18px;
-  margin-top: 28px;
-}
-.shot { margin: 0; text-align: center; }
-.shot img,
-.shot .ph {
-  width: 100%;
-  aspect-ratio: 9 / 19;
-  object-fit: cover;
-  border-radius: 22px;
-  border: 2px solid var(--navy-line);
-  background: var(--navy-light);
-}
-.shot .ph {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 10px;
-  color: var(--muted);
-  font-size: 14px;
-}
-.shot .ph img { width: 64px; aspect-ratio: auto; border: 0; border-radius: 14px; background: none; }
-/* الصورة غير الموجودة بعد: نخفي مكانها بالكامل، وتظهر تلقائياً عند إضافة الصورة */
-.shot.missing { display: none; }
-.shot figcaption { margin-top: 8px; color: var(--muted); font-size: 15px; }
-
-/* خطوات التثبيت */
-ol.steps {
-  list-style: none;
-  counter-reset: step;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 12px;
-}
-ol.steps li {
-  counter-increment: step;
-  background: var(--navy-light);
-  border: 1px solid var(--navy-line);
-  border-radius: var(--radius);
-  padding: 16px 18px;
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-}
-ol.steps li::before {
-  content: counter(step);
-  flex: 0 0 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: var(--gold);
-  color: var(--navy);
-  font-weight: 800;
-  display: grid;
-  place-items: center;
-}
-.note {
-  margin-top: 18px;
-  background: var(--gold-soft);
-  border: 1px solid rgba(212, 168, 83, 0.45);
-  border-radius: var(--radius);
-  padding: 16px 18px;
-}
-.note strong { color: var(--gold); }
-
-/* الأسئلة الشائعة */
-details {
-  background: var(--navy-light);
-  border: 1px solid var(--navy-line);
-  border-radius: var(--radius);
-  padding: 4px 18px;
-  margin-bottom: 12px;
-}
-summary {
-  cursor: pointer;
-  font-weight: 700;
-  padding: 12px 0;
-  list-style: none;
-}
-summary::-webkit-details-marker { display: none; }
-summary::after { content: "+"; float: inline-end; color: var(--gold); font-size: 22px; line-height: 1; }
-details[open] summary::after { content: "−"; }
-details p { margin: 0 0 14px; color: var(--muted); }
-
-/* تنبيه الاستخدام المسؤول */
-.warning {
-  border-inline-start: 5px solid var(--gold);
-  background: var(--navy-light);
-  border-radius: var(--radius);
-  padding: 20px 22px;
-}
-.warning h2 { margin-bottom: 6px; }
-.warning p { margin: 0; }
-
-/* الصفحات النصية (الخصوصية والشروط) */
-.doc { padding: 40px 0 56px; }
-.doc .wrap { max-width: 820px; }
-.doc h1 { color: var(--gold); font-size: clamp(26px, 5vw, 36px); margin: 0 0 4px; }
-.doc .updated { color: var(--muted); margin: 0 0 28px; font-size: 15px; }
-.doc h2 { font-size: 22px; margin: 30px 0 8px; }
-.doc ul { padding-inline-start: 22px; }
-.doc li { margin-bottom: 6px; }
-
-/* التذييل */
-footer {
-  background: var(--navy-deep);
-  border-top: 1px solid var(--navy-line);
-  padding: 34px 0;
-  color: var(--muted);
-  font-size: 15px;
-}
-footer .cols {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 18px;
-}
-footer a { color: var(--text); }
-footer .links { display: flex; flex-wrap: wrap; gap: 8px 18px; }
-footer .fine { margin-top: 18px; font-size: 13px; opacity: 0.85; }

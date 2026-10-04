@@ -551,6 +551,14 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
     html.lang = l; html.dir = (l === "ar") ? "rtl" : "ltr";
     document.title = l === "ar" ? "SaveTek — حمّل فيديوهاتك بأعلى جودة" : "SaveTek — Download your videos in the highest quality";
     if(remember){ try{ localStorage.setItem("savetek-lang", l); }catch(e){} }
+    setShotAlts();
+  }
+  /* screenshot descriptions in the current language only (screen readers would read both otherwise) */
+  function setShotAlts(){
+    document.querySelectorAll(".shot img").forEach(function(img){
+      var cap = img.closest(".shot").querySelector("figcaption ." + html.lang);
+      if(cap) img.alt = cap.textContent.trim();
+    });
   }
   var saved = null;
   try{ saved = localStorage.getItem("savetek-lang"); }catch(e){}
@@ -667,19 +675,22 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
     document.querySelectorAll(".shot").forEach(function(f){
       var frame = f.querySelector(".frame");
       var img = new Image();
-      img.alt = f.querySelector("figcaption").textContent.trim();
       img.decoding = "async";
-      img.onload = function(){ frame.appendChild(img); updateSwipeHint(); };
+      img.onload = function(){ frame.appendChild(img); setShotAlts(); updateSwipeHint(); };
       /* screenshot not added yet: hide its slot; it appears automatically once the image exists */
       img.onerror = function(){ f.style.display = "none"; updateSwipeHint(); };
       img.src = f.dataset.src;
     });
   }
   if("IntersectionObserver" in window){
+    var shotsAlive = false, shotsDone = false;
     var shotsIo = new IntersectionObserver(function(ents){
-      if(ents[0].isIntersecting){ shotsIo.disconnect(); loadShots(); }
+      shotsAlive = true;
+      if(ents[0].isIntersecting && !shotsDone){ shotsDone = true; shotsIo.disconnect(); loadShots(); }
     }, {rootMargin: "600px 0px"});
     shotsIo.observe(document.getElementById("screens"));
+    // same safety net as the scroll reveal: an observer that never reports means load them anyway
+    setTimeout(function(){ if(!shotsAlive && !shotsDone){ shotsDone = true; shotsIo.disconnect(); loadShots(); } }, 2500);
   } else { loadShots(); }
 
   /* show "swipe to see more" only when the screenshots don't all fit */
@@ -713,8 +724,14 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
   }
 
   /* ---------- subtle scroll reveal ---------- */
+  function revealAll(){ document.querySelectorAll(".rv").forEach(function(el){ el.classList.add("in"); }); }
   if("IntersectionObserver" in window && !reduce){
+    /* safety net: the observer reports every element once right after it starts;
+       if that never happens (old or unusual browser), show everything instead of leaving blank sections */
+    var ioAlive = false;
+    setTimeout(function(){ if(!ioAlive) revealAll(); }, 2500);
     var io = new IntersectionObserver(function(ents){
+      ioAlive = true;
       ents.forEach(function(en){
         if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
       });
@@ -727,7 +744,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
       io.observe(el);
     });
   } else {
-    document.querySelectorAll(".rv").forEach(function(el){ el.classList.add("in"); });
+    revealAll();
   }
 
   window.addEventListener("scroll", onScroll, {passive:true});
