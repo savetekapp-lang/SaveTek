@@ -162,7 +162,10 @@
     <string name="update_error_title">Güncellenemedi</string>
     <string name="update_error_download">Güncelleme indirilemedi. İnternet bağlantınızı kontrol edip tekrar deneyin.</string>
     <string name="update_error_hash">İndirilen dosya yayımlanan parmak iziyle (SHA-256) eşleşmiyor, bu yüzden güvenliğiniz için silindi.</string>
-    <string name="update_error_signature">Güncelleme dosyası SaveTek anahtarıyla imzalanmamış, bu yüzden güvenliğiniz için reddedildi ve silindi.</string>
+    <string name="update_error_signature">Güncelleme dosyası SaveTek\'in anahtarından farklı bir anahtarla imzalanmış, bu yüzden güvenliğiniz için reddedildi ve silindi.</string>
+    <string name="update_error_signature_unreadable">Bu cihaz güncellemenin imzasını doğrulayamadı, bu yüzden güvenliğiniz için yüklenmedi. En son sürümü web sitesinden indirin.</string>
+    <string name="update_error_version">Güncelleme dosyası duyurulan sürüm değil, bu yüzden güvenliğiniz için reddedildi ve silindi.</string>
+    <string name="open_website">Web sitesini aç</string>
     <string name="close">Kapat</string>
     <string name="app_updates">Uygulama güncellemeleri</string>
     <string name="current_app_version">Mevcut sürüm: %1$s</string>

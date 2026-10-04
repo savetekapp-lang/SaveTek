@@ -25,8 +25,11 @@ android {
         applicationId = "com.nazeeltek.savetek"
         minSdk = 24
         targetSdk = 36
-        versionCode = 11
-        versionName = "0.7.3"
+        versionCode = 12
+        versionName = "0.7.4"
+        // نسخة اختبار فقط: gradlew assembleRelease -Psavetek.selftest=true
+        // تعرض عند الفتح نتيجة فحص توقيع ملف التطبيق نفسه. النسخة العادية لا تحتوي هذا أبداً.
+        buildConfigField("boolean", "SIGNATURE_SELFTEST", (findProperty("savetek.selftest") == "true").toString())
     }
 
     signingConfigs {
@@ -68,6 +71,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     // نُبقي فقط اللغات التي يدعمها التطبيق (المكتبات تضيف عشرات اللغات الأخرى)

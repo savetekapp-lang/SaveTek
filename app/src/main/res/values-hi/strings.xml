@@ -162,7 +162,10 @@
     <string name="update_error_title">अपडेट नहीं हो सका</string>
     <string name="update_error_download">अपडेट डाउनलोड नहीं हो सका। अपना इंटरनेट जाँचें और फिर से कोशिश करें।</string>
     <string name="update_error_hash">डाउनलोड की गई फ़ाइल प्रकाशित फ़िंगरप्रिंट (SHA-256) से मेल नहीं खाती, इसलिए आपकी सुरक्षा के लिए हटा दी गई।</string>
-    <string name="update_error_signature">अपडेट फ़ाइल SaveTek की कुंजी से साइन नहीं है, इसलिए आपकी सुरक्षा के लिए अस्वीकार करके हटा दी गई।</string>
+    <string name="update_error_signature">अपडेट फ़ाइल SaveTek की कुंजी के बजाय किसी दूसरी कुंजी से साइन है, इसलिए आपकी सुरक्षा के लिए अस्वीकार करके हटा दी गई।</string>
+    <string name="update_error_signature_unreadable">इस डिवाइस पर अपडेट के हस्ताक्षर की पुष्टि नहीं हो सकी, इसलिए आपकी सुरक्षा के लिए इंस्टॉल नहीं किया गया। वेबसाइट से नवीनतम संस्करण डाउनलोड करें।</string>
+    <string name="update_error_version">अपडेट फ़ाइल घोषित संस्करण नहीं है, इसलिए आपकी सुरक्षा के लिए अस्वीकार करके हटा दी गई।</string>
+    <string name="open_website">वेबसाइट खोलें</string>
     <string name="close">बंद करें</string>
     <string name="app_updates">ऐप अपडेट</string>
     <string name="current_app_version">मौजूदा वर्शन: %1$s</string>

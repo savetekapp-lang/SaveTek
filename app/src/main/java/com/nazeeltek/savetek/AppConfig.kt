@@ -18,6 +18,9 @@ object AppConfig {
     /** رابط ملف معلومات آخر إصدار (يُستضاف على GitHub Pages من مجلد docs). */
     const val UPDATE_INFO_URL = "https://$GITHUB_USER.github.io/$GITHUB_REPO/version.json"
 
+    /** موقع التطبيق الرسمي (GitHub Pages): منه يحمّل المستخدم آخر إصدار يدوياً. */
+    const val WEBSITE_URL = "https://$GITHUB_USER.github.io/$GITHUB_REPO/"
+
     /** بريد التواصل. */
     const val CONTACT_EMAIL = "savetek.app@gmail.com"
 

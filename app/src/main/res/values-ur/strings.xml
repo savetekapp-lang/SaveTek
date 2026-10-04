@@ -162,7 +162,10 @@
     <string name="update_error_title">اپ ڈیٹ نہیں ہو سکی</string>
     <string name="update_error_download">اپ ڈیٹ ڈاؤن لوڈ نہیں ہو سکی۔ اپنا انٹرنیٹ چیک کریں اور دوبارہ کوشش کریں۔</string>
     <string name="update_error_hash">ڈاؤن لوڈ شدہ فائل شائع شدہ فنگر پرنٹ (SHA-256) سے میل نہیں کھاتی، اس لیے آپ کی حفاظت کے لیے حذف کر دی گئی۔</string>
-    <string name="update_error_signature">اپ ڈیٹ فائل SaveTek کی کلید سے سائن نہیں ہے، اس لیے آپ کی حفاظت کے لیے مسترد کر کے حذف کر دی گئی۔</string>
+    <string name="update_error_signature">اپ ڈیٹ فائل SaveTek کی کلید کے بجائے کسی دوسری کلید سے سائن ہے، اس لیے آپ کی حفاظت کے لیے مسترد کر کے حذف کر دی گئی۔</string>
+    <string name="update_error_signature_unreadable">اس ڈیوائس پر اپ ڈیٹ کی تصدیق نہیں ہو سکی، اس لیے آپ کی حفاظت کے لیے انسٹال نہیں کی گئی۔ ویب سائٹ سے تازہ ترین ورژن ڈاؤن لوڈ کریں۔</string>
+    <string name="update_error_version">اپ ڈیٹ فائل اعلان کردہ ورژن نہیں ہے، اس لیے آپ کی حفاظت کے لیے مسترد کر کے حذف کر دی گئی۔</string>
+    <string name="open_website">ویب سائٹ کھولیں</string>
     <string name="close">بند کریں</string>
     <string name="app_updates">ایپ اپ ڈیٹس</string>
     <string name="current_app_version">موجودہ ورژن: %1$s</string>

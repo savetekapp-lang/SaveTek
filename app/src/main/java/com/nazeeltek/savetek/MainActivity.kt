@@ -84,6 +84,17 @@ class MainActivity : ComponentActivity() {
         if (savedInstanceState == null) handleIntent(intent)
 
         val coldStart = savedInstanceState == null
+        // نسخة الاختبار فقط: نتيجة فحص التوقيع بعد اختفاء شاشة الشعار
+        if (BuildConfig.SIGNATURE_SELFTEST && coldStart) {
+            window.decorView.postDelayed({
+                if (isFinishing) return@postDelayed
+                android.app.AlertDialog.Builder(this)
+                    .setTitle("فحص توقيع التحديث (نسخة اختبار)")
+                    .setMessage(UpdateManager.signatureSelfTest(this))
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show()
+            }, 2500)
+        }
         setContent {
             SaveTekTheme {
                 // شاشة البداية بالشعار تظهر فوق التطبيق عند الفتح ثم تختفي تدريجياً
@@ -361,6 +372,7 @@ fun AppRoot(viewModel: MainViewModel, splashVisible: Boolean) {
             onDismiss = viewModel::dismissUpdateDialog,
             onOpenPermission = viewModel::openInstallPermission,
             onInstall = viewModel::proceedInstall,
+            onOpenWebsite = viewModel::openWebsite,
         )
     }
 

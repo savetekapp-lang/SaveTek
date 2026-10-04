@@ -162,7 +162,10 @@
     <string name="update_error_title">No se pudo actualizar</string>
     <string name="update_error_download">No se pudo descargar la actualización. Revisa tu conexión a Internet e inténtalo de nuevo.</string>
     <string name="update_error_hash">El archivo descargado no coincide con la huella publicada (SHA-256), así que se eliminó por tu seguridad.</string>
-    <string name="update_error_signature">El archivo de actualización no está firmado con la clave de SaveTek, así que se rechazó y se eliminó por tu seguridad.</string>
+    <string name="update_error_signature">El archivo de actualización está firmado con una clave distinta a la de SaveTek, así que se rechazó y se eliminó por tu seguridad.</string>
+    <string name="update_error_signature_unreadable">Este dispositivo no pudo verificar la firma de la actualización, así que no se instaló por tu seguridad. Descarga la última versión desde el sitio web.</string>
+    <string name="update_error_version">El archivo de actualización no es la versión anunciada, así que se rechazó y se eliminó por tu seguridad.</string>
+    <string name="open_website">Abrir sitio web</string>
     <string name="close">Cerrar</string>
     <string name="app_updates">Actualizaciones de la aplicación</string>
     <string name="current_app_version">Versión actual: %1$s</string>

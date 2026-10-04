@@ -162,7 +162,10 @@
     <string name="update_error_title">Tidak dapat memperbarui</string>
     <string name="update_error_download">Tidak dapat mengunduh pembaruan. Periksa koneksi internet Anda lalu coba lagi.</string>
     <string name="update_error_hash">File yang diunduh tidak cocok dengan sidik jari yang dipublikasikan (SHA-256), jadi dihapus demi keamanan Anda.</string>
-    <string name="update_error_signature">File pembaruan tidak ditandatangani dengan kunci SaveTek, jadi ditolak dan dihapus demi keamanan Anda.</string>
+    <string name="update_error_signature">File pembaruan ditandatangani dengan kunci yang berbeda dari kunci SaveTek, jadi ditolak dan dihapus demi keamanan Anda.</string>
+    <string name="update_error_signature_unreadable">Perangkat ini tidak dapat memverifikasi tanda tangan pembaruan, jadi tidak dipasang demi keamanan Anda. Unduh versi terbaru dari situs web.</string>
+    <string name="update_error_version">File pembaruan bukan versi yang diumumkan, jadi ditolak dan dihapus demi keamanan Anda.</string>
+    <string name="open_website">Buka situs web</string>
     <string name="close">Tutup</string>
     <string name="app_updates">Pembaruan aplikasi</string>
     <string name="current_app_version">Versi saat ini: %1$s</string>

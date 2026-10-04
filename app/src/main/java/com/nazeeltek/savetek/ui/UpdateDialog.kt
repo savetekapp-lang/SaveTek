@@ -40,6 +40,7 @@ fun UpdateDialog(
     onDismiss: () -> Unit,
     onOpenPermission: () -> Unit,
     onInstall: () -> Unit,
+    onOpenWebsite: () -> Unit,
 ) {
     val colors = MaterialTheme.colorScheme
     val language = LocalConfiguration.current.locales[0]?.language ?: "en"
@@ -107,7 +108,12 @@ fun UpdateDialog(
                 UpdatePhase.DOWNLOADING -> Unit
                 UpdatePhase.NEED_PERMISSION -> Button(onClick = onOpenPermission) { Text(stringResource(R.string.open_settings)) }
                 UpdatePhase.READY -> Button(onClick = onInstall) { Text(stringResource(R.string.install)) }
-                UpdatePhase.ERROR -> Button(onClick = onUpdateNow) { Text(stringResource(R.string.retry)) }
+                // تعذّر قراءة التوقيع لن يتغير بإعادة المحاولة: نوجّه المستخدم للموقع
+                UpdatePhase.ERROR -> if (state.offerWebsite) {
+                    Button(onClick = onOpenWebsite) { Text(stringResource(R.string.open_website)) }
+                } else {
+                    Button(onClick = onUpdateNow) { Text(stringResource(R.string.retry)) }
+                }
             }
         },
         dismissButton = {

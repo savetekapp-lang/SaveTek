@@ -192,7 +192,10 @@
     <string name="update_error_title">Couldn\'t update</string>
     <string name="update_error_download">Couldn\'t download the update. Check your internet connection and try again.</string>
     <string name="update_error_hash">The downloaded file doesn\'t match the published fingerprint (SHA-256), so it was deleted for your safety.</string>
-    <string name="update_error_signature">The update file isn\'t signed with the SaveTek key, so it was rejected and deleted for your safety.</string>
+    <string name="update_error_signature">The update file is signed with a different key than SaveTek\'s, so it was rejected and deleted for your safety.</string>
+    <string name="update_error_signature_unreadable">This device couldn\'t verify the update\'s signature, so it wasn\'t installed for your safety. Download the latest version from the website.</string>
+    <string name="update_error_version">The update file isn\'t the announced version, so it was rejected and deleted for your safety.</string>
+    <string name="open_website">Open website</string>
     <string name="close">Close</string>
     <string name="app_updates">App updates</string>
     <string name="current_app_version">Current version: %1$s</string>

@@ -162,7 +162,10 @@
     <string name="update_error_title">Mise à jour impossible</string>
     <string name="update_error_download">Impossible de télécharger la mise à jour. Vérifiez votre connexion Internet et réessayez.</string>
     <string name="update_error_hash">Le fichier téléchargé ne correspond pas à l\'empreinte publiée (SHA-256) ; il a été supprimé pour votre sécurité.</string>
-    <string name="update_error_signature">Le fichier de mise à jour n\'est pas signé avec la clé de SaveTek ; il a été refusé et supprimé pour votre sécurité.</string>
+    <string name="update_error_signature">Le fichier de mise à jour est signé avec une clé différente de celle de SaveTek ; il a été refusé et supprimé pour votre sécurité.</string>
+    <string name="update_error_signature_unreadable">Cet appareil n\'a pas pu vérifier la signature de la mise à jour ; elle n\'a pas été installée pour votre sécurité. Téléchargez la dernière version depuis le site.</string>
+    <string name="update_error_version">Le fichier de mise à jour n\'est pas la version annoncée ; il a été refusé et supprimé pour votre sécurité.</string>
+    <string name="open_website">Ouvrir le site</string>
     <string name="close">Fermer</string>
     <string name="app_updates">Mises à jour de l\'application</string>
     <string name="current_app_version">Version actuelle : %1$s</string>

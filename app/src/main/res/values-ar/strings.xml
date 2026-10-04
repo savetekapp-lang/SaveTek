@@ -162,7 +162,10 @@
     <string name="update_error_title">تعذّر التحديث</string>
     <string name="update_error_download">تعذّر تحميل التحديث. تأكد من اتصالك بالإنترنت وحاول مجدداً.</string>
     <string name="update_error_hash">الملف المحمَّل لا يطابق البصمة المنشورة (SHA-256)، لذلك حُذف حفاظاً على أمانك.</string>
-    <string name="update_error_signature">ملف التحديث غير موقّع بمفتاح SaveTek، لذلك رُفض وحُذف حفاظاً على أمانك.</string>
+    <string name="update_error_signature">ملف التحديث موقّع بمفتاح مختلف عن مفتاح SaveTek، لذلك رُفض وحُذف حفاظاً على أمانك.</string>
+    <string name="update_error_signature_unreadable">تعذّر التحقق من التحديث على هذا الجهاز، لذلك لم يُثبَّت حفاظاً على أمانك. حمّل آخر إصدار من الموقع.</string>
+    <string name="update_error_version">ملف التحديث ليس الإصدار المعلن عنه، لذلك رُفض وحُذف حفاظاً على أمانك.</string>
+    <string name="open_website">فتح الموقع</string>
     <string name="close">إغلاق</string>
     <string name="app_updates">تحديثات التطبيق</string>
     <string name="current_app_version">الإصدار الحالي: %1$s</string>

@@ -36,8 +36,21 @@ data class AppUpdate(
 
 /** أسباب فشل تحديث التطبيق. */
 class UpdateException(val reason: Reason) : Exception(reason.name) {
-    enum class Reason { DOWNLOAD, HASH, SIGNATURE }
+    enum class Reason {
+        DOWNLOAD,
+        /** البصمة SHA-256 لا تطابق version.json. */
+        HASH,
+        /** التوقيع قُرئ، لكنه ليس مفتاح SaveTek (أو الملف لتطبيق آخر). */
+        SIGNATURE_MISMATCH,
+        /** تعذّرت قراءة التوقيع على هذا الجهاز: نرفض احتياطاً ونوجّه المستخدم للموقع. */
+        SIGNATURE_UNREADABLE,
+        /** الملف ليس رقم الإصدار المعلن، أو أقدم من المثبّت. */
+        VERSION,
+    }
 }
+
+/** نتيجة مقارنة توقيع ملف التحديث بتوقيع التطبيق المثبّت. */
+internal enum class SignatureCheck { MATCH, MISMATCH, UNREADABLE }
 
 /**
  * نظام تحديث التطبيق:
@@ -237,27 +250,59 @@ object UpdateManager {
             throw UpdateException(UpdateException.Reason.HASH)
         }
 
-        // ٢. التوقيع: هل الملف موقّع بنفس مفتاح التطبيق المثبّت؟ وهل هو فعلاً إصدار أحدث (لا تراجع)؟
-        if (!sameSignatureAsInstalled(context, file) || !isExpectedVersion(context, file, update)) {
+        // ٢. التوقيع: هل الملف موقّع بنفس مفتاح التطبيق المثبّت؟
+        val failure = when (checkSignature(context, file)) {
+            SignatureCheck.MATCH -> null
+            SignatureCheck.MISMATCH -> UpdateException.Reason.SIGNATURE_MISMATCH
+            SignatureCheck.UNREADABLE -> UpdateException.Reason.SIGNATURE_UNREADABLE
+        }
+            // ٣. هل هو فعلاً الإصدار المعلن، وأحدث من المثبّت (لا تراجع)؟
+            ?: UpdateException.Reason.VERSION.takeUnless { isExpectedVersion(context, file, update) }
+        if (failure != null) {
             file.delete()
-            throw UpdateException(UpdateException.Reason.SIGNATURE)
+            throw UpdateException(failure)
         }
         file
     }
 
+    /**
+     * يقارن توقيع ملف APK (غير مثبّت) بتوقيع التطبيق المثبّت.
+     *
+     * لماذا نطلب GET_SIGNATURES و GET_SIGNING_CERTIFICATES معاً؟
+     * في أندرويد 9 إلى 12، getPackageArchiveInfo لا يقرأ شهادات الملف إلا إذا وُجد GET_SIGNATURES
+     * ضمن الطلب؛ مع GET_SIGNING_CERTIFICATES وحده يُرجع signingInfo فارغاً (خلل أصلحه أندرويد 13).
+     * وفي أندرويد 7 و8 لا يوجد إلا GET_SIGNATURES.
+     *
+     * نقارن كل طريقة بنظيرتها فقط (signingInfo مع signingInfo، و signatures مع signatures):
+     * - إذا قُرئ الطرفان بأي طريقة واختلفا ← MISMATCH (رفض).
+     * - إذا لم يمكن قراءة الطرفين بأي طريقة ← UNREADABLE (رفض أيضاً، لكن برسالة مختلفة).
+     */
     @SuppressLint("PackageManagerGetSignatures")
     @Suppress("DEPRECATION")
-    private fun sameSignatureAsInstalled(context: Context, apk: File): Boolean = runCatching {
+    internal fun checkSignature(context: Context, apk: File): SignatureCheck {
         val pm = context.packageManager
         val flags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
-            PackageManager.GET_SIGNING_CERTIFICATES else PackageManager.GET_SIGNATURES
-        val installed = pm.getPackageInfo(context.packageName, flags)
-        val archive = pm.getPackageArchiveInfo(apk.absolutePath, flags) ?: return false
-        if (archive.packageName != context.packageName) return false
-        val mine = signatureDigests(installed)
-        val theirs = signatureDigests(archive)
-        mine.isNotEmpty() && mine == theirs
-    }.getOrDefault(false)
+            PackageManager.GET_SIGNATURES or PackageManager.GET_SIGNING_CERTIFICATES
+        else PackageManager.GET_SIGNATURES
+
+        val archive = runCatching { pm.getPackageArchiveInfo(apk.absolutePath, flags) }.getOrNull()
+            ?: return SignatureCheck.UNREADABLE
+        // ملف لتطبيق آخر (اسم حزمة مختلف) يُعدّ توقيعاً غير مطابق
+        if (archive.packageName != context.packageName) return SignatureCheck.MISMATCH
+        val installed = runCatching { pm.getPackageInfo(context.packageName, flags) }.getOrNull()
+            ?: return SignatureCheck.UNREADABLE
+
+        val pairs = listOf(
+            signingInfoDigests(installed) to signingInfoDigests(archive),
+            legacyDigests(installed) to legacyDigests(archive),
+        ).filter { (mine, theirs) -> mine.isNotEmpty() && theirs.isNotEmpty() }
+
+        return when {
+            pairs.isEmpty() -> SignatureCheck.UNREADABLE
+            pairs.all { (mine, theirs) -> mine == theirs } -> SignatureCheck.MATCH
+            else -> SignatureCheck.MISMATCH
+        }
+    }
 
     /** الملف المحمَّل يجب أن يكون نفس رقم الإصدار المعلن، وأحدث من المثبّت (منع الرجوع لإصدار قديم). */
     private fun isExpectedVersion(context: Context, apk: File, update: AppUpdate): Boolean = runCatching {
@@ -268,13 +313,43 @@ object UpdateManager {
             code > currentVersionCode(context)
     }.getOrDefault(false)
 
+    /**
+     * فحص ذاتي لنسخة الاختبار فقط (BuildConfig.SIGNATURE_SELFTEST): يطبّق فحص التوقيع على ملف APK
+     * الخاص بالتطبيق نفسه (مثل ملف تحديث موقّع بنفس المفتاح)، ويقارن الطريقة القديمة بالجديدة.
+     */
+    @SuppressLint("PackageManagerGetSignatures")
     @Suppress("DEPRECATION")
-    private fun signatureDigests(info: PackageInfo): Set<String> {
-        val signatures = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            info.signingInfo?.apkContentsSigners
-        } else {
-            info.signatures
-        } ?: return emptySet()
+    internal fun signatureSelfTest(context: Context): String {
+        val apk = File(context.applicationInfo.sourceDir)
+        val p = Build.VERSION.SDK_INT >= Build.VERSION_CODES.P
+        // الطريقة القديمة كما كانت في 0.7.3
+        val oldWay = runCatching {
+            val flags = if (p) PackageManager.GET_SIGNING_CERTIFICATES else PackageManager.GET_SIGNATURES
+            val archive = context.packageManager.getPackageArchiveInfo(apk.absolutePath, flags)
+            val sigs = if (p) archive?.signingInfo?.apkContentsSigners else archive?.signatures
+            !sigs.isNullOrEmpty()
+        }.getOrDefault(false)
+        val newWay = checkSignature(context, apk)
+        return "Android ${Build.VERSION.RELEASE} (API ${Build.VERSION.SDK_INT})\n" +
+            "${Build.MANUFACTURER} ${Build.MODEL}\n\n" +
+            "الطريقة القديمة (0.7.3): " + (if (oldWay) "قرأت التوقيع ✓" else "لم تقرأ التوقيع ✗") + "\n" +
+            "الطريقة الجديدة (0.7.4): " + when (newWay) {
+                SignatureCheck.MATCH -> "التوقيع مطابق ✓"
+                SignatureCheck.MISMATCH -> "توقيع مختلف ✗"
+                SignatureCheck.UNREADABLE -> "تعذّرت القراءة ✗"
+            }
+    }
+
+    /** شهادات التوقيع الحالية من signingInfo (أندرويد 9+)، أو مجموعة فارغة إن لم تُقرأ. */
+    private fun signingInfoDigests(info: PackageInfo): Set<String> =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) digests(info.signingInfo?.apkContentsSigners) else emptySet()
+
+    /** الشهادات من الحقل القديم signatures (يعمل على كل الإصدارات)، أو مجموعة فارغة. */
+    @Suppress("DEPRECATION")
+    private fun legacyDigests(info: PackageInfo): Set<String> = digests(info.signatures)
+
+    private fun digests(signatures: Array<android.content.pm.Signature>?): Set<String> {
+        if (signatures.isNullOrEmpty()) return emptySet()
         val sha = MessageDigest.getInstance("SHA-256")
         return signatures.map { sig -> sha.digest(sig.toByteArray()).joinToString("") { "%02x".format(it) } }.toSet()
     }
@@ -292,6 +367,12 @@ object UpdateManager {
             .setDataAndType(uri, "application/vnd.android.package-archive")
             .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_ACTIVITY_NEW_TASK)
         context.startActivity(intent)
+    }
+
+    /** يفتح موقع التطبيق الرسمي في المتصفح. */
+    fun openWebsite(context: Context) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(AppConfig.WEBSITE_URL)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        runCatching { context.startActivity(intent) }
     }
 
     /** يفتح صفحة إذن "تثبيت التطبيقات غير المعروفة" لهذا التطبيق. */

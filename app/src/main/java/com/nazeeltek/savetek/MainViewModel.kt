@@ -48,6 +48,8 @@ data class UpdateDialogState(
     val phase: UpdatePhase = UpdatePhase.PROMPT,
     val progress: Float? = null,
     val error: UiText? = null,
+    /** عند تعذّر قراءة التوقيع: بدل "إعادة المحاولة" نعرض زراً يفتح موقع التطبيق. */
+    val offerWebsite: Boolean = false,
 )
 
 /** "العقل" الذي يدير منطق كل الشاشات، ويبقى حيّاً عند تدوير الشاشة. */
@@ -324,7 +326,7 @@ class MainViewModel(private val app: Application) : AndroidViewModel(app) {
     fun startUpdate() {
         val state = _updateDialog.value ?: return
         updateJob?.cancel()
-        _updateDialog.value = state.copy(phase = UpdatePhase.DOWNLOADING, progress = 0f, error = null)
+        _updateDialog.value = state.copy(phase = UpdatePhase.DOWNLOADING, progress = 0f, error = null, offerWebsite = false)
         updateJob = viewModelScope.launch {
             try {
                 val file = UpdateManager.download(app, state.update) { progress ->
@@ -336,9 +338,12 @@ class MainViewModel(private val app: Application) : AndroidViewModel(app) {
                 val message = when (e.reason) {
                     UpdateException.Reason.DOWNLOAD -> R.string.update_error_download
                     UpdateException.Reason.HASH -> R.string.update_error_hash
-                    UpdateException.Reason.SIGNATURE -> R.string.update_error_signature
+                    UpdateException.Reason.SIGNATURE_MISMATCH -> R.string.update_error_signature
+                    UpdateException.Reason.SIGNATURE_UNREADABLE -> R.string.update_error_signature_unreadable
+                    UpdateException.Reason.VERSION -> R.string.update_error_version
                 }
-                _updateDialog.update { it?.copy(phase = UpdatePhase.ERROR, error = UiText(message)) }
+                val website = e.reason == UpdateException.Reason.SIGNATURE_UNREADABLE
+                _updateDialog.update { it?.copy(phase = UpdatePhase.ERROR, error = UiText(message), offerWebsite = website) }
             }
         }
     }
@@ -355,6 +360,9 @@ class MainViewModel(private val app: Application) : AndroidViewModel(app) {
     }
 
     fun openInstallPermission() = UpdateManager.openInstallPermissionSettings(app)
+
+    /** يفتح موقع التطبيق في المتصفح لتحميل آخر إصدار يدوياً. */
+    fun openWebsite() = UpdateManager.openWebsite(app)
 
     /** عند العودة للتطبيق (مثلاً من صفحة الإذن): نكمل التثبيت إذا صار الإذن مفعّلاً. */
     fun onAppResumed() {
