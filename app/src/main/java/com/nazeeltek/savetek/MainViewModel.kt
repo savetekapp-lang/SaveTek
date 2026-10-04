@@ -103,11 +103,19 @@ class MainViewModel(private val app: Application) : AndroidViewModel(app) {
                 _engineReady.value = true
             } catch (e: Exception) {
                 showHomeMessage(UiText(R.string.msg_engine_init_failed, listOf(e.message ?: "")), isError = true)
-                return@launch
             }
-            // فحص صامت لوجود إصدار أحدث للمحرك عند كل فتح (في الخلفية، لا يعطّل الاستخدام)
-            Downloader.autoUpdateOnOpen(app)
         }
+    }
+
+    val engineCheck = SettingsRepository.engineCheck
+    val engineUpdatingNow: StateFlow<Boolean> = Downloader.updatingNow
+
+    /**
+     * يُستدعى عند كل ظهور للتطبيق (فتحه أو العودة إليه):
+     * فحص المحرك في الخلفية، دون إبطاء الفتح أو تعطيل الاستخدام.
+     */
+    fun onAppOpened() {
+        SaveTekApp.scope.launch { Downloader.autoUpdateOnOpen(app) }
     }
 
     // ───────────── التنقل ─────────────

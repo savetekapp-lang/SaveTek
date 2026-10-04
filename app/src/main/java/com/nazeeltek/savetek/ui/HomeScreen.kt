@@ -61,6 +61,7 @@ import com.nazeeltek.savetek.data.VideoPreview
 fun HomeScreen(
     state: HomeState,
     engineReady: Boolean,
+    engineUpdating: Boolean,
     onUrlChange: (String) -> Unit,
     onPaste: (String) -> Unit,
     onFetch: () -> Unit,
@@ -109,6 +110,13 @@ fun HomeScreen(
                 CircularProgressIndicator(Modifier.size(18.dp), color = colors.primary, strokeWidth = 2.dp)
                 Spacer(Modifier.width(10.dp))
                 MutedText(stringResource(R.string.engine_preparing))
+            }
+        } else if (engineUpdating) {
+            // إشارة صغيرة غير مزعجة أثناء تحديث المحرك، تختفي تلقائياً عند الانتهاء
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                CircularProgressIndicator(Modifier.size(14.dp), color = colors.primary, strokeWidth = 2.dp)
+                Spacer(Modifier.width(8.dp))
+                MutedText(stringResource(R.string.engine_updating_chip))
             }
         }
 

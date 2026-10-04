@@ -106,6 +106,12 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    // عند كل فتح للتطبيق أو عودة إليه: فحص تحديث المحرك في الخلفية
+    override fun onStart() {
+        super.onStart()
+        viewModel.onAppOpened()
+    }
+
     // عند العودة للتطبيق (مثلاً من صفحة إذن التثبيت) نكمل تحديث التطبيق إن لزم
     override fun onResume() {
         super.onResume()
@@ -165,6 +171,8 @@ fun AppRoot(viewModel: MainViewModel, splashVisible: Boolean) {
     val availableUpdate by viewModel.availableUpdate.collectAsStateWithLifecycle()
     val updateDialog by viewModel.updateDialog.collectAsStateWithLifecycle()
     val checkingUpdates by viewModel.checkingUpdates.collectAsStateWithLifecycle()
+    val engineCheck by viewModel.engineCheck.collectAsStateWithLifecycle()
+    val engineUpdatingNow by viewModel.engineUpdatingNow.collectAsStateWithLifecycle()
 
     var currentTab by rememberSaveable { mutableStateOf(Tab.HOME) }
 
@@ -273,6 +281,7 @@ fun AppRoot(viewModel: MainViewModel, splashVisible: Boolean) {
                 Tab.HOME -> HomeScreen(
                     state = home,
                     engineReady = engineReady,
+                    engineUpdating = engineUpdatingNow,
                     onUrlChange = viewModel::onUrlChange,
                     onPaste = viewModel::onSharedText,
                     onFetch = viewModel::fetchPreview,
@@ -294,6 +303,7 @@ fun AppRoot(viewModel: MainViewModel, splashVisible: Boolean) {
                     language = language,
                     engineVersion = engineVersion,
                     engineUpdatedAt = engineUpdatedAt,
+                    engineCheck = engineCheck,
                     updating = updating,
                     engineReady = engineReady,
                     onDefaultQuality = viewModel::setDefaultQuality,

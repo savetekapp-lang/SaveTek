@@ -14,6 +14,14 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <!-- إبقاء المعالج يعمل أثناء التحميل والشاشة مطفأة -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- تبويب "فيديوهات الجهاز": قراءة فيديوهات الجوال محلياً فقط (يُطلب عند فتح التبويب أول مرة) -->
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <!-- أندرويد 14+: خيار "السماح بالوصول لفيديوهات محددة فقط" -->
+    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
+    <!-- أندرويد 12 وما قبله: إذن القراءة القديم -->
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
     <!-- الكتابة في المعرض: نحتاجها فقط في أندرويد 9 وما قبله -->
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"

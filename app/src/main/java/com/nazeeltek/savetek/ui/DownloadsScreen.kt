@@ -43,6 +43,9 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.PrimaryTabRow
+import androidx.compose.material3.Tab
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -102,61 +105,70 @@ fun DownloadsScreen(
     }
     val openPicker = { pickVideo.launch(arrayOf("video/*")) }
 
-    LazyColumn(
-        contentPadding = PaddingValues(16.dp),
-        verticalArrangement = Arrangement.spacedBy(10.dp),
-        modifier = Modifier.fillMaxSize(),
-    ) {
-        // زر تحويل فيديو من الجهاز (يظهر دائماً)
-        item {
-            OutlinedButton(
-                onClick = openPicker,
-                border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary),
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Icon(Icons.Filled.VideoFile, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
-                Spacer(Modifier.width(8.dp))
-                Text(stringResource(R.string.convert_from_device), color = MaterialTheme.colorScheme.primary)
+    // تبويبان: "تحميلاتي" (ما حمّلته أو حوّلته) و"فيديوهات الجهاز" (كل فيديوهات الجوال)
+    var tab by rememberSaveable { mutableIntStateOf(0) }
+    Column(Modifier.fillMaxSize()) {
+        DownloadsTabs(selected = tab, onSelect = { tab = it })
+        if (tab == 1) {
+            DeviceVideosTab(onConvert = { toConvert = ConvertSource.Device(it) })
+            return@Column
+        }
+        LazyColumn(
+            contentPadding = PaddingValues(16.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp),
+            modifier = Modifier.fillMaxSize(),
+        ) {
+            // زر تحويل فيديو من الجهاز (يظهر دائماً)
+            item {
+                OutlinedButton(
+                    onClick = openPicker,
+                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary),
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Icon(Icons.Filled.VideoFile, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
+                    Spacer(Modifier.width(8.dp))
+                    Text(stringResource(R.string.convert_from_device), color = MaterialTheme.colorScheme.primary)
+                }
             }
-        }
-
-        if (items.isEmpty()) {
-            item { EmptyState() }
-        }
-
-        if (running.isNotEmpty()) {
-            item { SectionTitle(stringResource(R.string.section_running, running.size)) }
-            items(running, key = { it.id }) { RunningRow(it, onCancel) }
-        }
-        if (done.isNotEmpty()) {
-            item { SectionTitle(stringResource(R.string.section_completed, done.size), Modifier.padding(top = 8.dp)) }
-            items(done, key = { it.id }) { item ->
-                FinishedRow(
-                    item = item,
-                    // الضغط على الملف يفتحه في المشغّل الداخلي
-                    onPlay = { PlayerActivity.open(context, item) },
-                    onShare = { share(context, item) },
-                    onRetry = {},
-                    onConvert = { toConvert = ConvertSource.Item(item) },
-                    onDelete = { toDelete = item },
-                )
+    
+            if (items.isEmpty()) {
+                item { EmptyState() }
             }
-        }
-        if (failed.isNotEmpty()) {
-            item { SectionTitle(stringResource(R.string.section_failed, failed.size), Modifier.padding(top = 8.dp)) }
-            items(failed, key = { it.id }) { item ->
-                FinishedRow(
-                    item = item,
-                    onPlay = {},
-                    onShare = {},
-                    onRetry = { onRetry(item) },
-                    onConvert = {},
-                    onDelete = { toDelete = item },
-                )
+    
+            if (running.isNotEmpty()) {
+                item { SectionTitle(stringResource(R.string.section_running, running.size)) }
+                items(running, key = { it.id }) { RunningRow(it, onCancel) }
             }
+            if (done.isNotEmpty()) {
+                item { SectionTitle(stringResource(R.string.section_completed, done.size), Modifier.padding(top = 8.dp)) }
+                items(done, key = { it.id }) { item ->
+                    FinishedRow(
+                        item = item,
+                        // الضغط على الملف يفتحه في المشغّل الداخلي
+                        onPlay = { PlayerActivity.open(context, item) },
+                        onShare = { share(context, item) },
+                        onRetry = {},
+                        onConvert = { toConvert = ConvertSource.Item(item) },
+                        onDelete = { toDelete = item },
+                    )
+                }
+            }
+            if (failed.isNotEmpty()) {
+                item { SectionTitle(stringResource(R.string.section_failed, failed.size), Modifier.padding(top = 8.dp)) }
+                items(failed, key = { it.id }) { item ->
+                    FinishedRow(
+                        item = item,
+                        onPlay = {},
+                        onShare = {},
+                        onRetry = { onRetry(item) },
+                        onConvert = {},
+                        onDelete = { toDelete = item },
+                    )
+                }
+            }
+            // مكان إعلان محجوز (مخفي تماماً ما دامت الإعلانات مطفأة)
+            item { AdSlotView(AdsManager.AdSlot.DOWNLOADS_BANNER) }
         }
-        // مكان إعلان محجوز (مخفي تماماً ما دامت الإعلانات مطفأة)
-        item { AdSlotView(AdsManager.AdSlot.DOWNLOADS_BANNER) }
     }
 
     toDelete?.let { item ->
@@ -193,6 +205,27 @@ fun DownloadsScreen(
                 toConvert = null
             },
         )
+    }
+}
+
+/** شريط التبويبين أعلى "تحميلاتي". */
+@Composable
+private fun DownloadsTabs(selected: Int, onSelect: (Int) -> Unit) {
+    val colors = MaterialTheme.colorScheme
+    PrimaryTabRow(
+        selectedTabIndex = selected,
+        containerColor = colors.background,
+        contentColor = colors.primary,
+    ) {
+        listOf(R.string.tab_downloads, R.string.tab_device_videos).forEachIndexed { index, label ->
+            Tab(
+                selected = selected == index,
+                onClick = { onSelect(index) },
+                text = { Text(stringResource(label), fontWeight = if (selected == index) FontWeight.Bold else FontWeight.Normal) },
+                selectedContentColor = colors.primary,
+                unselectedContentColor = colors.onBackground.copy(alpha = 0.7f),
+            )
+        }
     }
 }
 

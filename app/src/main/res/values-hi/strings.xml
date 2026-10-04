@@ -177,4 +177,29 @@
     <string name="contact_subject">SaveTek - पूछताछ</string>
     <string name="contact_body">\n\n\n---\nऐप वर्शन: %1$s\nAndroid: %2$s\nडिवाइस: %3$s</string>
     <string name="no_email_app">इस फ़ोन पर कोई ईमेल ऐप नहीं मिला</string>
+
+    <!-- آخر فحص لمحرك التحميل -->
+    <string name="engine_last_check">पिछली जाँच: %1$s — %2$s</string>
+    <string name="engine_last_check_never">पिछली जाँच: अभी नहीं हुई</string>
+    <string name="check_up_to_date">अप-टू-डेट ✅</string>
+    <string name="check_updated">%1$s पर अपडेट हुआ ✅</string>
+    <string name="check_failed">असफल: %1$s</string>
+    <string name="check_skipped_wifi">जाँच नहीं हुई: \"केवल वाई-फ़ाई\" चालू है और आप वाई-फ़ाई पर नहीं थे</string>
+    <string name="check_skipped_busy">जाँच नहीं हुई: कोई डाउनलोड या बदलाव चल रहा था</string>
+    <string name="error_no_internet">इंटरनेट कनेक्शन नहीं है</string>
+    <string name="error_timeout">कनेक्शन का समय समाप्त हो गया</string>
+    <string name="engine_updating_chip">डाउनलोड इंजन अपडेट हो रहा है…</string>
+
+    <!-- تبويب فيديوهات الجهاز -->
+    <string name="tab_device_videos">डिवाइस के वीडियो</string>
+    <string name="media_rationale_title">अपने वीडियो तक पहुँच</string>
+    <string name="media_rationale_text">आपके फ़ोन के वीडियो यहाँ दिखाने के लिए ताकि आप उन्हें चला सकें या MP3 में बदल सकें, SaveTek को आपके वीडियो पढ़ने की अनुमति चाहिए।\n\nवीडियो केवल आपके फ़ोन पर पढ़े जाते हैं और कभी कहीं अपलोड या भेजे नहीं जाते।</string>
+    <string name="continue_btn">जारी रखें</string>
+    <string name="allow_access">पहुँच की अनुमति दें</string>
+    <string name="media_denied_title">वीडियो तक पहुँच नहीं है</string>
+    <string name="media_denied_text">अपने फ़ोन के वीडियो यहाँ देखने के लिए पहुँच की अनुमति दें। ऐप का बाकी हिस्सा इसके बिना सामान्य रूप से काम करता है।</string>
+    <string name="media_partial_text">आपने केवल चुने हुए वीडियो तक पहुँच दी है।</string>
+    <string name="select_more_videos">और वीडियो चुनें</string>
+    <string name="no_device_videos">इस फ़ोन पर कोई वीडियो नहीं मिला</string>
+    <string name="video_count">वीडियो (%1$d)</string>
 </resources>

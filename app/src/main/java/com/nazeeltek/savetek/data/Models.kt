@@ -12,6 +12,12 @@ enum class DefaultQuality(val maxShortSide: Int?) {
 /** مظهر التطبيق. */
 enum class ThemeMode { NAVY_GOLD, LIGHT, DARK, SYSTEM }
 
+/** نتيجة آخر فحص لتحديث محرك التحميل (تظهر في الإعدادات). */
+enum class EngineCheckResult { UP_TO_DATE, UPDATED, FAILED, SKIPPED_WIFI, SKIPPED_BUSY }
+
+/** آخر فحص للمحرك: وقته ونتيجته وتفاصيلها (رقم الإصدار أو سبب الفشل). */
+data class EngineCheck(val time: Long, val result: EngineCheckResult, val detail: String?)
+
 /** نوع المهمة في "تحميلاتي": تحميل من الإنترنت أو تحويل فيديو إلى صوت. */
 enum class JobKind { DOWNLOAD, CONVERT }
 

@@ -177,4 +177,29 @@
     <string name="contact_subject">SaveTek - Soru</string>
     <string name="contact_body">\n\n\n---\nUygulama sürümü: %1$s\nAndroid: %2$s\nCihaz: %3$s</string>
     <string name="no_email_app">Bu telefonda e-posta uygulaması bulunamadı</string>
+
+    <!-- آخر فحص لمحرك التحميل -->
+    <string name="engine_last_check">Son denetim: %1$s — %2$s</string>
+    <string name="engine_last_check_never">Son denetim: henüz yapılmadı</string>
+    <string name="check_up_to_date">güncel ✅</string>
+    <string name="check_updated">%1$s sürümüne güncellendi ✅</string>
+    <string name="check_failed">başarısız: %1$s</string>
+    <string name="check_skipped_wifi">atlandı: \"Yalnızca Wi-Fi\" açık ve Wi-Fi\'a bağlı değildiniz</string>
+    <string name="check_skipped_busy">atlandı: devam eden bir indirme veya dönüştürme vardı</string>
+    <string name="error_no_internet">internet bağlantısı yok</string>
+    <string name="error_timeout">bağlantı zaman aşımına uğradı</string>
+    <string name="engine_updating_chip">İndirme motoru güncelleniyor…</string>
+
+    <!-- تبويب فيديوهات الجهاز -->
+    <string name="tab_device_videos">Cihazdaki videolar</string>
+    <string name="media_rationale_title">Videolarınıza erişim</string>
+    <string name="media_rationale_text">Telefonunuzdaki videoları burada gösterip oynatabilmeniz veya MP3\'e dönüştürebilmeniz için SaveTek\'in videoları okuma iznine ihtiyacı var.\n\nVideolar yalnızca telefonunuzda okunur, hiçbir yere yüklenmez veya gönderilmez.</string>
+    <string name="continue_btn">Devam</string>
+    <string name="allow_access">Erişime izin ver</string>
+    <string name="media_denied_title">Videolara erişim yok</string>
+    <string name="media_denied_text">Telefonunuzdaki videoları burada görmek için erişime izin verin. Uygulamanın geri kalanı bu olmadan da normal çalışır.</string>
+    <string name="media_partial_text">Yalnızca seçili videolara erişim izni verdiniz.</string>
+    <string name="select_more_videos">Daha fazla video seç</string>
+    <string name="no_device_videos">Bu telefonda video bulunamadı</string>
+    <string name="video_count">Videolar (%1$d)</string>
 </resources>

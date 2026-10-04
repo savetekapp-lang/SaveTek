@@ -25,6 +25,10 @@ object SettingsRepository {
     private val _engineUpdatedAt = MutableStateFlow(0L)
     val engineUpdatedAt: StateFlow<Long> = _engineUpdatedAt.asStateFlow()
 
+    /** آخر فحص لتحديث المحرك (null = لم يُفحص بعد). */
+    private val _engineCheck = MutableStateFlow<EngineCheck?>(null)
+    val engineCheck: StateFlow<EngineCheck?> = _engineCheck.asStateFlow()
+
     /** المظهر المختار (الافتراضي: كحلي وذهبي). */
     private val _themeMode = MutableStateFlow(ThemeMode.NAVY_GOLD)
     val themeMode: StateFlow<ThemeMode> = _themeMode.asStateFlow()
@@ -44,7 +48,29 @@ object SettingsRepository {
             ?.let { saved -> ThemeMode.entries.firstOrNull { it.name == saved } }
             ?: ThemeMode.NAVY_GOLD
         _language.value = prefs.getString(LocaleHelper.KEY_LANGUAGE, "") ?: ""
+        _engineCheck.value = prefs.getString("engine_check_result", null)
+            ?.let { saved -> EngineCheckResult.entries.firstOrNull { it.name == saved } }
+            ?.let { EngineCheck(prefs.getLong("engine_check_at", 0L), it, prefs.getString("engine_check_detail", null)) }
     }
+
+    /** يسجّل نتيجة فحص المحرك (تلقائي أو يدوي) لتظهر في الإعدادات. */
+    fun recordEngineCheck(result: EngineCheckResult, detail: String? = null) {
+        val check = EngineCheck(System.currentTimeMillis(), result, detail?.take(200))
+        _engineCheck.value = check
+        prefs.edit()
+            .putLong("engine_check_at", check.time)
+            .putString("engine_check_result", result.name)
+            .putString("engine_check_detail", check.detail)
+            .apply()
+    }
+
+    /**
+     * رقم إصدار التطبيق الذي اكتمل له فحص المحرك آخر مرة.
+     * إذا اختلف عن الإصدار الحالي، فهذا أول فتح بعد تثبيت أو تحديث التطبيق.
+     */
+    var engineCheckedForAppVersion: Long
+        get() = prefs.getLong("engine_checked_app_version", -1L)
+        set(value) = prefs.edit().putLong("engine_checked_app_version", value).apply()
 
     fun setDefaultQuality(q: DefaultQuality) {
         _defaultQuality.value = q
@@ -76,6 +102,11 @@ object SettingsRepository {
     var disclaimerAccepted: Boolean
         get() = prefs.getBoolean("disclaimer_ok", false)
         set(value) = prefs.edit().putBoolean("disclaimer_ok", value).apply()
+
+    /** هل طلبنا إذن الوصول للفيديوهات من قبل؟ (لنعرف هل الرفض نهائي فنفتح الإعدادات بدل الطلب) */
+    var mediaPermissionAsked: Boolean
+        get() = prefs.getBoolean("media_permission_asked", false)
+        set(value) = prefs.edit().putBoolean("media_permission_asked", value).apply()
 
     /** هل عرضنا على المستخدم شرح سبب طلب إذن الإشعارات؟ (نعرضه مرة واحدة فقط) */
     var notificationAsked: Boolean

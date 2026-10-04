@@ -74,6 +74,8 @@ import androidx.lifecycle.compose.currentStateAsState
 import com.nazeeltek.savetek.LocaleHelper
 import com.nazeeltek.savetek.R
 import com.nazeeltek.savetek.data.DefaultQuality
+import com.nazeeltek.savetek.data.EngineCheck
+import com.nazeeltek.savetek.data.EngineCheckResult
 import com.nazeeltek.savetek.data.ThemeMode
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -87,6 +89,7 @@ fun SettingsScreen(
     language: String,
     engineVersion: String?,
     engineUpdatedAt: Long,
+    engineCheck: EngineCheck?,
     updating: Boolean,
     engineReady: Boolean,
     onDefaultQuality: (DefaultQuality) -> Unit,
@@ -210,6 +213,8 @@ fun SettingsScreen(
                 ?: stringResource(if (engineReady) R.string.unknown else R.string.preparing)
             Text(stringResource(R.string.engine_version, versionText), color = colors.onSurface)
             Text(stringResource(R.string.engine_last_update, formatUpdateDate(engineUpdatedAt)), color = colors.onSurface)
+            // آخر فحص ونتيجته: حتى يتأكد المستخدم أن الفحص التلقائي يحدث فعلاً
+            EngineCheckLine(engineCheck)
             MutedText(stringResource(R.string.engine_auto_desc))
             Spacer(Modifier.height(4.dp))
             OutlinedButton(
@@ -264,6 +269,28 @@ fun SettingsScreen(
             }
         }
     }
+}
+
+/** سطر "آخر فحص: [الوقت] — [النتيجة]"، بلون الخطأ إذا فشل الفحص أو مُنع. */
+@Composable
+private fun EngineCheckLine(check: EngineCheck?) {
+    val colors = MaterialTheme.colorScheme
+    if (check == null) {
+        Text(stringResource(R.string.engine_last_check_never), color = colors.onSurface)
+        return
+    }
+    val result = when (check.result) {
+        EngineCheckResult.UP_TO_DATE -> stringResource(R.string.check_up_to_date)
+        EngineCheckResult.UPDATED -> stringResource(R.string.check_updated, check.detail ?: "")
+        EngineCheckResult.FAILED -> stringResource(R.string.check_failed, check.detail ?: stringResource(R.string.error_unknown))
+        EngineCheckResult.SKIPPED_WIFI -> stringResource(R.string.check_skipped_wifi)
+        EngineCheckResult.SKIPPED_BUSY -> stringResource(R.string.check_skipped_busy)
+    }
+    val bad = check.result in setOf(EngineCheckResult.FAILED, EngineCheckResult.SKIPPED_WIFI, EngineCheckResult.SKIPPED_BUSY)
+    Text(
+        stringResource(R.string.engine_last_check, formatUpdateDate(check.time), result),
+        color = if (bad) colors.error else colors.onSurface,
+    )
 }
 
 /** صف اختيار بزر دائري. */

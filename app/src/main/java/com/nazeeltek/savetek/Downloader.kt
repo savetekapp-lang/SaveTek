@@ -5,6 +5,7 @@ import android.os.SystemClock
 import com.nazeeltek.savetek.data.DownloadItem
 import com.nazeeltek.savetek.data.DownloadRepository
 import com.nazeeltek.savetek.data.DownloadStatus
+import com.nazeeltek.savetek.data.EngineCheckResult
 import com.nazeeltek.savetek.data.SettingsRepository
 import com.nazeeltek.savetek.data.VideoPreview
 import com.yausername.ffmpeg.FFmpeg
@@ -185,32 +186,86 @@ object Downloader {
     suspend fun update(context: Context): String = withContext(Dispatchers.IO) {
         ensureReady(context)
         updateLock.withLock {
-            val app = context.applicationContext
-            val status = YoutubeDL.getInstance().updateYoutubeDL(app)
-            val v = YoutubeDL.getInstance().version(app)
-            _version.value = v
-            val shown = v ?: context.str(R.string.unknown)
-            when (status) {
-                YoutubeDL.UpdateStatus.DONE -> {
-                    SettingsRepository.setEngineUpdatedAt(System.currentTimeMillis())
-                    context.str(R.string.update_done, shown)
+            _updatingNow.value = true
+            try {
+                val app = context.applicationContext
+                val status = YoutubeDL.getInstance().updateYoutubeDL(app)
+                val v = YoutubeDL.getInstance().version(app)
+                _version.value = v
+                val shown = v ?: context.str(R.string.unknown)
+                when (status) {
+                    YoutubeDL.UpdateStatus.DONE -> {
+                        SettingsRepository.setEngineUpdatedAt(System.currentTimeMillis())
+                        SettingsRepository.recordEngineCheck(EngineCheckResult.UPDATED, v)
+                        context.str(R.string.update_done, shown)
+                    }
+                    else -> {
+                        SettingsRepository.recordEngineCheck(EngineCheckResult.UP_TO_DATE, v)
+                        context.str(R.string.update_latest, shown)
+                    }
                 }
-                YoutubeDL.UpdateStatus.ALREADY_UP_TO_DATE -> context.str(R.string.update_latest, shown)
-                else -> context.str(R.string.update_finished, shown)
+            } catch (e: Exception) {
+                // نسجّل سبب الفشل ليظهر في الإعدادات، ثم نمرّر الخطأ لمن طلب التحديث
+                SettingsRepository.recordEngineCheck(EngineCheckResult.FAILED, failureReason(context, e))
+                throw e
+            } finally {
+                _updatingNow.value = false
             }
         }
     }
 
+    private val _updatingNow = MutableStateFlow(false)
+    /** هل يجري تحديث المحرك الآن (تلقائياً أو يدوياً)؟ تُستخدم لإظهار إشارة في الشاشة الرئيسية. */
+    val updatingNow: StateFlow<Boolean> = _updatingNow.asStateFlow()
+
+    /** سبب فشل مفهوم للمستخدم. */
+    private fun failureReason(context: Context, e: Throwable): String = when (e) {
+        is java.net.UnknownHostException, is java.net.ConnectException ->
+            context.str(R.string.error_no_internet)
+        is java.net.SocketTimeoutException -> context.str(R.string.error_timeout)
+        else -> e.message?.lineSequence()?.firstOrNull { it.isNotBlank() }?.take(150)
+            ?: context.str(R.string.error_unknown)
+    }
+
     /**
-     * فحص صامت عند فتح التطبيق: يحدّث المحرك فقط إذا وُجد إصدار أحدث.
-     * لا يعمل إذا كان خيار "الواي فاي فقط" يمنع الاتصال، أو توجد تحميلات/تحويلات جارية.
+     * فحص تلقائي عند فتح التطبيق: يحدّث المحرك إذا وُجد إصدار أحدث.
+     *
+     * - أول فتح بعد تثبيت التطبيق أو تحديثه: يفحص فوراً دون قيد العشر دقائق.
+     * - إذا فشل (مثلاً لأن الإنترنت لم يجهز بعد لحظة الفتح): يعيد المحاولة مرتين.
+     * - لا يعمل إذا منعه خيار "الواي فاي فقط" أو كانت هناك مهمة جارية، ويسجّل السبب.
+     * - كل نتيجة تُسجَّل وتظهر في الإعدادات تحت "آخر فحص".
      */
     suspend fun autoUpdateOnOpen(context: Context) {
+        val appVersion = UpdateManager.currentVersionCode(context)
+        val firstOpenOfThisVersion = SettingsRepository.engineCheckedForAppVersion != appVersion
         val now = SystemClock.elapsedRealtime()
-        if (lastAutoCheck != 0L && now - lastAutoCheck < MIN_CHECK_GAP_MS) return
-        if (wifiBlocked(context) || hasRunningJobs() || isUpdating) return
+        if (!firstOpenOfThisVersion && lastAutoCheck != 0L && now - lastAutoCheck < MIN_CHECK_GAP_MS) return
+        if (isUpdating) return
+
+        ensureReady(context)
+        if (wifiBlocked(context)) {
+            SettingsRepository.recordEngineCheck(EngineCheckResult.SKIPPED_WIFI)
+            return
+        }
+        if (hasRunningJobs()) {
+            SettingsRepository.recordEngineCheck(EngineCheckResult.SKIPPED_BUSY)
+            return
+        }
+
         lastAutoCheck = now
-        runCatching { update(context) }
+        val retryDelays = listOf(5_000L, 15_000L)
+        for (attempt in 0..retryDelays.size) {
+            try {
+                update(context)
+                SettingsRepository.engineCheckedForAppVersion = appVersion
+                return
+            } catch (e: kotlinx.coroutines.CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // الفشل سُجّل داخل update؛ ننتظر قليلاً ثم نعيد المحاولة
+                if (attempt < retryDelays.size) kotlinx.coroutines.delay(retryDelays[attempt])
+            }
+        }
     }
 
     /** هل الخطأ بسبب رفض الموقع للطلب (HTTP 403)؟ غالباً يُحلّ بتحديث المحرك. */

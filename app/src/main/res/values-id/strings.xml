@@ -177,4 +177,29 @@
     <string name="contact_subject">SaveTek - Pertanyaan</string>
     <string name="contact_body">\n\n\n---\nVersi aplikasi: %1$s\nAndroid: %2$s\nPerangkat: %3$s</string>
     <string name="no_email_app">Tidak ada aplikasi email di ponsel ini</string>
+
+    <!-- آخر فحص لمحرك التحميل -->
+    <string name="engine_last_check">Pemeriksaan terakhir: %1$s — %2$s</string>
+    <string name="engine_last_check_never">Pemeriksaan terakhir: belum dilakukan</string>
+    <string name="check_up_to_date">terbaru ✅</string>
+    <string name="check_updated">diperbarui ke %1$s ✅</string>
+    <string name="check_failed">gagal: %1$s</string>
+    <string name="check_skipped_wifi">dilewati: \"Hanya Wi-Fi\" aktif dan Anda tidak terhubung ke Wi-Fi</string>
+    <string name="check_skipped_busy">dilewati: ada unduhan atau konversi yang berjalan</string>
+    <string name="error_no_internet">tidak ada koneksi internet</string>
+    <string name="error_timeout">waktu koneksi habis</string>
+    <string name="engine_updating_chip">Memperbarui mesin unduhan…</string>
+
+    <!-- تبويب فيديوهات الجهاز -->
+    <string name="tab_device_videos">Video perangkat</string>
+    <string name="media_rationale_title">Akses ke video Anda</string>
+    <string name="media_rationale_text">Untuk menampilkan video di ponsel Anda di sini agar bisa diputar atau dikonversi ke MP3, SaveTek memerlukan izin untuk membaca video Anda.\n\nVideo hanya dibaca di ponsel Anda dan tidak pernah diunggah atau dikirim ke mana pun.</string>
+    <string name="continue_btn">Lanjutkan</string>
+    <string name="allow_access">Izinkan akses</string>
+    <string name="media_denied_title">Tidak ada akses ke video</string>
+    <string name="media_denied_text">Izinkan akses untuk melihat video di ponsel Anda di sini. Bagian lain aplikasi tetap berfungsi normal tanpanya.</string>
+    <string name="media_partial_text">Anda hanya mengizinkan akses ke video tertentu.</string>
+    <string name="select_more_videos">Pilih video lainnya</string>
+    <string name="no_device_videos">Tidak ada video di ponsel ini</string>
+    <string name="video_count">Video (%1$d)</string>
 </resources>

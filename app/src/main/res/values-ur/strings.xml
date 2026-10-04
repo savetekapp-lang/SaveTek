@@ -177,4 +177,29 @@
     <string name="contact_subject">SaveTek - استفسار</string>
     <string name="contact_body">\n\n\n---\nایپ ورژن: %1$s\nاینڈرائیڈ: %2$s\nڈیوائس: %3$s</string>
     <string name="no_email_app">اس فون پر کوئی ای میل ایپ نہیں ملی</string>
+
+    <!-- آخر فحص لمحرك التحميل -->
+    <string name="engine_last_check">آخری جانچ: %1$s — %2$s</string>
+    <string name="engine_last_check_never">آخری جانچ: ابھی نہیں ہوئی</string>
+    <string name="check_up_to_date">تازہ ترین ✅</string>
+    <string name="check_updated">%1$s پر اپ ڈیٹ ہو گیا ✅</string>
+    <string name="check_failed">ناکام: %1$s</string>
+    <string name="check_skipped_wifi">جانچ نہیں ہوئی: \"صرف وائی فائی\" آن ہے اور آپ وائی فائی پر نہیں تھے</string>
+    <string name="check_skipped_busy">جانچ نہیں ہوئی: کوئی ڈاؤن لوڈ یا تبدیلی جاری تھی</string>
+    <string name="error_no_internet">انٹرنیٹ کنکشن نہیں</string>
+    <string name="error_timeout">کنکشن کا وقت ختم ہو گیا</string>
+    <string name="engine_updating_chip">ڈاؤن لوڈ انجن اپ ڈیٹ ہو رہا ہے…</string>
+
+    <!-- تبويب فيديوهات الجهاز -->
+    <string name="tab_device_videos">ڈیوائس کی ویڈیوز</string>
+    <string name="media_rationale_title">اپنی ویڈیوز تک رسائی</string>
+    <string name="media_rationale_text">آپ کے فون کی ویڈیوز یہاں دکھانے کے لیے تاکہ آپ انہیں چلا سکیں یا MP3 میں تبدیل کر سکیں، SaveTek کو ویڈیوز پڑھنے کی اجازت چاہیے۔\n\nویڈیوز صرف آپ کے فون پر پڑھی جاتی ہیں اور کہیں اپ لوڈ یا بھیجی نہیں جاتیں۔</string>
+    <string name="continue_btn">جاری رکھیں</string>
+    <string name="allow_access">رسائی کی اجازت دیں</string>
+    <string name="media_denied_title">ویڈیوز تک رسائی نہیں</string>
+    <string name="media_denied_text">اپنے فون کی ویڈیوز یہاں دیکھنے کے لیے رسائی کی اجازت دیں۔ ایپ کا باقی حصہ اس کے بغیر معمول کے مطابق کام کرتا ہے۔</string>
+    <string name="media_partial_text">آپ نے صرف منتخب ویڈیوز تک رسائی دی ہے۔</string>
+    <string name="select_more_videos">مزید ویڈیوز منتخب کریں</string>
+    <string name="no_device_videos">اس فون پر کوئی ویڈیو نہیں ملی</string>
+    <string name="video_count">ویڈیوز (%1$d)</string>
 </resources>

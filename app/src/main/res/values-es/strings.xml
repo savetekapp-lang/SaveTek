@@ -177,4 +177,29 @@
     <string name="contact_subject">SaveTek - Consulta</string>
     <string name="contact_body">\n\n\n---\nVersión de la aplicación: %1$s\nAndroid: %2$s\nDispositivo: %3$s</string>
     <string name="no_email_app">No se encontró ninguna aplicación de correo en este teléfono</string>
+
+    <!-- آخر فحص لمحرك التحميل -->
+    <string name="engine_last_check">Última comprobación: %1$s — %2$s</string>
+    <string name="engine_last_check_never">Última comprobación: aún no realizada</string>
+    <string name="check_up_to_date">actualizado ✅</string>
+    <string name="check_updated">actualizado a %1$s ✅</string>
+    <string name="check_failed">falló: %1$s</string>
+    <string name="check_skipped_wifi">omitida: «Solo Wi-Fi» está activado y no estabas en Wi-Fi</string>
+    <string name="check_skipped_busy">omitida: había una descarga o conversión en curso</string>
+    <string name="error_no_internet">sin conexión a Internet</string>
+    <string name="error_timeout">se agotó el tiempo de conexión</string>
+    <string name="engine_updating_chip">Actualizando el motor de descarga…</string>
+
+    <!-- تبويب فيديوهات الجهاز -->
+    <string name="tab_device_videos">Videos del dispositivo</string>
+    <string name="media_rationale_title">Acceso a tus videos</string>
+    <string name="media_rationale_text">Para mostrar aquí los videos de tu teléfono y poder reproducirlos o convertirlos a MP3, SaveTek necesita permiso para leer tus videos.\n\nLos videos se leen solo en tu teléfono y nunca se suben ni se envían a ningún sitio.</string>
+    <string name="continue_btn">Continuar</string>
+    <string name="allow_access">Permitir acceso</string>
+    <string name="media_denied_title">Sin acceso a los videos</string>
+    <string name="media_denied_text">Permite el acceso para ver aquí los videos de tu teléfono. El resto de la aplicación funciona con normalidad sin él.</string>
+    <string name="media_partial_text">Has permitido el acceso solo a algunos videos.</string>
+    <string name="select_more_videos">Seleccionar más videos</string>
+    <string name="no_device_videos">No se encontraron videos en este teléfono</string>
+    <string name="video_count">Videos (%1$d)</string>
 </resources>

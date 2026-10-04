@@ -177,4 +177,29 @@
     <string name="contact_subject">SaveTek - Demande</string>
     <string name="contact_body">\n\n\n---\nVersion de l\'application : %1$s\nAndroid : %2$s\nAppareil : %3$s</string>
     <string name="no_email_app">Aucune application de messagerie trouvée sur ce téléphone</string>
+
+    <!-- آخر فحص لمحرك التحميل -->
+    <string name="engine_last_check">Dernière vérification : %1$s — %2$s</string>
+    <string name="engine_last_check_never">Dernière vérification : pas encore effectuée</string>
+    <string name="check_up_to_date">à jour ✅</string>
+    <string name="check_updated">mis à jour vers %1$s ✅</string>
+    <string name="check_failed">échec : %1$s</string>
+    <string name="check_skipped_wifi">ignorée : « Wi-Fi uniquement » est activé et vous n\'étiez pas en Wi-Fi</string>
+    <string name="check_skipped_busy">ignorée : un téléchargement ou une conversion était en cours</string>
+    <string name="error_no_internet">pas de connexion Internet</string>
+    <string name="error_timeout">délai de connexion dépassé</string>
+    <string name="engine_updating_chip">Mise à jour du moteur de téléchargement…</string>
+
+    <!-- تبويب فيديوهات الجهاز -->
+    <string name="tab_device_videos">Vidéos de l\'appareil</string>
+    <string name="media_rationale_title">Accès à vos vidéos</string>
+    <string name="media_rationale_text">Pour afficher ici les vidéos de votre téléphone afin de les lire ou de les convertir en MP3, SaveTek a besoin de l\'autorisation de lire vos vidéos.\n\nLes vidéos sont lues uniquement sur votre téléphone et ne sont jamais envoyées nulle part.</string>
+    <string name="continue_btn">Continuer</string>
+    <string name="allow_access">Autoriser l\'accès</string>
+    <string name="media_denied_title">Aucun accès aux vidéos</string>
+    <string name="media_denied_text">Autorisez l\'accès pour voir ici les vidéos de votre téléphone. Le reste de l\'application fonctionne normalement sans cela.</string>
+    <string name="media_partial_text">Vous avez autorisé l\'accès à certaines vidéos seulement.</string>
+    <string name="select_more_videos">Sélectionner d\'autres vidéos</string>
+    <string name="no_device_videos">Aucune vidéo trouvée sur ce téléphone</string>
+    <string name="video_count">Vidéos (%1$d)</string>
 </resources>

@@ -47,6 +47,16 @@ class PlayerActivity : ComponentActivity() {
                 .putExtra(EXTRA_TITLE, item.title)
         }
 
+        /** يفتح أي فيديو من الجوال (من تبويب "فيديوهات الجهاز") في المشغّل الداخلي. */
+        fun openUri(context: Context, uri: Uri, mime: String?, title: String) {
+            context.startActivity(
+                Intent(context, PlayerActivity::class.java)
+                    .putExtra(EXTRA_URI, uri.toString())
+                    .putExtra(EXTRA_MIME, mime ?: "video/*")
+                    .putExtra(EXTRA_TITLE, title)
+            )
+        }
+
         /** يفتح الملف بتطبيق آخر يختاره المستخدم. */
         fun openWithOtherApp(context: Context, uri: Uri, mime: String?) {
             val view = Intent(Intent.ACTION_VIEW)
