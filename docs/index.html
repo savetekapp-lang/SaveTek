@@ -41,6 +41,7 @@
   --navy-2:#242C45;
   --gold:#D9A441;
   --gold-soft:#F3E3B8;
+  --gold-deep:#8F6513;  /* gold text on light backgrounds (contrast 4.8:1) */
   --paper:#F4F6F9;
   --white:#FFFFFF;
   --text:#1D2233;
@@ -158,7 +159,8 @@ html[dir="ltr"] .phone{transform:rotate(3deg)}
 section.block{padding-block:clamp(80px,10vw,130px)}
 .sec-head{max-width:640px;margin-bottom:56px}
 .sec-head h2{font-family:var(--head);font-weight:600;font-size:clamp(30px,3.8vw,44px);line-height:1.25;margin-bottom:14px;color:var(--ink)}
-.sec-head h2 b{color:var(--gold);font-weight:700}
+.sec-head h2 b{color:var(--gold-deep);font-weight:700}
+.dark .sec-head h2 b{color:var(--gold)}
 .sec-head p{color:var(--muted);font-size:18px}
 .dark{background:var(--ink);color:#fff}
 .dark .sec-head h2{color:#fff}
@@ -216,6 +218,7 @@ section.block{padding-block:clamp(80px,10vw,130px)}
 .qa.open .ans{grid-template-rows:1fr}
 .qa .ans>div{overflow:hidden}
 .qa .ans p{color:var(--muted);padding-bottom:26px;max-width:46em}
+.qa .ans a{color:var(--gold-deep);font-weight:500}
 
 /* responsible use */
 .resp{background:var(--navy);color:rgba(255,255,255,.8)}
@@ -244,6 +247,8 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
 /* ---------- iPhone / iPad visitors ---------- */
 .ios-note{display:none;margin-top:18px;padding:12px 16px;border-radius:12px;background:rgba(217,164,65,.12);border:1px solid rgba(217,164,65,.4);color:var(--gold-soft);font-size:15px;max-width:34em}
 .is-ios .ios-note{display:block}
+/* nothing to install on iOS: hide the download button and the Android file notes */
+.is-ios .cta-row,.is-ios .note32,.is-ios .qr{display:none}
 
 /* ---------- mobile: a shorter page ---------- */
 @media (max-width:900px){
@@ -330,8 +335,9 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
           <span class="ar">تحميل SaveTek</span><span class="en">Download SaveTek</span>
         </a>
         <div class="ver" id="ver">
-          <span class="ar">الإصدار <strong id="verAr">…</strong><bdi class="size"></bdi> · ملف APK</span>
-          <span class="en">Version <strong id="verEn">…</strong><bdi class="size"></bdi> · APK file</span>
+          <!-- version + size stay one left-to-right unit, so the Arabic line can't reorder them -->
+          <span class="ar">الإصدار <bdi dir="ltr"><strong id="verAr">…</strong><span class="size"></span></bdi> · ملف APK</span>
+          <span class="en">Version <bdi dir="ltr"><strong id="verEn">…</strong><span class="size"></span></bdi> · APK file</span>
         </div>
       </div>
       <p class="ios-note" role="note">
@@ -346,8 +352,8 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
         </p>
       </div>
       <p class="note32">
-        <span class="ar">لأندرويد 7 فما فوق. للجوالات القديمة (32-bit) اختر نسخة armeabi-v7a من <a id="relAr" href="https://github.com/savetekapp-lang/SaveTek/releases/latest">صفحة الإصدارات</a></span>
-        <span class="en">Android 7 and later. For older (32-bit) phones, get the armeabi-v7a build from <a id="relEn" href="https://github.com/savetekapp-lang/SaveTek/releases/latest">the releases page</a></span>
+        <span class="ar">لأندرويد 7 فما فوق. للجوالات القديمة <bdi dir="ltr">(32-bit)</bdi> اختر نسخة armeabi-v7a من <a class="rel-link" href="https://github.com/savetekapp-lang/SaveTek/releases/latest">صفحة الإصدارات</a></span>
+        <span class="en">Android 7 and later. For older (32-bit) phones, get the armeabi-v7a build from <a class="rel-link" href="https://github.com/savetekapp-lang/SaveTek/releases/latest">the releases page</a></span>
       </p>
     </div>
 
@@ -425,12 +431,12 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
       <p class="swipe-hint"><span class="ar">اسحب لرؤية المزيد من الشاشات.</span><span class="en">Swipe to see more screens.</span></p>
     </div>
     <div class="shots rv" id="shots">
-      <figure class="shot" data-src="screenshots/home.png"><div class="frame"></div><figcaption><span class="ar">الرئيسية</span><span class="en">Home</span></figcaption></figure>
-      <figure class="shot" data-src="screenshots/downloads.png"><div class="frame"></div><figcaption><span class="ar">تحميلاتي</span><span class="en">My downloads</span></figcaption></figure>
-      <figure class="shot" data-src="screenshots/player.png"><div class="frame"></div><figcaption><span class="ar">المشغّل</span><span class="en">Player</span></figcaption></figure>
-      <figure class="shot" data-src="screenshots/audio.png"><div class="frame"></div><figcaption><span class="ar">مشغّل الصوت MP3</span><span class="en">MP3 audio player</span></figcaption></figure>
-      <figure class="shot" data-src="screenshots/settings.png"><div class="frame"></div><figcaption><span class="ar">الإعدادات</span><span class="en">Settings</span></figcaption></figure>
-      <figure class="shot" data-src="screenshots/themes.png"><div class="frame"></div><figcaption><span class="ar">المظهر</span><span class="en">Themes</span></figcaption></figure>
+      <figure class="shot" data-src="screenshots/home.webp"><div class="frame"></div><figcaption><span class="ar">الرئيسية</span><span class="en">Home</span></figcaption></figure>
+      <figure class="shot" data-src="screenshots/downloads.webp"><div class="frame"></div><figcaption><span class="ar">تحميلاتي</span><span class="en">My downloads</span></figcaption></figure>
+      <figure class="shot" data-src="screenshots/player.webp"><div class="frame"></div><figcaption><span class="ar">المشغّل</span><span class="en">Player</span></figcaption></figure>
+      <figure class="shot" data-src="screenshots/audio.webp"><div class="frame"></div><figcaption><span class="ar">مشغّل الصوت MP3</span><span class="en">MP3 audio player</span></figcaption></figure>
+      <figure class="shot" data-src="screenshots/settings.webp"><div class="frame"></div><figcaption><span class="ar">الإعدادات</span><span class="en">Settings</span></figcaption></figure>
+      <figure class="shot" data-src="screenshots/themes.webp"><div class="frame"></div><figcaption><span class="ar">المظهر</span><span class="en">Themes</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -485,7 +491,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
       </div>
       <div class="qa">
         <button type="button" aria-expanded="false"><span><span class="ar">أي ملف أحمّل لجوالي؟</span><span class="en">Which file should I download?</span></span><span class="pm"></span></button>
-        <div class="ans"><div><p><span class="ar">زر "تحميل SaveTek" يعطيك نسخة <strong>arm64-v8a</strong> التي تناسب أغلب الجوالات الحديثة. إذا ظهرت رسالة أن التطبيق غير متوافق مع جوالك، فجوالك غالباً قديم (32-bit): حمّل نسخة <strong>armeabi-v7a</strong> من صفحة الإصدارات. ونسخة <strong>universal</strong> تعمل على كل الأجهزة لكن حجمها أكبر.</span><span class="en">The "Download SaveTek" button gives you the <strong>arm64-v8a</strong> build, which fits most modern phones. If Android says the app isn't compatible, your phone is probably an older 32-bit one: get the <strong>armeabi-v7a</strong> build from the releases page. The <strong>universal</strong> build works everywhere but is larger.</span></p></div></div>
+        <div class="ans"><div><p><span class="ar">زر "تحميل SaveTek" يعطيك نسخة <strong>arm64-v8a</strong> التي تناسب أغلب الجوالات الحديثة. إذا ظهرت رسالة أن التطبيق غير متوافق مع جوالك، فجوالك غالباً قديم <bdi dir="ltr">(32-bit)</bdi>: حمّل نسخة <strong>armeabi-v7a</strong> من <a class="rel-link" href="https://github.com/savetekapp-lang/SaveTek/releases/latest">صفحة الإصدارات</a>. ونسخة <strong>universal</strong> تعمل على كل الأجهزة لكن حجمها أكبر.</span><span class="en">The "Download SaveTek" button gives you the <strong>arm64-v8a</strong> build, which fits most modern phones. If Android says the app isn't compatible, your phone is probably an older 32-bit one: get the <strong>armeabi-v7a</strong> build from <a class="rel-link" href="https://github.com/savetekapp-lang/SaveTek/releases/latest">the releases page</a>. The <strong>universal</strong> build works everywhere but is larger.</span></p></div></div>
       </div>
       <div class="qa">
         <button type="button" aria-expanded="false"><span><span class="ar">هل أحتاج إلى حساب أو تسجيل؟</span><span class="en">Do I need an account?</span></span><span class="pm"></span></button>
@@ -586,8 +592,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
     document.querySelectorAll("#ver .size").forEach(function(el){ el.textContent = size; });
     if(url) document.getElementById("dlBtn").href = url;
     if(page){
-      document.getElementById("relAr").href = page;
-      document.getElementById("relEn").href = page;
+      document.querySelectorAll(".rel-link").forEach(function(a){ a.href = page; });
     }
   }
   function fromGitHub(){
@@ -657,16 +662,25 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
     document.addEventListener("visibilitychange", sync);
   } else { run(); }
 
-  /* ---------- screenshots with placeholder ---------- */
-  document.querySelectorAll(".shot").forEach(function(f){
-    var frame = f.querySelector(".frame");
-    var img = new Image();
-    img.alt = f.querySelector("figcaption").textContent.trim();
-    img.onload = function(){ frame.appendChild(img); updateSwipeHint(); };
-    /* screenshot not added yet: hide its slot; it appears automatically once the image exists */
-    img.onerror = function(){ f.style.display = "none"; updateSwipeHint(); };
-    img.src = f.dataset.src;
-  });
+  /* ---------- screenshots: fetched only when the section gets close (saves data) ---------- */
+  function loadShots(){
+    document.querySelectorAll(".shot").forEach(function(f){
+      var frame = f.querySelector(".frame");
+      var img = new Image();
+      img.alt = f.querySelector("figcaption").textContent.trim();
+      img.decoding = "async";
+      img.onload = function(){ frame.appendChild(img); updateSwipeHint(); };
+      /* screenshot not added yet: hide its slot; it appears automatically once the image exists */
+      img.onerror = function(){ f.style.display = "none"; updateSwipeHint(); };
+      img.src = f.dataset.src;
+    });
+  }
+  if("IntersectionObserver" in window){
+    var shotsIo = new IntersectionObserver(function(ents){
+      if(ents[0].isIntersecting){ shotsIo.disconnect(); loadShots(); }
+    }, {rootMargin: "600px 0px"});
+    shotsIo.observe(document.getElementById("screens"));
+  } else { loadShots(); }
 
   /* show "swipe to see more" only when the screenshots don't all fit */
   var shotsBox = document.getElementById("shots");
