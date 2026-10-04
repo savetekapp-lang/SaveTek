@@ -200,8 +200,8 @@ h2 {
   font-size: 14px;
 }
 .shot .ph img { width: 64px; aspect-ratio: auto; border: 0; border-radius: 14px; background: none; }
-.shot.missing > img { display: none; }
-.shot.missing .ph { display: flex; }
+/* الصورة غير الموجودة بعد: نخفي مكانها بالكامل، وتظهر تلقائياً عند إضافة الصورة */
+.shot.missing { display: none; }
 .shot figcaption { margin-top: 8px; color: var(--muted); font-size: 15px; }
 
 /* خطوات التثبيت */
