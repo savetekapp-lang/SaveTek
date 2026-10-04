@@ -1,42 +1,42 @@
 {
-    "versionCode":  11,
-    "versionName":  "0.7.3",
+    "versionCode":  12,
+    "versionName":  "0.7.4",
     "releaseDate":  "2026-10-04",
-    "apkUrl":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.7.3/SaveTek-0.7.3-arm64-v8a.apk",
-    "sha256":  "3f88f0f83d81c4b120e0737e9f4ceeb9d207d8b49e59fa70c7e5d2743033b7ae",
-    "apkSizeBytes":  56736112,
+    "apkUrl":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.7.4/SaveTek-0.7.4-arm64-v8a.apk",
+    "sha256":  "8fb4c57555cb0ded797007a83edbf4f0e3eabc2dc36e3fb26c7d186c299b9937",
+    "apkSizeBytes":  56740388,
     "minSupportedVersionCode":  1,
-    "releasePage":  "https://github.com/savetekapp-lang/SaveTek/releases/tag/v0.7.3",
+    "releasePage":  "https://github.com/savetekapp-lang/SaveTek/releases/tag/v0.7.4",
     "abis":  {
                  "arm64-v8a":  {
-                                   "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.7.3/SaveTek-0.7.3-arm64-v8a.apk",
-                                   "sha256":  "3f88f0f83d81c4b120e0737e9f4ceeb9d207d8b49e59fa70c7e5d2743033b7ae",
-                                   "sizeBytes":  56736112
+                                   "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.7.4/SaveTek-0.7.4-arm64-v8a.apk",
+                                   "sha256":  "8fb4c57555cb0ded797007a83edbf4f0e3eabc2dc36e3fb26c7d186c299b9937",
+                                   "sizeBytes":  56740388
                                },
                  "armeabi-v7a":  {
-                                     "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.7.3/SaveTek-0.7.3-armeabi-v7a.apk",
-                                     "sha256":  "3f85b8c42717f2245daab890d0c6da113eeb18aa9fd92d051ff72a140e6b76f4",
-                                     "sizeBytes":  50082978
+                                     "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.7.4/SaveTek-0.7.4-armeabi-v7a.apk",
+                                     "sha256":  "0ef6b280d5ffe2df74fe6b802adb2124feb70ef8e12a68abfc79a972a10b87ea",
+                                     "sizeBytes":  50087254
                                  },
                  "x86_64":  {
-                                "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.7.3/SaveTek-0.7.3-x86_64.apk",
-                                "sha256":  "01a827b824bf40c58785d373676137bfecf2223e940617d7f39286946d27b62f",
-                                "sizeBytes":  59728111
+                                "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.7.4/SaveTek-0.7.4-x86_64.apk",
+                                "sha256":  "f7876f0361be242cc43b4dbe55e33d6abcb311f7ade94b25731830025225de95",
+                                "sizeBytes":  59732387
                             },
                  "universal":  {
-                                   "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.7.3/SaveTek-0.7.3-universal.apk",
-                                   "sha256":  "156f100242ad47ec0b026da3f8157a9c18d2b0b88fa7d5067e14119963aad27e",
-                                   "sizeBytes":  202120837
+                                   "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.7.4/SaveTek-0.7.4-universal.apk",
+                                   "sha256":  "ecbeb21ab69b8c07232dbe38b55288a440b75ff953de069f82c50b0d53f28d0a",
+                                   "sizeBytes":  202125113
                                }
              },
     "whatsNew":  {
-                     "ar":  "• تبويب جديد \"فيديوهات الجهاز\" في تحميلاتي: كل فيديوهات جوالك مع صورة مصغّرة ومدة، وتشغيلها أو تحويلها إلى MP3 مباشرة (مع دعم السماح بفيديوهات محددة فقط في أندرويد 14+).\n• إصلاح التحديث التلقائي لمحرك التحميل: يتحقق عند كل فتح ومباشرة بعد التثبيت أو التحديث، ويعيد المحاولة عند الحاجة.\n• سطر \"آخر فحص\" في الإعدادات، وإشارة صغيرة أثناء تحديث المحرك.",
-                     "en":  "• New \"Device videos\" tab in My downloads: all your phone\u0027s videos with thumbnails and durations, ready to play or convert to MP3 (with \"selected videos only\" support on Android 14+).\n• Fixed automatic engine updates: checks on every launch and right after installing or updating, and retries when needed.\n• A \"Last check\" line in Settings, and a small indicator while the engine updates.",
-                     "ur":  "• \"میری ڈاؤن لوڈز\" میں نیا ٹیب \"ڈیوائس کی ویڈیوز\": آپ کے فون کی تمام ویڈیوز تصویر اور دورانیے کے ساتھ، چلانے یا MP3 میں تبدیل کرنے کے لیے تیار (اینڈرائیڈ 14+ پر صرف منتخب ویڈیوز کی سہولت کے ساتھ)۔\n• انجن کی خودکار اپ ڈیٹ درست: ہر بار کھلنے پر اور انسٹال یا اپ ڈیٹ کے فوراً بعد جانچ، اور ضرورت پر دوبارہ کوشش۔\n• ترتیبات میں \"آخری جانچ\" کی لائن، اور انجن اپ ڈیٹ کے دوران چھوٹا اشارہ۔",
-                     "tr":  "• İndirdiklerim\u0027de yeni \"Cihazdaki videolar\" sekmesi: telefonunuzdaki tüm videolar küçük resim ve süreleriyle, oynatmaya veya MP3\u0027e dönüştürmeye hazır (Android 14+\u0027ta \"yalnızca seçili videolar\" desteğiyle).\n• Motorun otomatik güncellenmesi düzeltildi: her açılışta ve yükleme ya da güncellemeden hemen sonra denetler, gerekirse yeniden dener.\n• Ayarlar\u0027da \"Son denetim\" satırı ve motor güncellenirken küçük bir gösterge.",
-                     "fr":  "• Nouvel onglet « Vidéos de l\u0027appareil » dans Mes téléchargements : toutes les vidéos de votre téléphone avec miniatures et durées, prêtes à être lues ou converties en MP3 (avec prise en charge de « certaines vidéos seulement » sur Android 14+).\n• Correction de la mise à jour automatique du moteur : vérification à chaque ouverture et juste après l\u0027installation ou la mise à jour, avec nouvelles tentatives si nécessaire.\n• Une ligne « Dernière vérification » dans les Paramètres et un petit indicateur pendant la mise à jour du moteur.",
-                     "es":  "• Nueva pestaña «Videos del dispositivo» en Mis descargas: todos los videos de tu teléfono con miniaturas y duración, listos para reproducir o convertir a MP3 (con «solo algunos videos» en Android 14+).\n• Corregida la actualización automática del motor: comprueba en cada inicio y justo después de instalar o actualizar, y reintenta si hace falta.\n• Una línea «Última comprobación» en Ajustes y un pequeño indicador mientras se actualiza el motor.",
-                     "id":  "• Tab baru \"Video perangkat\" di Unduhan saya: semua video di ponsel Anda dengan gambar mini dan durasi, siap diputar atau dikonversi ke MP3 (mendukung \"hanya video tertentu\" di Android 14+).\n• Perbaikan pembaruan otomatis mesin: memeriksa setiap kali dibuka dan langsung setelah dipasang atau diperbarui, serta mencoba lagi bila perlu.\n• Baris \"Pemeriksaan terakhir\" di Setelan dan indikator kecil saat mesin diperbarui.",
-                     "hi":  "• \"मेरे डाउनलोड\" में नया टैब \"डिवाइस के वीडियो\": आपके फ़ोन के सभी वीडियो थंबनेल और अवधि के साथ, चलाने या MP3 में बदलने के लिए तैयार (Android 14+ पर \"केवल चुने हुए वीडियो\" के साथ)।\n• इंजन के अपने आप अपडेट होने की समस्या ठीक: हर बार खुलने पर और इंस्टॉल या अपडेट के तुरंत बाद जाँच, और ज़रूरत पर फिर से कोशिश।\n• सेटिंग्स में \"पिछली जाँच\" लाइन, और इंजन अपडेट होते समय छोटा संकेत।"
+                     "ar":  "• إصلاح تحديث التطبيق على أندرويد 9 إلى 12: كان يرفض التحديث خطأً برسالة \"غير موقّع بمفتاح SaveTek\".\n• رسائل أوضح عند فشل التحديث، وزر يفتح موقع التطبيق إذا تعذّر التحقق على جهازك.",
+                     "en":  "• Fixed app updates on Android 9 to 12: they were wrongly rejected with \"not signed with the SaveTek key\".\n• Clearer messages when an update fails, plus a button that opens the website if your device can\u0027t verify it.",
+                     "ur":  "• اینڈرائیڈ 9 سے 12 پر ایپ اپ ڈیٹ درست: اپ ڈیٹ غلطی سے \"SaveTek کی کلید سے سائن نہیں\" کہہ کر مسترد ہو جاتی تھی۔\n• اپ ڈیٹ ناکام ہونے پر زیادہ واضح پیغامات، اور اگر آپ کا آلہ تصدیق نہ کر سکے تو ویب سائٹ کھولنے کا بٹن۔",
+                     "tr":  "• Android 9 ile 12 arasında uygulama güncellemesi düzeltildi: güncelleme yanlışlıkla \"SaveTek anahtarıyla imzalanmamış\" diye reddediliyordu.\n• Güncelleme başarısız olduğunda daha açık mesajlar ve cihazınız doğrulayamazsa web sitesini açan bir düğme.",
+                     "fr":  "• Correction des mises à jour sur Android 9 à 12 : elles étaient refusées à tort avec « non signé avec la clé de SaveTek ».\n• Messages plus clairs en cas d\u0027échec, et un bouton qui ouvre le site si votre appareil ne peut pas vérifier la mise à jour.",
+                     "es":  "• Corregidas las actualizaciones en Android 9 a 12: se rechazaban por error con «no firmado con la clave de SaveTek».\n• Mensajes más claros cuando falla una actualización y un botón que abre el sitio web si tu dispositivo no puede verificarla.",
+                     "id":  "• Perbaikan pembaruan aplikasi di Android 9 sampai 12: pembaruan ditolak secara keliru dengan pesan \"tidak ditandatangani dengan kunci SaveTek\".\n• Pesan yang lebih jelas saat pembaruan gagal, serta tombol untuk membuka situs web jika perangkat Anda tidak dapat memverifikasinya.",
+                     "hi":  "• Android 9 से 12 पर ऐप अपडेट ठीक: अपडेट गलती से \"SaveTek की कुंजी से साइन नहीं\" कहकर अस्वीकार हो जाता था।\n• अपडेट विफल होने पर ज़्यादा साफ़ संदेश, और अगर आपका डिवाइस पुष्टि न कर सके तो वेबसाइट खोलने का बटन।"
                  }
 }

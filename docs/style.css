@@ -95,6 +95,8 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
 .f-links{display:flex;flex-wrap:wrap;gap:12px 28px}
 .f-links a{color:rgba(255,255,255,.75);text-decoration:none}
 .f-links a:hover{color:#fff;text-decoration:underline}
+.f-rights{padding-bottom:20px;font-size:14px;color:rgba(255,255,255,.7)}
+.f-rights a{color:var(--gold-soft)}
 .f-bot{border-top:1px solid rgba(255,255,255,.08);padding-block:20px;font-size:13.5px}
 @media (pointer:coarse){
   .f-links a,.f-top a{display:inline-block;padding-block:10px}
