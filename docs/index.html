@@ -202,6 +202,9 @@ section.block{padding-block:clamp(80px,10vw,130px)}
 .side-note p{color:var(--muted);font-size:15.5px;margin-bottom:12px}
 .side-note p:last-child{margin:0}
 .side-note strong{color:var(--ink)}
+.side-note .more summary{cursor:pointer;color:var(--gold-deep);font-weight:500;font-size:15px;padding-block:4px;width:max-content}
+.side-note .more[open] summary{margin-bottom:8px}
+.side-note .more p{margin:0}
 @media (max-width:900px){.install-grid{grid-template-columns:1fr}.side-note{position:static}}
 
 /* faq accordion */
@@ -248,14 +251,25 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
 .ios-note{display:none;margin-top:18px;padding:12px 16px;border-radius:12px;background:rgba(217,164,65,.12);border:1px solid rgba(217,164,65,.4);color:var(--gold-soft);font-size:15px;max-width:34em}
 .is-ios .ios-note{display:block}
 /* nothing to install on iOS: hide the download button and the Android file notes */
-.is-ios .cta-row,.is-ios .note32,.is-ios .qr{display:none}
+.is-ios .cta-row,.is-ios .note32,.is-ios .qr,.is-ios .wn{display:none}
 
 /* ---------- mobile: a shorter page ---------- */
 @media (max-width:900px){
-  .flow{display:none}   /* the phone animation already shows the 3 steps */
-  .hero{padding-bottom:70px}
-  .phone{width:210px}
+  /* phones/tablets: drop the phone mock (about half a screen); the 3-step chips tell the same story */
+  .phone-stage{display:none}
+  .hero{padding-bottom:64px}
+  .hero-grid{gap:0}
 }
+
+/* "what's new" under the download button (filled from version.json) */
+.wn{margin-top:18px;max-width:34em}
+.wn summary{display:inline-flex;align-items:center;gap:8px;cursor:pointer;list-style:none;font-size:14px;color:var(--gold-soft);padding-block:6px}
+.wn summary::-webkit-details-marker{display:none}
+.wn summary::after{content:"";width:7px;height:7px;border:solid currentColor;border-width:0 1.5px 1.5px 0;transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.wn[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.wn ul{margin-top:10px;padding:14px 18px;padding-inline-start:34px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.75);font-size:14.5px;line-height:1.7}
+.wn li+li{margin-top:8px}
+.wn li::marker{color:var(--gold)}
 @media (max-width:760px){
   .feats{grid-template-columns:repeat(2,1fr);column-gap:14px}
   .feats li{grid-template-columns:1fr;gap:10px;padding-block:20px}
@@ -340,6 +354,11 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
           <span class="en">Version <bdi dir="ltr"><strong id="verEn">…</strong><span class="size"></span></bdi> · APK file</span>
         </div>
       </div>
+      <details class="wn" id="wn" hidden>
+        <summary><span class="ar">ما الجديد في <bdi id="wnVerAr"></bdi></span><span class="en">What's new in <bdi id="wnVerEn"></bdi></span></summary>
+        <ul class="ar" id="wnAr"></ul>
+        <ul class="en" id="wnEn"></ul>
+      </details>
       <p class="ios-note" role="note">
         <span class="ar">SaveTek متوفر لأجهزة أندرويد فقط حالياً، ولا يعمل على الآيفون أو الآيباد.</span>
         <span class="en">SaveTek is currently available for Android only — it doesn't run on iPhone or iPad.</span>
@@ -398,7 +417,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
   <div class="wrap">
     <div class="sec-head rv">
       <h2><span class="ar">كل ما تحتاجه، <b>في تطبيق خفيف</b></span><span class="en">Everything you need, <b>in a light app</b></span></h2>
-      <p><span class="ar">كل شيء يعمل داخل جوالك: بدون حساب، وبدون إعلانات.</span><span class="en">Everything runs on your phone — no account, no ads.</span></p>
+      <p><span class="ar">التحميل والتحويل يتمّان داخل جوالك مباشرة، دون المرور بأي خادم وسيط.</span><span class="en">Downloading and converting happen right on your phone, with no middleman server.</span></p>
     </div>
     <ul class="feats">
       <li class="rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15V9l2.5 3L12 9v6M15 9v6m0-3 2.5-3M15 12l2.5 3"/></svg></div>
@@ -459,8 +478,12 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
       </ol>
       <aside class="side-note rv">
         <h3><span class="ar">ما معنى "السماح بالتثبيت من مصادر غير معروفة"؟</span><span class="en">What does "allow installing from unknown sources" mean?</span></h3>
-        <p><span class="ar">يسمح أندرويد افتراضياً بتثبيت التطبيقات من المتجر الرسمي فقط. هذا الإذن يسمح لك بتثبيت تطبيق حمّلته بنفسك، ويُعطى فقط للتطبيق الذي فتحت منه الملف (مثل المتصفح أو مدير الملفات)، ويمكنك إطفاؤه بعد التثبيت.</span><span class="en">By default, Android only installs apps from the official store. This permission lets you install an app you downloaded yourself. It applies only to the app you opened the file from (such as your browser or file manager), and you can turn it off after installing.</span></p>
-        <p><span class="ar">قد تظهر رسالة تحذير من حماية Play لأن التطبيق ليس في المتجر؛ إذا كنت حمّلته من هذه الصفحة الرسمية فاختر <strong>"التثبيت على أي حال"</strong>.</span><span class="en">Play Protect may show a warning because the app isn't in the store; if you downloaded it from this official page, choose <strong>"Install anyway"</strong>.</span></p>
+        <p><span class="ar">أندرويد يسمح افتراضياً بالتثبيت من المتجر فقط، وهذا الإذن يسمح لك بتثبيت تطبيق حمّلته بنفسك.</span><span class="en">Android only installs store apps by default; this permission lets you install an app you downloaded yourself.</span></p>
+        <p><span class="ar">إذا ظهر تحذير من حماية Play فاختر <strong>"التثبيت على أي حال"</strong>.</span><span class="en">If Play Protect shows a warning, choose <strong>"Install anyway"</strong>.</span></p>
+        <details class="more">
+          <summary><span class="ar">اعرف أكثر</span><span class="en">Learn more</span></summary>
+          <p><span class="ar">الإذن يُعطى فقط للتطبيق الذي فتحت منه الملف (مثل المتصفح أو مدير الملفات)، ويمكنك إطفاؤه بعد التثبيت. ويظهر تحذير حماية Play لأن التطبيق ليس في المتجر، فاختر "التثبيت على أي حال" فقط إذا حمّلته من هذه الصفحة الرسمية أو من صفحة الإصدارات.</span><span class="en">The permission is given only to the app you opened the file from (such as your browser or file manager), and you can turn it off after installing. Play Protect warns because the app isn't in the store — choose "Install anyway" only if you downloaded it from this official page or the releases page.</span></p>
+        </details>
       </aside>
     </div>
   </div>
@@ -476,6 +499,10 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
       <div class="qa open">
         <button type="button" aria-expanded="true"><span><span class="ar">لماذا ليس التطبيق في Google Play؟</span><span class="en">Why isn't the app on Google Play?</span></span><span class="pm"></span></button>
         <div class="ans"><div><p><span class="ar">سياسات Google Play لا تقبل هذا النوع من تطبيقات تحميل الفيديو، لذلك نوزّع SaveTek مباشرة كملف APK من هذه الصفحة الرسمية ومن صفحة الإصدارات على GitHub.</span><span class="en">Google Play's policies don't accept this kind of video download app, so SaveTek is distributed directly as an APK from this official page and from its GitHub releases page.</span></p></div></div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false"><span><span class="ar">هل يعمل مع الموقع الذي أريده؟</span><span class="en">Will it work with the site I want?</span></span><span class="pm"></span></button>
+        <div class="ans"><div><p><span class="ar">يعمل مع أغلب مواقع الفيديو العامة التي تسمح بالتحميل. إذا لم يعمل رابط ما، حدّث محرك التحميل من الإعدادات، فبعض المواقع تغيّر طريقتها باستمرار.</span><span class="en">It works with most public video sites that allow downloading. If a link doesn't work, update the download engine from Settings — some sites keep changing how they work.</span></p></div></div>
       </div>
       <div class="qa">
         <button type="button" aria-expanded="false"><span><span class="ar">هل التطبيق آمن؟</span><span class="en">Is the app safe?</span></span><span class="pm"></span></button>
@@ -603,6 +630,22 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
       document.querySelectorAll(".rel-link").forEach(function(a){ a.href = page; });
     }
   }
+  /* "what's new": one bullet per line of version.json's whatsNew (inserted as plain text) */
+  function showWhatsNew(v){
+    var wn = v.whatsNew || {};
+    if(!wn.ar && !wn.en) return;
+    [["ar", wn.ar || wn.en], ["en", wn.en || wn.ar]].forEach(function(p){
+      var ul = document.getElementById(p[0] === "ar" ? "wnAr" : "wnEn");
+      String(p[1]).split("\n").forEach(function(line){
+        line = line.replace(/^\s*[•\-*]\s*/, "").trim();
+        if(!line) return;
+        var li = document.createElement("li"); li.textContent = line; ul.appendChild(li);
+      });
+    });
+    document.getElementById("wnVerAr").textContent = v.versionName;
+    document.getElementById("wnVerEn").textContent = v.versionName;
+    document.getElementById("wn").hidden = false;
+  }
   function fromGitHub(){
     return fetch("https://api.github.com/repos/" + REPO + "/releases/latest")
       .then(function(r){ if(!r.ok) throw 0; return r.json(); })
@@ -617,6 +660,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
     .then(function(v){
       var main = (v.abis && v.abis["arm64-v8a"]) || {url: v.apkUrl, sizeBytes: v.apkSizeBytes};
       showRelease("v" + v.versionName, main.url, main.sizeBytes, v.releasePage);
+      showWhatsNew(v);
     })
     .catch(fromGitHub)
     .catch(function(){
