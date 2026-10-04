@@ -1,15 +1,29 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- if JavaScript runs, remove "no-js" right away; otherwise all content stays visible -->
+<script>document.documentElement.classList.remove("no-js")</script>
 <title>SaveTek — حمّل فيديوهاتك بأعلى جودة</title>
 <meta name="description" content="SaveTek: تطبيق أندرويد مجاني ومفتوح المصدر لحفظ الفيديوهات بأعلى جودة، مع صوت MP3 ومشغّل داخلي وتعدد اللغات.">
-<meta property="og:title" content="SaveTek">
-<meta property="og:description" content="حمّل فيديوهاتك بأعلى جودة — Download your videos in the highest quality">
-<meta property="og:image" content="assets/icon-512.png">
+<link rel="canonical" href="https://savetekapp-lang.github.io/SaveTek/">
+<!-- link previews (WhatsApp, Telegram, X…): image and URL must be absolute -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SaveTek">
+<meta property="og:url" content="https://savetekapp-lang.github.io/SaveTek/">
+<meta property="og:title" content="SaveTek — حمّل فيديوهاتك بأعلى جودة">
+<meta property="og:description" content="تطبيق أندرويد مجاني ومفتوح المصدر لحفظ الفيديوهات بأعلى جودة — Free, open-source Android app to save your videos in the highest quality">
+<meta property="og:image" content="https://savetekapp-lang.github.io/SaveTek/assets/icon-512.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="SaveTek">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#11141E">
 <link rel="icon" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/icon-512.png">
 <style>
 /* fonts: self-hosted (SIL OFL 1.1, licenses in assets/fonts) — no requests to third parties */
 @font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/ibmplexsansarabic-400-arabic.woff2) format('woff2');unicode-range:U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1}
@@ -220,7 +234,47 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
 .f-links a:hover{color:#fff;text-decoration:underline}
 .f-bot{border-top:1px solid rgba(255,255,255,.08);padding-block:24px;font-size:13.5px;line-height:1.7}
 
+/* ---------- desktop: QR to open this page on the phone ---------- */
+.qr{display:none;align-items:center;gap:14px;margin-top:26px;padding:12px 16px 12px 12px;border:1px solid rgba(255,255,255,.12);border-radius:16px;max-width:380px;background:rgba(255,255,255,.03)}
+.qr img{width:92px;height:92px;border-radius:8px;background:#fff;flex:none}
+.qr p{font-size:14px;color:rgba(255,255,255,.7);line-height:1.6}
+.qr strong{color:#fff;font-weight:500;display:block}
+@media (hover:hover) and (pointer:fine) and (min-width:900px){.qr{display:flex}}
+
+/* ---------- iPhone / iPad visitors ---------- */
+.ios-note{display:none;margin-top:18px;padding:12px 16px;border-radius:12px;background:rgba(217,164,65,.12);border:1px solid rgba(217,164,65,.4);color:var(--gold-soft);font-size:15px;max-width:34em}
+.is-ios .ios-note{display:block}
+
+/* ---------- mobile: a shorter page ---------- */
+@media (max-width:900px){
+  .flow{display:none}   /* the phone animation already shows the 3 steps */
+  .hero{padding-bottom:70px}
+  .phone{width:210px}
+}
+@media (max-width:760px){
+  .feats{grid-template-columns:repeat(2,1fr);column-gap:14px}
+  .feats li{grid-template-columns:1fr;gap:10px;padding-block:20px}
+  .feats .ic{width:44px;height:44px;border-radius:12px}
+  .feats h3{font-size:16.5px;line-height:1.45}
+  .feats p{font-size:14px;line-height:1.65}
+  .feats li:last-child:nth-child(odd){grid-column:1/-1}
+}
+
+/* "swipe" hint only when the screenshots really overflow */
+.swipe-hint{display:none}
+.shots-scroll .swipe-hint{display:block}
+
+/* ---------- comfortable tap targets on touch screens (~44px) ---------- */
+@media (pointer:coarse){
+  .f-links a,.f-top a,.note32 a{display:inline-block;padding-block:10px}
+  .f-links{gap:0 24px}
+}
+
+/* pause decorative motion while the hero is off-screen (saves battery) */
+.hero.paused .glow{animation-play-state:paused}
+
 /* scroll reveal (subtle) */
+/* .rv hides content only when JavaScript is running; without it, .no-js keeps everything visible */
 .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .rv.in{opacity:1;transform:none}
 .no-js .rv{opacity:1;transform:none}
@@ -276,9 +330,20 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
           <span class="ar">تحميل SaveTek</span><span class="en">Download SaveTek</span>
         </a>
         <div class="ver" id="ver">
-          <span class="ar">الإصدار <strong id="verAr">…</strong> · ملف APK</span>
-          <span class="en">Version <strong id="verEn">…</strong> · APK file</span>
+          <span class="ar">الإصدار <strong id="verAr">…</strong><bdi class="size"></bdi> · ملف APK</span>
+          <span class="en">Version <strong id="verEn">…</strong><bdi class="size"></bdi> · APK file</span>
         </div>
+      </div>
+      <p class="ios-note" role="note">
+        <span class="ar">SaveTek متوفر لأجهزة أندرويد فقط حالياً، ولا يعمل على الآيفون أو الآيباد.</span>
+        <span class="en">SaveTek is currently available for Android only — it doesn't run on iPhone or iPad.</span>
+      </p>
+      <div class="qr">
+        <img src="assets/qr-site.svg" alt="QR code: savetekapp-lang.github.io/SaveTek" width="92" height="92">
+        <p>
+          <span class="ar"><strong>تتصفّح من الكمبيوتر؟</strong>امسح الرمز بكاميرا جوالك الأندرويد لفتح هذه الصفحة والتحميل مباشرة.</span>
+          <span class="en"><strong>Browsing on a computer?</strong>Scan this code with your Android phone's camera to open this page and download directly.</span>
+        </p>
       </div>
       <p class="note32">
         <span class="ar">لأندرويد 7 فما فوق. للجوالات القديمة (32-bit) اختر نسخة armeabi-v7a من <a id="relAr" href="https://github.com/savetekapp-lang/SaveTek/releases/latest">صفحة الإصدارات</a></span>
@@ -327,7 +392,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
   <div class="wrap">
     <div class="sec-head rv">
       <h2><span class="ar">كل ما تحتاجه، <b>في تطبيق خفيف</b></span><span class="en">Everything you need, <b>in a light app</b></span></h2>
-      <p><span class="ar">كل ما تحتاجه لحفظ فيديوهاتك، في تطبيق خفيف وواضح.</span><span class="en">Everything you need to save your videos, in a clean, lightweight app.</span></p>
+      <p><span class="ar">كل شيء يعمل داخل جوالك: بدون حساب، وبدون إعلانات.</span><span class="en">Everything runs on your phone — no account, no ads.</span></p>
     </div>
     <ul class="feats">
       <li class="rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15V9l2.5 3L12 9v6M15 9v6m0-3 2.5-3M15 12l2.5 3"/></svg></div>
@@ -340,6 +405,8 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
         <div><h3><span class="ar">مشغّل داخلي</span><span class="en">Built-in player</span></h3><p><span class="ar">شغّل الفيديو والصوت داخل التطبيق مع التقديم بنقرتين وملء الشاشة.</span><span class="en">Play videos and audio in the app, with double-tap seeking and full screen.</span></p></div></li>
       <li class="rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="10" height="12" rx="2"/><path d="m12 10 3-2v8l-3-2M18 9v6M21 7v10"/></svg></div>
         <div><h3><span class="ar">تحويل الفيديو إلى صوت</span><span class="en">Video to audio</span></h3><p><span class="ar">حوّل أي فيديو في جوالك إلى MP3 بجودة 128 أو 192 أو 320 kbps، والأصل يبقى كما هو.</span><span class="en">Turn any video on your phone into MP3 at 128, 192 or 320 kbps — the original stays untouched.</span></p></div></li>
+      <li class="rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v6M15 4v6"/><path d="m10.5 13.5 4 2-4 2z"/></svg></div>
+        <div><h3><span class="ar">فيديوهات الجهاز</span><span class="en">Device videos</span></h3><p><span class="ar">تصفّح كل فيديوهات جوالك داخل التطبيق، وشغّلها أو حوّلها إلى MP3 مباشرة. تُقرأ محلياً فقط.</span><span class="en">Browse all your phone's videos in the app, then play them or convert them to MP3. Read locally only.</span></p></div></li>
       <li class="rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg></div>
         <div><h3><span class="ar">8 لغات</span><span class="en">8 languages</span></h3><p><span class="ar">العربية، الإنجليزية، الأردية، التركية، الفرنسية، الإسبانية، الإندونيسية والهندية.</span><span class="en">Arabic, English, Urdu, Turkish, French, Spanish, Indonesian and Hindi.</span></p></div></li>
       <li class="rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9c0-1-1-1.5-2-1.3A5 5 0 0 1 13.3 5C13.5 4 13 3 12 3z"/></svg></div>
@@ -355,7 +422,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
   <div class="wrap">
     <div class="sec-head rv">
       <h2><span class="ar">نظرة على <b>التطبيق</b></span><span class="en">A look at <b>the app</b></span></h2>
-      <p><span class="ar">اسحب لرؤية الشاشات.</span><span class="en">Swipe to see the screens.</span></p>
+      <p class="swipe-hint"><span class="ar">اسحب لرؤية المزيد من الشاشات.</span><span class="en">Swipe to see more screens.</span></p>
     </div>
     <div class="shots rv" id="shots">
       <figure class="shot" data-src="screenshots/home.png"><div class="frame"></div><figcaption><span class="ar">الرئيسية</span><span class="en">Home</span></figcaption></figure>
@@ -373,7 +440,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
   <div class="wrap">
     <div class="sec-head rv">
       <h2><span class="ar">التثبيت في <b>خمس خطوات</b></span><span class="en">Install in <b>five steps</b></span></h2>
-      <p><span class="ar">خمس خطوات بسيطة، تحتاجها مرة واحدة فقط. بعدها يحدّث التطبيق نفسه.</span><span class="en">Five simple steps, needed only once. After that, the app updates itself.</span></p>
+      <p><span class="ar">تحتاجها مرة واحدة فقط، وبعدها يحدّث التطبيق نفسه بنفسه.</span><span class="en">Needed only once — after that, the app updates itself.</span></p>
     </div>
     <div class="install-grid">
       <ol class="steps" id="steps">
@@ -411,6 +478,18 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
       <div class="qa">
         <button type="button" aria-expanded="false"><span><span class="ar">هل التطبيق مجاني؟</span><span class="en">Is it free?</span></span><span class="pm"></span></button>
         <div class="ans"><div><p><span class="ar">نعم، مجاني بالكامل، بدون اشتراكات أو مشتريات داخلية أو إعلانات، ومفتوح المصدر بترخيص GPL-3.0.</span><span class="en">Yes, completely free — no subscriptions, in-app purchases or ads — and open source under the GPL-3.0 license.</span></p></div></div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false"><span><span class="ar">هل يعمل على الآيفون؟</span><span class="en">Does it work on iPhone?</span></span><span class="pm"></span></button>
+        <div class="ans"><div><p><span class="ar">لا، SaveTek متوفر لأجهزة أندرويد فقط (أندرويد 7 فما فوق). نظام iOS في الآيفون والآيباد لا يسمح بتثبيت ملفات APK.</span><span class="en">No. SaveTek is for Android only (Android 7 and later). iOS on iPhone and iPad can't install APK files.</span></p></div></div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false"><span><span class="ar">أي ملف أحمّل لجوالي؟</span><span class="en">Which file should I download?</span></span><span class="pm"></span></button>
+        <div class="ans"><div><p><span class="ar">زر "تحميل SaveTek" يعطيك نسخة <strong>arm64-v8a</strong> التي تناسب أغلب الجوالات الحديثة. إذا ظهرت رسالة أن التطبيق غير متوافق مع جوالك، فجوالك غالباً قديم (32-bit): حمّل نسخة <strong>armeabi-v7a</strong> من صفحة الإصدارات. ونسخة <strong>universal</strong> تعمل على كل الأجهزة لكن حجمها أكبر.</span><span class="en">The "Download SaveTek" button gives you the <strong>arm64-v8a</strong> build, which fits most modern phones. If Android says the app isn't compatible, your phone is probably an older 32-bit one: get the <strong>armeabi-v7a</strong> build from the releases page. The <strong>universal</strong> build works everywhere but is larger.</span></p></div></div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false"><span><span class="ar">هل أحتاج إلى حساب أو تسجيل؟</span><span class="en">Do I need an account?</span></span><span class="pm"></span></button>
+        <div class="ans"><div><p><span class="ar">لا. لا حسابات ولا تسجيل ولا بريد إلكتروني. ثبّت التطبيق وابدأ مباشرة، وكل إعداداتك وتحميلاتك تبقى في جوالك فقط.</span><span class="en">No. No accounts, no sign-up, no email. Install the app and start right away — all your settings and downloads stay on your phone.</span></p></div></div>
       </div>
       <div class="qa">
         <button type="button" aria-expanded="false"><span><span class="ar">كيف أحدّث التطبيق؟</span><span class="en">How do I update it?</span></span><span class="pm"></span></button>
@@ -462,17 +541,30 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- language ---------- */
-  function setLang(l){
+  function setLang(l, remember){
     html.lang = l; html.dir = (l === "ar") ? "rtl" : "ltr";
     document.title = l === "ar" ? "SaveTek — حمّل فيديوهاتك بأعلى جودة" : "SaveTek — Download your videos in the highest quality";
-    try{ localStorage.setItem("savetek-lang", l); }catch(e){}
+    if(remember){ try{ localStorage.setItem("savetek-lang", l); }catch(e){} }
   }
   var saved = null;
   try{ saved = localStorage.getItem("savetek-lang"); }catch(e){}
-  if(saved === "en" || saved === "ar") setLang(saved);
+  if(saved === "en" || saved === "ar"){
+    setLang(saved, false);
+  } else {
+    // first visit: follow the browser language (Arabic if any preferred language is Arabic, else English)
+    var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "ar"];
+    var prefersArabic = langs.some(function(x){ return /^ar\b/i.test(x); });
+    setLang(prefersArabic ? "ar" : "en", false);
+  }
   document.getElementById("langBtn").addEventListener("click", function(){
-    setLang(html.lang === "ar" ? "en" : "ar");
+    setLang(html.lang === "ar" ? "en" : "ar", true);
   });
+
+  /* ---------- iPhone / iPad: the app is Android-only ---------- */
+  var ua = navigator.userAgent || "";
+  if(/iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)){
+    html.classList.add("is-ios");
+  }
 
   /* ---------- header + mobile menu ---------- */
   var hdr = document.getElementById("hdr");
@@ -484,21 +576,36 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
   });
   nav.addEventListener("click", function(e){ if(e.target.closest("a")){ nav.classList.remove("open"); burger.setAttribute("aria-expanded", false); } });
 
-  /* ---------- latest release from GitHub ---------- */
-  fetch("https://api.github.com/repos/" + REPO + "/releases/latest")
+  /* ---------- latest release ----------
+     1) version.json from this same site: no rate limits, and it includes the file size.
+     2) fallback: GitHub's API (limited to 60 requests/hour per network). */
+  function showRelease(version, url, sizeBytes, page){
+    document.getElementById("verAr").textContent = version;
+    document.getElementById("verEn").textContent = version;
+    var size = sizeBytes ? " · " + Math.round(sizeBytes / 1048576) + " MB" : "";
+    document.querySelectorAll("#ver .size").forEach(function(el){ el.textContent = size; });
+    if(url) document.getElementById("dlBtn").href = url;
+    if(page){
+      document.getElementById("relAr").href = page;
+      document.getElementById("relEn").href = page;
+    }
+  }
+  function fromGitHub(){
+    return fetch("https://api.github.com/repos/" + REPO + "/releases/latest")
+      .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+      .then(function(rel){
+        var apks = (rel.assets || []).filter(function(a){ return /\.apk$/i.test(a.name); });
+        var main = apks.filter(function(a){ return !/armeabi|x86|universal/i.test(a.name); })[0] || apks[0];
+        showRelease(rel.tag_name || "", main && main.browser_download_url, main && main.size, rel.html_url);
+      });
+  }
+  fetch("version.json", {cache: "no-store"})
     .then(function(r){ if(!r.ok) throw 0; return r.json(); })
-    .then(function(rel){
-      var tag = rel.tag_name || "";
-      document.getElementById("verAr").textContent = tag;
-      document.getElementById("verEn").textContent = tag;
-      var apks = (rel.assets || []).filter(function(a){ return /\.apk$/i.test(a.name); });
-      var main = apks.filter(function(a){ return !/armeabi|x86/i.test(a.name); })[0] || apks[0];
-      if(main) document.getElementById("dlBtn").href = main.browser_download_url;
-      if(rel.html_url){
-        document.getElementById("relAr").href = rel.html_url;
-        document.getElementById("relEn").href = rel.html_url;
-      }
+    .then(function(v){
+      var main = (v.abis && v.abis["arm64-v8a"]) || {url: v.apkUrl, sizeBytes: v.apkSizeBytes};
+      showRelease("v" + v.versionName, main.url, main.sizeBytes, v.releasePage);
     })
+    .catch(fromGitHub)
     .catch(function(){
       document.getElementById("ver").style.display = "none";
     });
@@ -537,6 +644,17 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
   }
   if(reduce){
     typed.textContent = URL_TXT; phone.dataset.stage = "4"; q1080.classList.add("pick"); pct.textContent = "100%"; markFlow(3);
+  } else if("IntersectionObserver" in window){
+    // run the animation only while the hero is on screen and the tab is visible (saves battery)
+    var hero = document.querySelector(".hero"), heroVisible = true, running = false;
+    function sync(){
+      var on = heroVisible && !document.hidden;
+      hero.classList.toggle("paused", !on);
+      if(on && !running){ running = true; run(); }
+      else if(!on && running){ running = false; timers.forEach(clearTimeout); timers = []; }
+    }
+    new IntersectionObserver(function(ents){ heroVisible = ents[0].isIntersecting; sync(); }).observe(hero);
+    document.addEventListener("visibilitychange", sync);
   } else { run(); }
 
   /* ---------- screenshots with placeholder ---------- */
@@ -544,11 +662,18 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:15px;padding-b
     var frame = f.querySelector(".frame");
     var img = new Image();
     img.alt = f.querySelector("figcaption").textContent.trim();
-    img.onload = function(){ frame.appendChild(img); };
+    img.onload = function(){ frame.appendChild(img); updateSwipeHint(); };
     /* screenshot not added yet: hide its slot; it appears automatically once the image exists */
-    img.onerror = function(){ f.style.display = "none"; };
+    img.onerror = function(){ f.style.display = "none"; updateSwipeHint(); };
     img.src = f.dataset.src;
   });
+
+  /* show "swipe to see more" only when the screenshots don't all fit */
+  var shotsBox = document.getElementById("shots");
+  function updateSwipeHint(){
+    document.getElementById("screens").classList.toggle("shots-scroll", shotsBox.scrollWidth > shotsBox.clientWidth + 4);
+  }
+  window.addEventListener("resize", updateSwipeHint);
 
   /* ---------- FAQ accordion ---------- */
   document.querySelectorAll(".qa button").forEach(function(b){
