@@ -27,6 +27,8 @@ enum class JobKind { DOWNLOAD, CONVERT }
 /** رموز ثابتة لأسماء جودات خاصة؛ تُترجم عند العرض حسب لغة التطبيق. */
 const val LABEL_BEST = "BEST"
 const val LABEL_MP3 = "MP3"
+/** منشور بلا فيديو (صورة ثابتة مع موسيقى): الخيار الوحيد حفظ الصورة. */
+const val LABEL_IMAGE = "IMAGE"
 
 /** خيارات جودة الصوت عند التحويل إلى MP3 (كيلوبت/ثانية). */
 val MP3_BITRATES = listOf(128, 192, 320)
@@ -54,6 +56,8 @@ data class VideoPreview(
     val thumbnail: String?,
     val durationSeconds: Int,
     val options: List<QualityOption>,
+    /** منشور صورة بلا فيديو: لا يمكن إلا حفظ الصورة (thumbnail هو رابط الصورة بأعلى دقة). */
+    val imageOnly: Boolean = false,
 )
 
 enum class DownloadStatus { RUNNING, DONE, FAILED }
@@ -85,4 +89,7 @@ data class DownloadItem(
     val sourceUri: String? = null,
     /** للتحويل: جودة الصوت بالكيلوبت/ثانية. */
     val bitrateKbps: Int? = null,
-)
+) {
+    /** حفظ صورة منشور (لا فيديو ولا صوت): رابط الصورة محفوظ في thumbnail. */
+    val isImage: Boolean get() = qualityLabel == LABEL_IMAGE
+}

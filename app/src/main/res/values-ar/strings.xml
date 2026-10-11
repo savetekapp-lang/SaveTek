@@ -218,4 +218,6 @@
     <string name="no_device_audio">لا توجد ملفات صوتية في هذا الجوال</string>
     <string name="audio_count">الملفات الصوتية (%1$d)</string>
     <string name="error_no_video_post">هذا المنشور صورة ثابتة مع موسيقى، وليس فيديو. محرك التحميل لا يستطيع تحميل هذا النوع من المنشورات حالياً.</string>
+    <string name="quality_image">حفظ الصورة</string>
+    <string name="image_only_note">هذا المنشور صورة ثابتة مع موسيقى، وليس فيديو. لا يمكن تحميل الموسيقى، لكن يمكنك حفظ الصورة.</string>
 </resources>

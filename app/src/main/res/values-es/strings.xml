@@ -218,4 +218,6 @@
     <string name="no_device_audio">No se encontraron archivos de audio en este teléfono</string>
     <string name="audio_count">Archivos de audio (%1$d)</string>
     <string name="error_no_video_post">Esta publicación es una imagen fija con música, no un video. El motor de descarga no puede descargar este tipo de publicación por ahora.</string>
+    <string name="quality_image">Guardar imagen</string>
+    <string name="image_only_note">Esta publicación es una imagen fija con música, no un video. La música no se puede descargar, pero puedes guardar la imagen.</string>
 </resources>

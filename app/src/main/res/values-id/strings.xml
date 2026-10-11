@@ -218,4 +218,6 @@
     <string name="no_device_audio">Tidak ada file audio di ponsel ini</string>
     <string name="audio_count">File audio (%1$d)</string>
     <string name="error_no_video_post">Postingan ini adalah gambar diam dengan musik, bukan video. Mesin unduhan belum bisa mengunduh jenis postingan ini.</string>
+    <string name="quality_image">Simpan gambar</string>
+    <string name="image_only_note">Postingan ini adalah gambar diam dengan musik, bukan video. Musiknya tidak bisa diunduh, tetapi Anda bisa menyimpan gambarnya.</string>
 </resources>

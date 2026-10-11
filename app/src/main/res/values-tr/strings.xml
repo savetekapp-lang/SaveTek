@@ -218,4 +218,6 @@
     <string name="no_device_audio">Bu telefonda ses dosyası bulunamadı</string>
     <string name="audio_count">Ses dosyaları (%1$d)</string>
     <string name="error_no_video_post">Bu gönderi video değil, müzikli sabit bir görsel. İndirme motoru bu tür gönderileri şu anda indiremiyor.</string>
+    <string name="quality_image">Görseli kaydet</string>
+    <string name="image_only_note">Bu gönderi video değil, müzikli sabit bir görsel. Müzik indirilemez, ancak görseli kaydedebilirsiniz.</string>
 </resources>

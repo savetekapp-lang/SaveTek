@@ -218,4 +218,6 @@
     <string name="no_device_audio">اس فون میں کوئی آڈیو فائل نہیں ملی</string>
     <string name="audio_count">آڈیو فائلیں (%1$d)</string>
     <string name="error_no_video_post">یہ پوسٹ موسیقی کے ساتھ ایک ساکن تصویر ہے، ویڈیو نہیں۔ ڈاؤن لوڈ انجن فی الحال اس قسم کی پوسٹ ڈاؤن لوڈ نہیں کر سکتا۔</string>
+    <string name="quality_image">تصویر محفوظ کریں</string>
+    <string name="image_only_note">یہ پوسٹ موسیقی کے ساتھ ایک ساکن تصویر ہے، ویڈیو نہیں۔ موسیقی ڈاؤن لوڈ نہیں ہو سکتی، لیکن آپ تصویر محفوظ کر سکتے ہیں۔</string>
 </resources>

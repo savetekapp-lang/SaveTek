@@ -190,7 +190,7 @@ class MainViewModel(private val app: Application) : AndroidViewModel(app) {
             q == DefaultQuality.AUDIO -> options.firstOrNull { it.audioOnly }?.key
             limit == null -> videos.firstOrNull()?.key
             else -> (videos.firstOrNull { (it.shortSide ?: 0) <= limit } ?: videos.lastOrNull())?.key
-        }
+        } ?: options.firstOrNull()?.key   // مثل منشور صورة ليس فيه إلا خيار واحد
     }
 
     fun selectQuality(key: String) {

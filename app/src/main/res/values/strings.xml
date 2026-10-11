@@ -249,4 +249,6 @@
     <string name="no_device_audio">No audio files found on this phone</string>
     <string name="audio_count">Audio files (%1$d)</string>
     <string name="error_no_video_post">This post is a still image with music, not a video. The download engine can\'t download this kind of post at the moment.</string>
+    <string name="quality_image">Save image</string>
+    <string name="image_only_note">This post is a still image with music, not a video. The music can\'t be downloaded, but you can save the image.</string>
 </resources>

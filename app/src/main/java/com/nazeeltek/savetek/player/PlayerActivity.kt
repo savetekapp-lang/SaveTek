@@ -35,12 +35,24 @@ class PlayerActivity : ComponentActivity() {
                 Toast.makeText(context, context.str(R.string.file_unavailable), Toast.LENGTH_SHORT).show()
                 return
             }
-            context.startActivity(intent)
+            try {
+                context.startActivity(intent)
+            } catch (e: ActivityNotFoundException) {
+                Toast.makeText(context, context.str(R.string.no_other_app), Toast.LENGTH_SHORT).show()
+            }
         }
 
-        /** طلب فتح المشغّل لعنصر معيّن (يُستخدم أيضاً في إشعار "اكتمل"). */
+        /**
+         * طلب فتح المشغّل لعنصر معيّن (يُستخدم أيضاً في إشعار "اكتمل").
+         * الصورة لا تُشغَّل: تُفتح في تطبيق الصور الخاص بالجوال.
+         */
         fun intentFor(context: Context, item: DownloadItem): Intent? {
             val uri = item.uri ?: return null
+            if (item.isImage) {
+                return Intent(Intent.ACTION_VIEW)
+                    .setDataAndType(android.net.Uri.parse(uri), item.mime ?: "image/*")
+                    .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            }
             return Intent(context, PlayerActivity::class.java)
                 .putExtra(EXTRA_URI, uri)
                 .putExtra(EXTRA_MIME, item.mime)

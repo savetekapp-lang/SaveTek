@@ -22,6 +22,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ContentPaste
 import androidx.compose.material.icons.filled.Download
+import androidx.compose.material.icons.filled.Image
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.MusicNote
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -54,6 +56,7 @@ import com.nazeeltek.savetek.HomeState
 import com.nazeeltek.savetek.R
 import com.nazeeltek.savetek.ads.AdSlotView
 import com.nazeeltek.savetek.ads.AdsManager
+import com.nazeeltek.savetek.data.LABEL_IMAGE
 import com.nazeeltek.savetek.data.QualityOption
 import com.nazeeltek.savetek.data.VideoPreview
 
@@ -141,6 +144,20 @@ fun HomeScreen(
         // ── المعاينة + الجودات + زر التحميل ──
         state.preview?.let { preview ->
             PreviewCard(preview)
+
+            // منشور صورة مع موسيقى: نشرح لماذا لا يوجد إلا "حفظ الصورة"
+            if (preview.imageOnly) {
+                Card(
+                    colors = CardDefaults.cardColors(containerColor = colors.surface),
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Row(Modifier.padding(12.dp), verticalAlignment = Alignment.Top) {
+                        Icon(Icons.Filled.Info, null, tint = colors.primary, modifier = Modifier.size(20.dp))
+                        Spacer(Modifier.width(8.dp))
+                        Text(stringResource(R.string.image_only_note), color = colors.onSurface, fontSize = 14.sp)
+                    }
+                }
+            }
 
             SectionTitle(stringResource(R.string.choose_quality))
             QualityChips(preview.options, state.selectedKey, onSelect)
@@ -234,10 +251,14 @@ private fun PreviewCard(preview: VideoPreview) {
  */
 @Composable
 private fun QualityChips(options: List<QualityOption>, selectedKey: String?, onSelect: (String) -> Unit) {
-    val videos = options.filterNot { it.audioOnly }
+    val videos = options.filterNot { it.audioOnly || it.label == LABEL_IMAGE }
     val audio = options.firstOrNull { it.audioOnly }
+    val image = options.firstOrNull { it.label == LABEL_IMAGE }
 
     Column(verticalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
+        if (image != null) {
+            QualityChip(image, image.key == selectedKey, onSelect, Modifier.fillMaxWidth())
+        }
         videos.chunked(2).forEach { row ->
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
                 row.forEach { option ->
@@ -274,9 +295,9 @@ private fun QualityChip(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                if (option.audioOnly) {
+                if (option.audioOnly || option.label == LABEL_IMAGE) {
                     Icon(
-                        Icons.Filled.MusicNote, contentDescription = null,
+                        if (option.audioOnly) Icons.Filled.MusicNote else Icons.Filled.Image, contentDescription = null,
                         tint = if (selected) colors.onPrimary else colors.primary,
                         modifier = Modifier.size(16.dp),
                     )

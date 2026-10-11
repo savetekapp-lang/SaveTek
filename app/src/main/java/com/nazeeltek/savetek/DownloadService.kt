@@ -195,6 +195,12 @@ class DownloadService : Service() {
             var attempt = 1
             while (true) {
                 try {
+                    // صورة منشور بلا فيديو: تُحمَّل مباشرة وتُحفظ في الصور
+                    if (item.isImage) {
+                        val image = Downloader.downloadImage(this, item)
+                        finishSuccessfully(id, image, audioOnly = false, image = true)
+                        break
+                    }
                     val file = Downloader.download(this, item) { percent, eta ->
                         reportProgress(id, if (percent < 0) null else percent / 100f, eta)
                     }
@@ -267,9 +273,9 @@ class DownloadService : Service() {
 
     // ───────────── مشترك ─────────────
 
-    private fun finishSuccessfully(id: String, file: File, audioOnly: Boolean) {
+    private fun finishSuccessfully(id: String, file: File, audioOnly: Boolean, image: Boolean = false) {
         DownloadRepository.update(id) { it.copy(progress = null, note = str(R.string.note_saving)) }
-        val saved = GallerySaver.save(this, file, audioOnly)
+        val saved = GallerySaver.save(this, file, audioOnly, image)
         DownloadRepository.update(id, persist = true) {
             it.copy(
                 status = DownloadStatus.DONE, progress = 1f, fileName = file.name,

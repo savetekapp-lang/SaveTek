@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.sp
 import com.nazeeltek.savetek.R
 import com.nazeeltek.savetek.UiText
 import com.nazeeltek.savetek.data.LABEL_BEST
+import com.nazeeltek.savetek.data.LABEL_IMAGE
 import com.nazeeltek.savetek.data.LABEL_MP3
 import java.util.Locale
 
@@ -62,6 +63,7 @@ fun etaText(seconds: Long): String = when {
 fun qualityText(label: String): String = when {
     label == LABEL_BEST -> stringResource(R.string.quality_best_available)
     label == LABEL_MP3 -> stringResource(R.string.quality_mp3)
+    label == LABEL_IMAGE -> stringResource(R.string.quality_image)
     label.startsWith("$LABEL_MP3 ·") -> label.replaceFirst(LABEL_MP3, stringResource(R.string.quality_mp3))
     else -> label
 }

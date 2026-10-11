@@ -1,6 +1,7 @@
 package com.nazeeltek.savetek
 
 import com.nazeeltek.savetek.data.LABEL_BEST
+import com.nazeeltek.savetek.data.LABEL_IMAGE
 import com.nazeeltek.savetek.data.LABEL_MP3
 import com.nazeeltek.savetek.data.QualityOption
 import com.nazeeltek.savetek.data.VideoPreview
@@ -108,6 +109,39 @@ object FormatParser {
             },
             durationSeconds = duration?.toInt() ?: 0,
             options = buildOptions(info, formats, duration),
+        )
+    }
+
+    /**
+     * منشور بلا فيديو (صورة ثابتة مع موسيقى): نعرض الصورة بأعلى دقة متاحة، والخيار الوحيد "حفظ الصورة".
+     * يرمي خطأ إذا لم توجد صورة عبر https.
+     */
+    fun parseImageOnly(url: String, rawJson: String, defaultTitle: String): VideoPreview {
+        var info = JSONObject(rawJson)
+        if (info.optString("_type") == "playlist") {
+            info = info.optJSONArray("entries")?.optJSONObject(0) ?: info
+        }
+        // الصورة بأعلى دقة: إذا ذُكرت المقاسات نختار الأكبر، وإلا نأخذ الصورة الرئيسية التي يختارها
+        // المحرك (وهي الأفضل: جُرّبت على منشور حقيقي فكانت 1440×1800 مقابل 1080×1080 لأول القائمة)
+        val thumbs = info.optJSONArray("thumbnails") ?: JSONArray()
+        val https = (0 until thumbs.length())
+            .mapNotNull { thumbs.optJSONObject(it) }
+            .filter { it.str("url")?.startsWith("https://") == true }
+        val best = https
+            .filter { it.num("width") != null && it.num("height") != null }
+            .maxByOrNull { it.num("width")!! * it.num("height")!! }
+            ?.str("url")
+            ?: info.str("thumbnail")?.takeIf { it.startsWith("https://") }
+            ?: https.lastOrNull()?.str("url")
+            ?: throw IllegalStateException("No video formats found")
+
+        return VideoPreview(
+            url = url,
+            title = info.str("title") ?: info.str("fulltitle") ?: defaultTitle,
+            thumbnail = best,
+            durationSeconds = 0,
+            options = listOf(QualityOption("image", LABEL_IMAGE, null, null, false, null)),
+            imageOnly = true,
         )
     }
 

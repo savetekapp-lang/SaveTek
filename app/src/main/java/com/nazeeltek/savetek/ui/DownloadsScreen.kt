@@ -428,7 +428,7 @@ private fun FinishedRow(
         }
         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             // زر تحويل الفيديو إلى صوت (للفيديوهات المكتملة فقط)
-            if (isDone && !item.audioOnly) {
+            if (isDone && !item.audioOnly && !item.isImage) {
                 TextButton(onClick = onConvert) {
                     Icon(Icons.Filled.MusicNote, null, tint = colors.primary, modifier = Modifier.size(18.dp))
                     Spacer(Modifier.width(4.dp))

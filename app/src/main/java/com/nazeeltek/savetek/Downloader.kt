@@ -73,16 +73,75 @@ object Downloader {
         waitForUpdate()
         // نطلب بيانات yt-dlp الخام كاملة (JSON) ونقرأها بأنفسنا،
         // لأن المكتبة تُسقط بعض الحقول المهمة لحساب الحجم (مثل vbr)
-        val request = YoutubeDLRequest(safe).apply {
+        fun infoRequest(ignoreNoFormats: Boolean) = YoutubeDLRequest(safe).apply {
             addSafetyOptions()
             addOption("--dump-single-json")
             addOption("--skip-download")
             addOption("--no-playlist")
             addOption("--no-warnings")
+            if (ignoreNoFormats) addOption("--ignore-no-formats-error")
             endOfOptions()
         }
-        val response = YoutubeDL.getInstance().execute(request)
-        FormatParser.parse(safe, response.out, context.str(R.string.default_video_title))
+        val title = context.str(R.string.default_video_title)
+        try {
+            val response = YoutubeDL.getInstance().execute(infoRequest(false))
+            FormatParser.parse(safe, response.out, title)
+        } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException || !isNoVideoError(e.message ?: "")) throw e
+            // منشور بلا فيديو (صورة ثابتة مع موسيقى): نقرأ بياناته مرة ثانية لنعرض صورته ونسمح بحفظها
+            val response = runCatching { YoutubeDL.getInstance().execute(infoRequest(true)) }.getOrElse { throw e }
+            runCatching { FormatParser.parseImageOnly(safe, response.out, title) }.getOrElse { throw e }
+        }
+    }
+
+    /** أقصى حجم مقبول لصورة منشور (حماية من ملفات ضخمة غير متوقعة). */
+    private const val MAX_IMAGE_BYTES = 40L * 1024 * 1024
+
+    /**
+     * يحمّل صورة منشور بلا فيديو (رابطها في item.thumbnail كما قرأه المحرك).
+     * نقبل https فقط، وصوراً فقط (حسب نوع المحتوى)، وبحد أقصى للحجم.
+     */
+    suspend fun downloadImage(context: Context, item: DownloadItem): File = withContext(Dispatchers.IO) {
+        val imageUrl = item.thumbnail?.takeIf { it.startsWith("https://") }
+            ?: throw IllegalStateException(context.str(R.string.error_file_not_found))
+        val dir = tempDir(context, item.id).apply { deleteRecursively(); mkdirs() }
+        val connection = (java.net.URL(imageUrl).openConnection() as java.net.HttpURLConnection).apply {
+            connectTimeout = 15_000
+            readTimeout = 30_000
+            instanceFollowRedirects = true
+        }
+        try {
+            if (connection.responseCode != java.net.HttpURLConnection.HTTP_OK) {
+                throw IllegalStateException("HTTP Error ${connection.responseCode}")
+            }
+            if (connection.url.protocol != "https") throw IllegalStateException("Insecure redirect")
+            val type = connection.contentType?.substringBefore(';')?.trim()?.lowercase() ?: ""
+            val ext = when (type) {
+                "image/jpeg", "image/jpg" -> "jpg"
+                "image/png" -> "png"
+                "image/webp" -> "webp"
+                "image/heic" -> "heic"
+                "image/avif" -> "avif"
+                else -> throw IllegalStateException(context.str(R.string.error_file_not_found))
+            }
+            val file = FileNames.childFile(dir, item.title, ext)
+            connection.inputStream.use { input ->
+                file.outputStream().use { output ->
+                    val buffer = ByteArray(64 * 1024)
+                    var total = 0L
+                    while (true) {
+                        val read = input.read(buffer)
+                        if (read < 0) break
+                        total += read
+                        if (total > MAX_IMAGE_BYTES) throw IllegalStateException("Image too large")
+                        output.write(buffer, 0, read)
+                    }
+                }
+            }
+            file
+        } finally {
+            connection.disconnect()
+        }
     }
 
     /** يرفض أي رابط غير آمن (حماية إضافية حتى لو وصل رابط من مكان آخر). */

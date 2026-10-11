@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit
 
 /**
  * ينقل الملف المحمَّل إلى معرض الجوال:
- * الفيديو في Movies/SaveTek والصوت في Music/SaveTek.
+ * الفيديو في Movies/SaveTek، والصوت في Music/SaveTek، والصور في Pictures/SaveTek.
  */
 object GallerySaver {
 
@@ -22,26 +22,46 @@ object GallerySaver {
 
     data class Saved(val uri: Uri?, val mime: String)
 
-    fun save(context: Context, file: File, audioOnly: Boolean): Saved {
+    private enum class Type { VIDEO, AUDIO, IMAGE }
+
+    fun save(context: Context, file: File, audioOnly: Boolean, image: Boolean = false): Saved {
+        val type = when {
+            image -> Type.IMAGE
+            audioOnly -> Type.AUDIO
+            else -> Type.VIDEO
+        }
         val guessed = MimeTypeMap.getSingleton().getMimeTypeFromExtension(file.extension.lowercase())
-            ?: if (audioOnly) "audio/mpeg" else "video/mp4"
+            ?: when (type) {
+                Type.IMAGE -> "image/jpeg"
+                Type.AUDIO -> "audio/mpeg"
+                Type.VIDEO -> "video/mp4"
+            }
         // ملف صوت بامتداد فيديو (مثل webm): مجموعة الصوت في المعرض ترفض نوع video/*
-        val mime = if (audioOnly && guessed.startsWith("video/")) "audio/" + guessed.substringAfter('/') else guessed
+        val mime = if (type == Type.AUDIO && guessed.startsWith("video/")) "audio/" + guessed.substringAfter('/') else guessed
 
         val uri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            saveWithMediaStore(context, file, mime, audioOnly)   // أندرويد 10 فما فوق
+            saveWithMediaStore(context, file, mime, type)   // أندرويد 10 فما فوق
         } else {
-            saveLegacy(context, file, mime, audioOnly)           // أندرويد 7 إلى 9
+            saveLegacy(context, file, mime, type)           // أندرويد 7 إلى 9
         }
         file.delete()
         return Saved(uri, mime)
     }
 
-    private fun saveWithMediaStore(context: Context, file: File, mime: String, audio: Boolean): Uri {
+    private fun baseDir(type: Type) = when (type) {
+        Type.IMAGE -> Environment.DIRECTORY_PICTURES
+        Type.AUDIO -> Environment.DIRECTORY_MUSIC
+        Type.VIDEO -> Environment.DIRECTORY_MOVIES
+    }
+
+    private fun saveWithMediaStore(context: Context, file: File, mime: String, type: Type): Uri {
         val resolver = context.contentResolver
-        val collection = if (audio) MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
-        else MediaStore.Video.Media.EXTERNAL_CONTENT_URI
-        val baseDir = if (audio) Environment.DIRECTORY_MUSIC else Environment.DIRECTORY_MOVIES
+        val collection = when (type) {
+            Type.IMAGE -> MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            Type.AUDIO -> MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
+            Type.VIDEO -> MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+        }
+        val baseDir = baseDir(type)
 
         val values = ContentValues().apply {
             put(MediaStore.MediaColumns.DISPLAY_NAME, file.name)
@@ -67,9 +87,8 @@ object GallerySaver {
     }
 
     @Suppress("DEPRECATION")
-    private fun saveLegacy(context: Context, file: File, mime: String, audio: Boolean): Uri? {
-        val baseDir = if (audio) Environment.DIRECTORY_MUSIC else Environment.DIRECTORY_MOVIES
-        val dir = File(Environment.getExternalStoragePublicDirectory(baseDir), FOLDER).apply { mkdirs() }
+    private fun saveLegacy(context: Context, file: File, mime: String, type: Type): Uri? {
+        val dir = File(Environment.getExternalStoragePublicDirectory(baseDir(type)), FOLDER).apply { mkdirs() }
         val dest = File(dir, file.name)
         file.copyTo(dest, overwrite = true)
 

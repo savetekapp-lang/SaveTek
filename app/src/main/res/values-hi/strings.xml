@@ -218,4 +218,6 @@
     <string name="no_device_audio">इस फ़ोन में कोई ऑडियो फ़ाइल नहीं मिली</string>
     <string name="audio_count">ऑडियो फ़ाइलें (%1$d)</string>
     <string name="error_no_video_post">यह पोस्ट संगीत के साथ एक स्थिर तस्वीर है, वीडियो नहीं। डाउनलोड इंजन अभी इस तरह की पोस्ट डाउनलोड नहीं कर सकता।</string>
+    <string name="quality_image">तस्वीर सहेजें</string>
+    <string name="image_only_note">यह पोस्ट संगीत के साथ एक स्थिर तस्वीर है, वीडियो नहीं। संगीत डाउनलोड नहीं हो सकता, लेकिन आप तस्वीर सहेज सकते हैं।</string>
 </resources>
