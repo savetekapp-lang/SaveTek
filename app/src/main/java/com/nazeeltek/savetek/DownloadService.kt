@@ -198,7 +198,10 @@ class DownloadService : Service() {
                     val file = Downloader.download(this, item) { percent, eta ->
                         reportProgress(id, if (percent < 0) null else percent / 100f, eta)
                     }
-                    finishSuccessfully(id, file, item.audioOnly)
+                    // بعض المواقع لا توفّر إلا الصوت حتى عند طلب فيديو: نحفظه كصوت في "تحميلات MP3"
+                    val audio = item.audioOnly || Downloader.hasNoVideoTrack(file)
+                    if (audio && !item.audioOnly) DownloadRepository.update(id) { it.copy(audioOnly = true) }
+                    finishSuccessfully(id, file, audio)
                     break
                 } catch (e: YoutubeDL.CanceledException) {
                     throw e

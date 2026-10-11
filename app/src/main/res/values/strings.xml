@@ -238,4 +238,15 @@
     <string name="select_more_videos">Select more videos</string>
     <string name="no_device_videos">No videos found on this phone</string>
     <string name="video_count">Videos (%1$d)</string>
+    <string name="tab_mp3_downloads">MP3 downloads</string>
+    <string name="tab_device_audio">Device MP3</string>
+    <string name="no_mp3_title">No MP3 files yet</string>
+    <string name="no_mp3_hint">Choose MP3 when downloading, or convert any video to audio.</string>
+    <string name="audio_rationale_title">Access your audio files</string>
+    <string name="audio_rationale_text">To show your phone\'s songs and audio files here so you can play or share them, SaveTek needs permission to read your audio files.\n\nThey are read on your phone only and are never uploaded or sent anywhere.</string>
+    <string name="audio_denied_title">No access to audio files</string>
+    <string name="audio_denied_text">Allow access to see your phone\'s audio files here. The rest of the app works normally without it.</string>
+    <string name="no_device_audio">No audio files found on this phone</string>
+    <string name="audio_count">Audio files (%1$d)</string>
+    <string name="error_no_video_post">This post is a still image with music, not a video. The download engine can\'t download this kind of post at the moment.</string>
 </resources>

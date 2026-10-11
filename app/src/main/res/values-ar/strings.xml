@@ -207,4 +207,15 @@
     <string name="select_more_videos">اختيار فيديوهات أخرى</string>
     <string name="no_device_videos">لا توجد فيديوهات في هذا الجوال</string>
     <string name="video_count">الفيديوهات (%1$d)</string>
+    <string name="tab_mp3_downloads">تحميلات MP3</string>
+    <string name="tab_device_audio">MP3 الجهاز</string>
+    <string name="no_mp3_title">لا توجد ملفات MP3 بعد</string>
+    <string name="no_mp3_hint">اختر MP3 عند التحميل، أو حوّل أي فيديو إلى صوت.</string>
+    <string name="audio_rationale_title">الوصول إلى ملفاتك الصوتية</string>
+    <string name="audio_rationale_text">حتى نعرض لك أغاني جوالك وملفاته الصوتية هنا لتشغيلها أو مشاركتها، يحتاج SaveTek إذناً بقراءة الملفات الصوتية.\n\nتُقرأ داخل جوالك فقط، ولا تُرفع ولا تُرسل إلى أي مكان.</string>
+    <string name="audio_denied_title">لا يوجد وصول إلى الملفات الصوتية</string>
+    <string name="audio_denied_text">اسمح بالوصول لترى الملفات الصوتية في جوالك هنا. باقي التطبيق يعمل كالمعتاد بدونه.</string>
+    <string name="no_device_audio">لا توجد ملفات صوتية في هذا الجوال</string>
+    <string name="audio_count">الملفات الصوتية (%1$d)</string>
+    <string name="error_no_video_post">هذا المنشور صورة ثابتة مع موسيقى، وليس فيديو. محرك التحميل لا يستطيع تحميل هذا النوع من المنشورات حالياً.</string>
 </resources>

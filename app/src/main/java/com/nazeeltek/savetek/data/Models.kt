@@ -18,6 +18,9 @@ enum class EngineCheckResult { UP_TO_DATE, UPDATED, FAILED, SKIPPED_WIFI, SKIPPE
 /** آخر فحص للمحرك: وقته ونتيجته وتفاصيلها (رقم الإصدار أو سبب الفشل). */
 data class EngineCheck(val time: Long, val result: EngineCheckResult, val detail: String?)
 
+/** أقسام شاشة "تحميلاتي" الأربعة، بترتيب ظهورها. */
+enum class DownloadsTab { VIDEOS, MP3, DEVICE_VIDEOS, DEVICE_AUDIO }
+
 /** نوع المهمة في "تحميلاتي": تحميل من الإنترنت أو تحويل فيديو إلى صوت. */
 enum class JobKind { DOWNLOAD, CONVERT }
 

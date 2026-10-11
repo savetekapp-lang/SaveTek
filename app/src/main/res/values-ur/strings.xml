@@ -207,4 +207,15 @@
     <string name="select_more_videos">مزید ویڈیوز منتخب کریں</string>
     <string name="no_device_videos">اس فون پر کوئی ویڈیو نہیں ملی</string>
     <string name="video_count">ویڈیوز (%1$d)</string>
+    <string name="tab_mp3_downloads">MP3 ڈاؤن لوڈز</string>
+    <string name="tab_device_audio">ڈیوائس MP3</string>
+    <string name="no_mp3_title">ابھی کوئی MP3 فائل نہیں</string>
+    <string name="no_mp3_hint">ڈاؤن لوڈ کرتے وقت MP3 منتخب کریں، یا کسی بھی ویڈیو کو آڈیو میں تبدیل کریں۔</string>
+    <string name="audio_rationale_title">اپنی آڈیو فائلوں تک رسائی</string>
+    <string name="audio_rationale_text">آپ کے فون کے گانے اور آڈیو فائلیں یہاں دکھانے کے لیے تاکہ آپ انہیں چلا یا شیئر کر سکیں، SaveTek کو آڈیو فائلیں پڑھنے کی اجازت چاہیے۔\n\nیہ صرف آپ کے فون پر پڑھی جاتی ہیں، اور کبھی اپ لوڈ یا کہیں نہیں بھیجی جاتیں۔</string>
+    <string name="audio_denied_title">آڈیو فائلوں تک رسائی نہیں</string>
+    <string name="audio_denied_text">اپنے فون کی آڈیو فائلیں یہاں دیکھنے کے لیے رسائی کی اجازت دیں۔ باقی ایپ اس کے بغیر معمول کے مطابق کام کرتی ہے۔</string>
+    <string name="no_device_audio">اس فون میں کوئی آڈیو فائل نہیں ملی</string>
+    <string name="audio_count">آڈیو فائلیں (%1$d)</string>
+    <string name="error_no_video_post">یہ پوسٹ موسیقی کے ساتھ ایک ساکن تصویر ہے، ویڈیو نہیں۔ ڈاؤن لوڈ انجن فی الحال اس قسم کی پوسٹ ڈاؤن لوڈ نہیں کر سکتا۔</string>
 </resources>

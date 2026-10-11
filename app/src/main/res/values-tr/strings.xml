@@ -207,4 +207,15 @@
     <string name="select_more_videos">Daha fazla video seç</string>
     <string name="no_device_videos">Bu telefonda video bulunamadı</string>
     <string name="video_count">Videolar (%1$d)</string>
+    <string name="tab_mp3_downloads">MP3 indirmeleri</string>
+    <string name="tab_device_audio">Cihazdaki MP3</string>
+    <string name="no_mp3_title">Henüz MP3 dosyası yok</string>
+    <string name="no_mp3_hint">İndirirken MP3 seçin veya herhangi bir videoyu sese dönüştürün.</string>
+    <string name="audio_rationale_title">Ses dosyalarınıza erişim</string>
+    <string name="audio_rationale_text">Telefonunuzdaki şarkıları ve ses dosyalarını burada gösterip oynatabilmeniz veya paylaşabilmeniz için SaveTek\'in ses dosyalarınızı okuma iznine ihtiyacı var.\n\nDosyalar yalnızca telefonunuzda okunur, hiçbir yere yüklenmez veya gönderilmez.</string>
+    <string name="audio_denied_title">Ses dosyalarına erişim yok</string>
+    <string name="audio_denied_text">Telefonunuzdaki ses dosyalarını burada görmek için erişime izin verin. Uygulamanın geri kalanı bu izin olmadan da normal çalışır.</string>
+    <string name="no_device_audio">Bu telefonda ses dosyası bulunamadı</string>
+    <string name="audio_count">Ses dosyaları (%1$d)</string>
+    <string name="error_no_video_post">Bu gönderi video değil, müzikli sabit bir görsel. İndirme motoru bu tür gönderileri şu anda indiremiyor.</string>
 </resources>

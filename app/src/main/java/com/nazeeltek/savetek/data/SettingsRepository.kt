@@ -108,6 +108,11 @@ object SettingsRepository {
         get() = prefs.getBoolean("media_permission_asked", false)
         set(value) = prefs.edit().putBoolean("media_permission_asked", value).apply()
 
+    /** هل طلبنا إذن الملفات الصوتية من قبل؟ (تبويب "MP3 الجهاز") */
+    var audioPermissionAsked: Boolean
+        get() = prefs.getBoolean("audio_permission_asked", false)
+        set(value) = prefs.edit().putBoolean("audio_permission_asked", value).apply()
+
     /** هل عرضنا على المستخدم شرح سبب طلب إذن الإشعارات؟ (نعرضه مرة واحدة فقط) */
     var notificationAsked: Boolean
         get() = prefs.getBoolean("notification_asked", false)

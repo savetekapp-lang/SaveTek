@@ -207,4 +207,15 @@
     <string name="select_more_videos">Pilih video lainnya</string>
     <string name="no_device_videos">Tidak ada video di ponsel ini</string>
     <string name="video_count">Video (%1$d)</string>
+    <string name="tab_mp3_downloads">Unduhan MP3</string>
+    <string name="tab_device_audio">MP3 perangkat</string>
+    <string name="no_mp3_title">Belum ada file MP3</string>
+    <string name="no_mp3_hint">Pilih MP3 saat mengunduh, atau konversi video apa pun menjadi audio.</string>
+    <string name="audio_rationale_title">Akses ke file audio Anda</string>
+    <string name="audio_rationale_text">Untuk menampilkan lagu dan file audio di ponsel Anda di sini agar bisa diputar atau dibagikan, SaveTek memerlukan izin untuk membaca file audio.\n\nFile hanya dibaca di ponsel Anda dan tidak pernah diunggah atau dikirim ke mana pun.</string>
+    <string name="audio_denied_title">Tidak ada akses ke file audio</string>
+    <string name="audio_denied_text">Izinkan akses untuk melihat file audio ponsel Anda di sini. Bagian lain aplikasi tetap berfungsi normal tanpanya.</string>
+    <string name="no_device_audio">Tidak ada file audio di ponsel ini</string>
+    <string name="audio_count">File audio (%1$d)</string>
+    <string name="error_no_video_post">Postingan ini adalah gambar diam dengan musik, bukan video. Mesin unduhan belum bisa mengunduh jenis postingan ini.</string>
 </resources>

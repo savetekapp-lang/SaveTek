@@ -45,7 +45,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Tab
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -64,6 +63,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -74,6 +74,8 @@ import com.nazeeltek.savetek.ads.AdsManager
 import com.nazeeltek.savetek.data.DEFAULT_MP3_BITRATE
 import com.nazeeltek.savetek.data.DownloadItem
 import com.nazeeltek.savetek.data.DownloadStatus
+import com.nazeeltek.savetek.data.DownloadsTab
+import com.nazeeltek.savetek.data.MediaKind
 import com.nazeeltek.savetek.data.MP3_BITRATES
 import com.nazeeltek.savetek.player.PlayerActivity
 
@@ -83,8 +85,15 @@ private sealed interface ConvertSource {
     data class Device(val uri: Uri) : ConvertSource
 }
 
+/**
+ * شاشة "تحميلاتي" بأربعة أقسام:
+ * ١. تحميلاتي: الفيديوهات المحمَّلة.  ٢. تحميلات MP3: الصوت المحمَّل والمحوَّل.
+ * ٣. فيديوهات الجهاز.  ٤. MP3 الجهاز: الملفات الصوتية في الجوال.
+ */
 @Composable
 fun DownloadsScreen(
+    tab: DownloadsTab,
+    onTabChange: (DownloadsTab) -> Unit,
     items: List<DownloadItem>,
     onCancel: (String) -> Unit,
     onRetry: (DownloadItem) -> Unit,
@@ -93,9 +102,6 @@ fun DownloadsScreen(
     onConvertDevice: (Uri, Int) -> Unit,
 ) {
     val context = LocalContext.current
-    val running = items.filter { it.status == DownloadStatus.RUNNING }
-    val done = items.filter { it.status == DownloadStatus.DONE }
-    val failed = items.filter { it.status == DownloadStatus.FAILED }
     var toDelete by remember { mutableStateOf<DownloadItem?>(null) }
     var toConvert by remember { mutableStateOf<ConvertSource?>(null) }
 
@@ -105,36 +111,51 @@ fun DownloadsScreen(
     }
     val openPicker = { pickVideo.launch(arrayOf("video/*")) }
 
-    // تبويبان: "تحميلاتي" (ما حمّلته أو حوّلته) و"فيديوهات الجهاز" (كل فيديوهات الجوال)
-    var tab by rememberSaveable { mutableIntStateOf(0) }
     Column(Modifier.fillMaxSize()) {
-        DownloadsTabs(selected = tab, onSelect = { tab = it })
-        if (tab == 1) {
-            DeviceVideosTab(onConvert = { toConvert = ConvertSource.Device(it) })
-            return@Column
+        DownloadsTabs(selected = tab, onSelect = onTabChange)
+        when (tab) {
+            DownloadsTab.DEVICE_VIDEOS -> {
+                DeviceMediaTab(MediaKind.VIDEO, onConvert = { toConvert = ConvertSource.Device(it) })
+                return@Column
+            }
+            DownloadsTab.DEVICE_AUDIO -> {
+                DeviceMediaTab(MediaKind.AUDIO, onConvert = {})
+                return@Column
+            }
+            else -> Unit
         }
+
+        // القسمان الأول والثاني: نفس القائمة، مفصولة حسب نوع الملف (فيديو / صوت)
+        val audioTab = tab == DownloadsTab.MP3
+        val shown = items.filter { it.audioOnly == audioTab }
+        val running = shown.filter { it.status == DownloadStatus.RUNNING }
+        val done = shown.filter { it.status == DownloadStatus.DONE }
+        val failed = shown.filter { it.status == DownloadStatus.FAILED }
+
         LazyColumn(
             contentPadding = PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             modifier = Modifier.fillMaxSize(),
         ) {
-            // زر تحويل فيديو من الجهاز (يظهر دائماً)
-            item {
-                OutlinedButton(
-                    onClick = openPicker,
-                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary),
-                    modifier = Modifier.fillMaxWidth(),
-                ) {
-                    Icon(Icons.Filled.VideoFile, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
-                    Spacer(Modifier.width(8.dp))
-                    Text(stringResource(R.string.convert_from_device), color = MaterialTheme.colorScheme.primary)
+            // زر تحويل فيديو من الجهاز إلى MP3 (نتيجته تظهر في هذا القسم)
+            if (audioTab) {
+                item {
+                    OutlinedButton(
+                        onClick = openPicker,
+                        border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary),
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Icon(Icons.Filled.VideoFile, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
+                        Spacer(Modifier.width(8.dp))
+                        Text(stringResource(R.string.convert_from_device), color = MaterialTheme.colorScheme.primary)
+                    }
                 }
             }
-    
-            if (items.isEmpty()) {
-                item { EmptyState() }
+
+            if (shown.isEmpty()) {
+                item { EmptyState(audioTab) }
             }
-    
+
             if (running.isNotEmpty()) {
                 item { SectionTitle(stringResource(R.string.section_running, running.size)) }
                 items(running, key = { it.id }) { RunningRow(it, onCancel) }
@@ -208,20 +229,36 @@ fun DownloadsScreen(
     }
 }
 
-/** شريط التبويبين أعلى "تحميلاتي". */
+/** شريط الأقسام الأربعة أعلى "تحميلاتي" (الاسم الطويل ينزل لسطرين بدل أن يُقطع). */
 @Composable
-private fun DownloadsTabs(selected: Int, onSelect: (Int) -> Unit) {
+private fun DownloadsTabs(selected: DownloadsTab, onSelect: (DownloadsTab) -> Unit) {
     val colors = MaterialTheme.colorScheme
+    val labels = mapOf(
+        DownloadsTab.VIDEOS to R.string.tab_downloads,
+        DownloadsTab.MP3 to R.string.tab_mp3_downloads,
+        DownloadsTab.DEVICE_VIDEOS to R.string.tab_device_videos,
+        DownloadsTab.DEVICE_AUDIO to R.string.tab_device_audio,
+    )
     PrimaryTabRow(
-        selectedTabIndex = selected,
+        selectedTabIndex = selected.ordinal,
         containerColor = colors.background,
         contentColor = colors.primary,
     ) {
-        listOf(R.string.tab_downloads, R.string.tab_device_videos).forEachIndexed { index, label ->
+        DownloadsTab.entries.forEach { t ->
+            val isSelected = selected == t
             Tab(
-                selected = selected == index,
-                onClick = { onSelect(index) },
-                text = { Text(stringResource(label), fontWeight = if (selected == index) FontWeight.Bold else FontWeight.Normal) },
+                selected = isSelected,
+                onClick = { onSelect(t) },
+                text = {
+                    Text(
+                        stringResource(labels.getValue(t)),
+                        fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
+                        fontSize = 13.sp,
+                        lineHeight = 16.sp,
+                        maxLines = 2,
+                        textAlign = TextAlign.Center,
+                    )
+                },
                 selectedContentColor = colors.primary,
                 unselectedContentColor = colors.onBackground.copy(alpha = 0.7f),
             )
@@ -230,7 +267,7 @@ private fun DownloadsTabs(selected: Int, onSelect: (Int) -> Unit) {
 }
 
 @Composable
-private fun EmptyState() {
+private fun EmptyState(audio: Boolean) {
     Column(
         Modifier
             .fillMaxWidth()
@@ -238,10 +275,19 @@ private fun EmptyState() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Icon(Icons.Filled.Download, null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(56.dp))
+        Icon(
+            if (audio) Icons.Filled.MusicNote else Icons.Filled.Download, null,
+            tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(56.dp),
+        )
         Spacer(Modifier.height(12.dp))
-        Text(stringResource(R.string.no_downloads_title), fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onBackground)
-        MutedText(stringResource(R.string.no_downloads_hint))
+        Text(
+            stringResource(if (audio) R.string.no_mp3_title else R.string.no_downloads_title),
+            fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onBackground,
+        )
+        MutedText(
+            stringResource(if (audio) R.string.no_mp3_hint else R.string.no_downloads_hint),
+            Modifier.padding(horizontal = 16.dp),
+        )
     }
 }
 

@@ -23,8 +23,10 @@ object GallerySaver {
     data class Saved(val uri: Uri?, val mime: String)
 
     fun save(context: Context, file: File, audioOnly: Boolean): Saved {
-        val mime = MimeTypeMap.getSingleton().getMimeTypeFromExtension(file.extension.lowercase())
+        val guessed = MimeTypeMap.getSingleton().getMimeTypeFromExtension(file.extension.lowercase())
             ?: if (audioOnly) "audio/mpeg" else "video/mp4"
+        // ملف صوت بامتداد فيديو (مثل webm): مجموعة الصوت في المعرض ترفض نوع video/*
+        val mime = if (audioOnly && guessed.startsWith("video/")) "audio/" + guessed.substringAfter('/') else guessed
 
         val uri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             saveWithMediaStore(context, file, mime, audioOnly)   // أندرويد 10 فما فوق

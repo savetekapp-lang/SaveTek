@@ -118,6 +118,13 @@ object FormatParser {
             ?: audios.maxByOrNull { it.bitrate }
         val audioSize = bestAudio?.sizeBytes(duration)
 
+        // الموقع يذكر صراحة أن كل الصيغ بلا صورة (صوت فقط): نعرض MP3 وحده بدل جودة فيديو وهمية
+        val audioOnlyContent = formats.isNotEmpty() && formats.all { it.vcodec == "none" } && audios.isNotEmpty()
+        if (audioOnlyContent) {
+            val mp3Size = duration?.let { it * MP3_V0_KBPS * 1000.0 / 8.0 } ?: audioSize
+            return listOf(QualityOption("mp3", LABEL_MP3, null, null, true, mp3Size?.toLong()))
+        }
+
         val videoOptions = formats
             .filter { it.hasVideo }
             .groupBy { it.height }

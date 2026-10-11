@@ -18,6 +18,8 @@
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
     <!-- أندرويد 14+: خيار "السماح بالوصول لفيديوهات محددة فقط" -->
     <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
+    <!-- تبويب "MP3 الجهاز": قراءة الملفات الصوتية محلياً فقط (يُطلب عند فتح التبويب أول مرة) -->
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
     <!-- أندرويد 12 وما قبله: إذن القراءة القديم -->
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"

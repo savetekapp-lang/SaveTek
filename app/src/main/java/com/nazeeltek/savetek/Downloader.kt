@@ -275,9 +275,30 @@ object Downloader {
             msg.contains("403 Forbidden") || msg.contains("status code 403")
     }
 
+    /**
+     * منشور بلا فيديو: مثل صورة ثابتة مع موسيقى مرفقة. المحرك يقرأ الصورة فقط ولا يصل للموسيقى،
+     * فنعرض رسالة مفهومة بدل خطأ المحرك التقني.
+     */
+    private fun isNoVideoError(msg: String): Boolean =
+        msg.contains("There is no video in this post") || msg.contains("No video formats found")
+
+    /** هل الملف المحمَّل بلا صورة (صوت فقط)؟ يحدث عندما لا يوفّر الموقع إلا الصوت. */
+    fun hasNoVideoTrack(file: File): Boolean {
+        val retriever = android.media.MediaMetadataRetriever()
+        return try {
+            retriever.setDataSource(file.absolutePath)
+            retriever.extractMetadata(android.media.MediaMetadataRetriever.METADATA_KEY_HAS_VIDEO) != "yes"
+        } catch (e: Exception) {
+            false   // لا نستطيع الحكم: نتركه كما هو
+        } finally {
+            runCatching { retriever.release() }
+        }
+    }
+
     /** يستخرج سطر الخطأ المفيد من رسالة yt-dlp الطويلة. */
     fun friendlyError(context: Context, e: Throwable): String {
         val raw = e.message ?: return context.str(R.string.error_unknown)
+        if (isNoVideoError(raw)) return context.str(R.string.error_no_video_post)
         val line = raw.lines().lastOrNull { it.contains("ERROR") } ?: raw.lines().first()
         return line.take(300)
     }

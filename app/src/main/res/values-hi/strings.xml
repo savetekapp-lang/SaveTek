@@ -207,4 +207,15 @@
     <string name="select_more_videos">और वीडियो चुनें</string>
     <string name="no_device_videos">इस फ़ोन पर कोई वीडियो नहीं मिला</string>
     <string name="video_count">वीडियो (%1$d)</string>
+    <string name="tab_mp3_downloads">MP3 डाउनलोड</string>
+    <string name="tab_device_audio">डिवाइस MP3</string>
+    <string name="no_mp3_title">अभी कोई MP3 फ़ाइल नहीं</string>
+    <string name="no_mp3_hint">डाउनलोड करते समय MP3 चुनें, या किसी भी वीडियो को ऑडियो में बदलें।</string>
+    <string name="audio_rationale_title">अपनी ऑडियो फ़ाइलों तक पहुँच</string>
+    <string name="audio_rationale_text">आपके फ़ोन के गाने और ऑडियो फ़ाइलें यहाँ दिखाने के लिए ताकि आप उन्हें चला या शेयर कर सकें, SaveTek को ऑडियो फ़ाइलें पढ़ने की अनुमति चाहिए।\n\nये सिर्फ़ आपके फ़ोन पर पढ़ी जाती हैं, और कभी अपलोड या कहीं भेजी नहीं जातीं।</string>
+    <string name="audio_denied_title">ऑडियो फ़ाइलों तक पहुँच नहीं</string>
+    <string name="audio_denied_text">अपने फ़ोन की ऑडियो फ़ाइलें यहाँ देखने के लिए पहुँच की अनुमति दें। बाकी ऐप इसके बिना सामान्य रूप से काम करता है।</string>
+    <string name="no_device_audio">इस फ़ोन में कोई ऑडियो फ़ाइल नहीं मिली</string>
+    <string name="audio_count">ऑडियो फ़ाइलें (%1$d)</string>
+    <string name="error_no_video_post">यह पोस्ट संगीत के साथ एक स्थिर तस्वीर है, वीडियो नहीं। डाउनलोड इंजन अभी इस तरह की पोस्ट डाउनलोड नहीं कर सकता।</string>
 </resources>

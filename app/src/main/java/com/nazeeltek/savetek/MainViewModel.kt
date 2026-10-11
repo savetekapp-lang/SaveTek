@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.nazeeltek.savetek.data.DefaultQuality
 import com.nazeeltek.savetek.data.DownloadItem
 import com.nazeeltek.savetek.data.DownloadRepository
+import com.nazeeltek.savetek.data.DownloadsTab
 import com.nazeeltek.savetek.data.DownloadStatus
 import com.nazeeltek.savetek.data.QualityOption
 import com.nazeeltek.savetek.data.SettingsRepository
@@ -70,6 +71,11 @@ class MainViewModel(private val app: Application) : AndroidViewModel(app) {
     /** طلب للتنقل إلى قسم معيّن (مثلاً عند المشاركة أو الضغط على إشعار). */
     private val _tabRequest = MutableStateFlow<Tab?>(null)
     val tabRequest: StateFlow<Tab?> = _tabRequest.asStateFlow()
+
+    /** القسم المختار داخل "تحميلاتي" (انظر DownloadsTab). */
+    private val _downloadsTab = MutableStateFlow(DownloadsTab.VIDEOS)
+    val downloadsTab: StateFlow<DownloadsTab> = _downloadsTab.asStateFlow()
+    fun selectDownloadsTab(tab: DownloadsTab) { _downloadsTab.value = tab }
 
     val downloads = DownloadRepository.items
     val defaultQuality = SettingsRepository.defaultQuality
@@ -215,6 +221,8 @@ class MainViewModel(private val app: Application) : AndroidViewModel(app) {
                 status = DownloadStatus.RUNNING,
             ),
         )
+        // عند فتح "تحميلاتي" يظهر القسم الذي سيحتوي هذا التحميل
+        _downloadsTab.value = if (option.audioOnly) DownloadsTab.MP3 else DownloadsTab.VIDEOS
         _home.value = HomeState(message = UiText(R.string.msg_download_started))
         return true
     }
@@ -249,6 +257,7 @@ class MainViewModel(private val app: Application) : AndroidViewModel(app) {
     fun convertItem(item: DownloadItem, bitrateKbps: Int) {
         val uri = item.uri ?: return toast(app.str(R.string.file_unavailable))
         DownloadService.enqueueConversion(app, Uri.parse(uri), item.title, item.thumbnail, bitrateKbps)
+        _downloadsTab.value = DownloadsTab.MP3
         toast(app.str(R.string.msg_convert_started))
     }
 
@@ -260,6 +269,7 @@ class MainViewModel(private val app: Application) : AndroidViewModel(app) {
         }
         val title = AudioConverter.displayName(app, uri) ?: app.str(R.string.default_video_title)
         DownloadService.enqueueConversion(app, uri, title, null, bitrateKbps)
+        _downloadsTab.value = DownloadsTab.MP3
         toast(app.str(R.string.msg_convert_started))
     }
 

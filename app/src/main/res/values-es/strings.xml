@@ -207,4 +207,15 @@
     <string name="select_more_videos">Seleccionar más videos</string>
     <string name="no_device_videos">No se encontraron videos en este teléfono</string>
     <string name="video_count">Videos (%1$d)</string>
+    <string name="tab_mp3_downloads">Descargas MP3</string>
+    <string name="tab_device_audio">MP3 del dispositivo</string>
+    <string name="no_mp3_title">Aún no hay archivos MP3</string>
+    <string name="no_mp3_hint">Elige MP3 al descargar, o convierte cualquier video en audio.</string>
+    <string name="audio_rationale_title">Acceso a tus archivos de audio</string>
+    <string name="audio_rationale_text">Para mostrar aquí las canciones y archivos de audio de tu teléfono y que puedas reproducirlos o compartirlos, SaveTek necesita permiso para leer tus archivos de audio.\n\nSe leen solo en tu teléfono y nunca se suben ni se envían a ningún sitio.</string>
+    <string name="audio_denied_title">Sin acceso a los archivos de audio</string>
+    <string name="audio_denied_text">Permite el acceso para ver aquí los archivos de audio de tu teléfono. El resto de la app funciona con normalidad sin él.</string>
+    <string name="no_device_audio">No se encontraron archivos de audio en este teléfono</string>
+    <string name="audio_count">Archivos de audio (%1$d)</string>
+    <string name="error_no_video_post">Esta publicación es una imagen fija con música, no un video. El motor de descarga no puede descargar este tipo de publicación por ahora.</string>
 </resources>

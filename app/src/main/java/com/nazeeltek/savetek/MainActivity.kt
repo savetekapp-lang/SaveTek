@@ -174,6 +174,7 @@ fun AppRoot(viewModel: MainViewModel, splashVisible: Boolean) {
     val engineUpdatedAt by viewModel.engineUpdatedAt.collectAsStateWithLifecycle()
     val updating by viewModel.updating.collectAsStateWithLifecycle()
     val downloads by viewModel.downloads.collectAsStateWithLifecycle()
+    val downloadsTab by viewModel.downloadsTab.collectAsStateWithLifecycle()
     val defaultQuality by viewModel.defaultQuality.collectAsStateWithLifecycle()
     val wifiOnly by viewModel.wifiOnly.collectAsStateWithLifecycle()
     val themeMode by viewModel.themeMode.collectAsStateWithLifecycle()
@@ -300,6 +301,8 @@ fun AppRoot(viewModel: MainViewModel, splashVisible: Boolean) {
                     onDownload = { onDownloadClick() },
                 )
                 Tab.DOWNLOADS -> DownloadsScreen(
+                    tab = downloadsTab,
+                    onTabChange = viewModel::selectDownloadsTab,
                     items = downloads,
                     onCancel = viewModel::cancelDownload,
                     onRetry = viewModel::retry,

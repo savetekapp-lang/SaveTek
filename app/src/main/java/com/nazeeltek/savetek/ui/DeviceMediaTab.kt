@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
+import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.BorderStroke
@@ -27,8 +28,10 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.LibraryMusic
 import androidx.compose.material.icons.filled.MusicNote
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.VideoLibrary
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -65,56 +68,88 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.currentStateAsState
 import com.nazeeltek.savetek.R
-import com.nazeeltek.savetek.data.DeviceVideo
-import com.nazeeltek.savetek.data.DeviceVideos
+import com.nazeeltek.savetek.data.DeviceFile
+import com.nazeeltek.savetek.data.DeviceMedia
 import com.nazeeltek.savetek.data.MediaAccess
+import com.nazeeltek.savetek.data.MediaKind
 import com.nazeeltek.savetek.data.SettingsRepository
 import com.nazeeltek.savetek.player.PlayerActivity
 
+/** النصوص والأيقونة الخاصة بكل نوع (فيديو / صوت). */
+private class KindTexts(
+    val rationaleTitle: Int,
+    val rationaleText: Int,
+    val deniedTitle: Int,
+    val deniedText: Int,
+    val empty: Int,
+    val count: Int,
+)
+
+private fun textsFor(kind: MediaKind) = when (kind) {
+    MediaKind.VIDEO -> KindTexts(
+        R.string.media_rationale_title, R.string.media_rationale_text,
+        R.string.media_denied_title, R.string.media_denied_text,
+        R.string.no_device_videos, R.string.video_count,
+    )
+    MediaKind.AUDIO -> KindTexts(
+        R.string.audio_rationale_title, R.string.audio_rationale_text,
+        R.string.audio_denied_title, R.string.audio_denied_text,
+        R.string.no_device_audio, R.string.audio_count,
+    )
+}
+
 /**
- * تبويب "فيديوهات الجهاز": كل فيديوهات الجوال، مع تشغيلها أو تحويلها إلى MP3.
+ * قسم "فيديوهات الجهاز" أو "MP3 الجهاز": ملفات الجوال، مع تشغيلها
+ * (وتحويل الفيديو إلى MP3، أو مشاركة الملف الصوتي).
  *
- * الإذن لا يُطلب إلا عند فتح هذا التبويب أول مرة، وبعد شرح بسيط للسبب.
+ * الإذن لا يُطلب إلا عند فتح القسم أول مرة، وبعد شرح بسيط للسبب.
  * إذا رفض المستخدم، يبقى التطبيق يعمل كالمعتاد ويظهر هنا زر "السماح بالوصول".
  */
 @Composable
-fun DeviceVideosTab(onConvert: (Uri) -> Unit) {
+fun DeviceMediaTab(kind: MediaKind, onConvert: (Uri) -> Unit) {
     val context = LocalContext.current
-    val permissions = remember { DeviceVideos.permissions() }
-
-    var access by remember { mutableStateOf(DeviceVideos.access(context)) }
-    var reloadKey by remember { mutableIntStateOf(0) }
-    // الشرح يظهر تلقائياً عند أول فتح فقط
-    var showRationale by remember {
-        mutableStateOf(access == MediaAccess.NONE && !SettingsRepository.mediaPermissionAsked)
+    val texts = remember(kind) { textsFor(kind) }
+    val permissions = remember(kind) { DeviceMedia.permissions(kind) }
+    fun asked() = if (kind == MediaKind.AUDIO) SettingsRepository.audioPermissionAsked
+    else SettingsRepository.mediaPermissionAsked
+    fun markAsked() {
+        if (kind == MediaKind.AUDIO) SettingsRepository.audioPermissionAsked = true
+        else SettingsRepository.mediaPermissionAsked = true
     }
+
+    var access by remember(kind) { mutableStateOf(DeviceMedia.access(context, kind)) }
+    var reloadKey by remember(kind) { mutableIntStateOf(0) }
+    // الشرح يظهر تلقائياً عند أول فتح فقط
+    var showRationale by remember(kind) { mutableStateOf(access == MediaAccess.NONE && !asked()) }
 
     // نعيد فحص الإذن وتحميل القائمة كلما عاد المستخدم للتطبيق (مثلاً من الإعدادات)
     val lifecycleState by LocalLifecycleOwner.current.lifecycle.currentStateAsState()
-    LaunchedEffect(lifecycleState) {
+    LaunchedEffect(lifecycleState, kind) {
         if (lifecycleState == Lifecycle.State.RESUMED) {
-            access = DeviceVideos.access(context)
+            access = DeviceMedia.access(context, kind)
             reloadKey++
         }
     }
 
     val launcher = rememberLauncherForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
-        SettingsRepository.mediaPermissionAsked = true
-        access = DeviceVideos.access(context)
+        markAsked()
+        access = DeviceMedia.access(context, kind)
         reloadKey++
     }
 
     /** زر "السماح بالوصول": يطلب الإذن، أو يفتح إعدادات التطبيق إذا رُفض نهائياً. */
     fun requestAccess() {
         val activity = context as? Activity
-        val permanentlyDenied = SettingsRepository.mediaPermissionAsked && activity != null &&
+        val permanentlyDenied = asked() && activity != null &&
             !activity.shouldShowRequestPermissionRationale(permissions.first())
         if (permanentlyDenied && access == MediaAccess.NONE) openAppSettings(context) else launcher.launch(permissions)
     }
 
     when (access) {
-        MediaAccess.NONE -> NoAccess(onAllow = { requestAccess() })
-        else -> VideoList(
+        MediaAccess.NONE -> NoAccess(kind, texts, onAllow = { requestAccess() })
+        else -> FileList(
+            kind = kind,
+            texts = texts,
             partial = access == MediaAccess.PARTIAL,
             reloadKey = reloadKey,
             onSelectMore = { launcher.launch(permissions) },
@@ -125,9 +160,9 @@ fun DeviceVideosTab(onConvert: (Uri) -> Unit) {
     if (showRationale) {
         AlertDialog(
             onDismissRequest = { showRationale = false },
-            icon = { Icon(Icons.Filled.VideoLibrary, null, tint = MaterialTheme.colorScheme.primary) },
-            title = { Text(stringResource(R.string.media_rationale_title)) },
-            text = { Text(stringResource(R.string.media_rationale_text)) },
+            icon = { Icon(kindIcon(kind), null, tint = MaterialTheme.colorScheme.primary) },
+            title = { Text(stringResource(texts.rationaleTitle)) },
+            text = { Text(stringResource(texts.rationaleText)) },
             confirmButton = {
                 Button(onClick = { showRationale = false; launcher.launch(permissions) }) {
                     Text(stringResource(R.string.continue_btn))
@@ -142,8 +177,11 @@ fun DeviceVideosTab(onConvert: (Uri) -> Unit) {
     }
 }
 
+private fun kindIcon(kind: MediaKind) =
+    if (kind == MediaKind.AUDIO) Icons.Filled.LibraryMusic else Icons.Filled.VideoLibrary
+
 @Composable
-private fun NoAccess(onAllow: () -> Unit) {
+private fun NoAccess(kind: MediaKind, texts: KindTexts, onAllow: () -> Unit) {
     Column(
         Modifier
             .fillMaxSize()
@@ -151,28 +189,30 @@ private fun NoAccess(onAllow: () -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        Icon(Icons.Filled.VideoLibrary, null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(56.dp))
+        Icon(kindIcon(kind), null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(56.dp))
         Spacer(Modifier.height(12.dp))
-        Text(stringResource(R.string.media_denied_title), fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onBackground)
+        Text(stringResource(texts.deniedTitle), fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onBackground)
         Spacer(Modifier.height(4.dp))
-        MutedText(stringResource(R.string.media_denied_text), Modifier.padding(horizontal = 8.dp))
+        MutedText(stringResource(texts.deniedText), Modifier.padding(horizontal = 8.dp))
         Spacer(Modifier.height(16.dp))
         Button(onClick = onAllow) { Text(stringResource(R.string.allow_access)) }
     }
 }
 
 @Composable
-private fun VideoList(
+private fun FileList(
+    kind: MediaKind,
+    texts: KindTexts,
     partial: Boolean,
     reloadKey: Int,
     onSelectMore: () -> Unit,
     onConvert: (Uri) -> Unit,
 ) {
     val context = LocalContext.current
-    val videos by produceState<List<DeviceVideo>?>(initialValue = null, reloadKey) {
-        value = DeviceVideos.query(context)
+    val files by produceState<List<DeviceFile>?>(initialValue = null, reloadKey, kind) {
+        value = DeviceMedia.query(context, kind)
     }
-    val list = videos
+    val list = files
 
     LazyColumn(
         contentPadding = PaddingValues(16.dp),
@@ -206,18 +246,16 @@ private fun VideoList(
                 }
             }
             list.isEmpty() -> item {
-                MutedText(
-                    stringResource(R.string.no_device_videos),
-                    Modifier.fillMaxWidth().padding(32.dp),
-                )
+                MutedText(stringResource(texts.empty), Modifier.fillMaxWidth().padding(32.dp))
             }
             else -> {
-                item { SectionTitle(stringResource(R.string.video_count, list.size)) }
-                items(list, key = { it.id }) { video ->
-                    DeviceVideoRow(
-                        video = video,
-                        onPlay = { PlayerActivity.openUri(context, video.uri, video.mime, video.name) },
-                        onConvert = { onConvert(video.uri) },
+                item { SectionTitle(stringResource(texts.count, list.size)) }
+                items(list, key = { it.id }) { file ->
+                    DeviceFileRow(
+                        file = file,
+                        onPlay = { PlayerActivity.openUri(context, file.uri, file.mime, file.name) },
+                        onConvert = { onConvert(file.uri) },
+                        onShare = { shareFile(context, file) },
                     )
                 }
             }
@@ -226,12 +264,13 @@ private fun VideoList(
 }
 
 @Composable
-private fun DeviceVideoRow(video: DeviceVideo, onPlay: () -> Unit, onConvert: () -> Unit) {
+private fun DeviceFileRow(file: DeviceFile, onPlay: () -> Unit, onConvert: () -> Unit, onShare: () -> Unit) {
     val colors = MaterialTheme.colorScheme
     val context = LocalContext.current
-    val thumb by produceState<android.graphics.Bitmap?>(initialValue = null, video.id) {
-        value = DeviceVideos.thumbnail(context, video)
+    val thumb by produceState<android.graphics.Bitmap?>(initialValue = null, file.id, file.kind) {
+        value = DeviceMedia.thumbnail(context, file)
     }
+    val isAudio = file.kind == MediaKind.AUDIO
 
     Card(
         colors = CardDefaults.cardColors(containerColor = colors.surface),
@@ -241,18 +280,22 @@ private fun DeviceVideoRow(video: DeviceVideo, onPlay: () -> Unit, onConvert: ()
             .clickable(onClick = onPlay),
     ) {
         Row(Modifier.padding(10.dp), verticalAlignment = Alignment.CenterVertically) {
-            // الصورة المصغّرة مع مدة الفيديو
+            // الصورة المصغّرة (أو غلاف الأغنية) مع المدة
             Box(
                 Modifier
-                    .size(width = 96.dp, height = 54.dp)
+                    .size(width = if (isAudio) 54.dp else 96.dp, height = 54.dp)
                     .clip(RoundedCornerShape(8.dp))
-                    .background(Color.Black),
+                    .background(if (isAudio) colors.primary.copy(alpha = 0.15f) else Color.Black),
+                contentAlignment = Alignment.Center,
             ) {
-                thumb?.let {
-                    Image(it.asImageBitmap(), null, contentScale = ContentScale.Crop, modifier = Modifier.fillMaxSize())
+                val bitmap = thumb
+                if (bitmap != null) {
+                    Image(bitmap.asImageBitmap(), null, contentScale = ContentScale.Crop, modifier = Modifier.fillMaxSize())
+                } else if (isAudio) {
+                    Icon(Icons.Filled.MusicNote, null, tint = colors.primary)
                 }
-                val duration = formatDuration((video.durationMs / 1000).toInt())
-                if (duration.isNotEmpty()) {
+                val duration = formatDuration((file.durationMs / 1000).toInt())
+                if (duration.isNotEmpty() && !isAudio) {
                     Text(
                         duration,
                         color = Color.White,
@@ -268,14 +311,32 @@ private fun DeviceVideoRow(video: DeviceVideo, onPlay: () -> Unit, onConvert: ()
             }
             Spacer(Modifier.width(10.dp))
             Column(Modifier.weight(1f)) {
-                Text(video.name, maxLines = 2, overflow = TextOverflow.Ellipsis, fontSize = 14.sp, color = colors.onSurface)
-                MutedText(sizeText(video.sizeBytes))
+                Text(file.name, maxLines = 2, overflow = TextOverflow.Ellipsis, fontSize = 14.sp, color = colors.onSurface)
+                val duration = formatDuration((file.durationMs / 1000).toInt())
+                MutedText(if (isAudio && duration.isNotEmpty()) "$duration · ${sizeText(file.sizeBytes)}" else sizeText(file.sizeBytes))
             }
             IconButton(onClick = onPlay) { Icon(Icons.Filled.PlayArrow, stringResource(R.string.play), tint = colors.primary) }
-            IconButton(onClick = onConvert) {
-                Icon(Icons.Filled.MusicNote, stringResource(R.string.convert_to_mp3), tint = colors.primary)
+            if (isAudio) {
+                IconButton(onClick = onShare) { Icon(Icons.Filled.Share, stringResource(R.string.share), tint = colors.primary) }
+            } else {
+                IconButton(onClick = onConvert) {
+                    Icon(Icons.Filled.MusicNote, stringResource(R.string.convert_to_mp3), tint = colors.primary)
+                }
             }
         }
+    }
+}
+
+/** مشاركة ملف من الجوال مع تطبيق آخر يختاره المستخدم. */
+private fun shareFile(context: Context, file: DeviceFile) {
+    val intent = Intent(Intent.ACTION_SEND)
+        .setType(file.mime ?: if (file.kind == MediaKind.AUDIO) "audio/*" else "video/*")
+        .putExtra(Intent.EXTRA_STREAM, file.uri)
+        .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+    try {
+        context.startActivity(Intent.createChooser(intent, context.getString(R.string.share_via)))
+    } catch (e: Exception) {
+        Toast.makeText(context, context.getString(R.string.file_unavailable), Toast.LENGTH_SHORT).show()
     }
 }
 
