@@ -1,42 +1,42 @@
 {
-    "versionCode":  13,
-    "versionName":  "0.7.5",
-    "releaseDate":  "2026-10-04",
-    "apkUrl":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.7.5/SaveTek-0.7.5-arm64-v8a.apk",
-    "sha256":  "d2fdc989c4bba1eaa04582d1478f753e2d56e108835beddf14b231e9392317d8",
-    "apkSizeBytes":  56740948,
+    "versionCode":  14,
+    "versionName":  "0.8.0",
+    "releaseDate":  "2026-10-12",
+    "apkUrl":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.8.0/SaveTek-0.8.0-arm64-v8a.apk",
+    "sha256":  "b905a07acd8152cdeaa628817acce6125bcade1e7cdd535c1c0ac19a2fd42111",
+    "apkSizeBytes":  56759344,
     "minSupportedVersionCode":  1,
-    "releasePage":  "https://github.com/savetekapp-lang/SaveTek/releases/tag/v0.7.5",
+    "releasePage":  "https://github.com/savetekapp-lang/SaveTek/releases/tag/v0.8.0",
     "abis":  {
                  "arm64-v8a":  {
-                                   "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.7.5/SaveTek-0.7.5-arm64-v8a.apk",
-                                   "sha256":  "d2fdc989c4bba1eaa04582d1478f753e2d56e108835beddf14b231e9392317d8",
-                                   "sizeBytes":  56740948
+                                   "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.8.0/SaveTek-0.8.0-arm64-v8a.apk",
+                                   "sha256":  "b905a07acd8152cdeaa628817acce6125bcade1e7cdd535c1c0ac19a2fd42111",
+                                   "sizeBytes":  56759344
                                },
                  "armeabi-v7a":  {
-                                     "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.7.5/SaveTek-0.7.5-armeabi-v7a.apk",
-                                     "sha256":  "54b809e7080baa2e8517323ee12f99add68b3a57279d2613689cd440321744fd",
-                                     "sizeBytes":  50087814
+                                     "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.8.0/SaveTek-0.8.0-armeabi-v7a.apk",
+                                     "sha256":  "ab4f42cdc54a6ea30a8f560aba28a41629b0160e90eb56b865dd0806e3fadc1e",
+                                     "sizeBytes":  50106210
                                  },
                  "x86_64":  {
-                                "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.7.5/SaveTek-0.7.5-x86_64.apk",
-                                "sha256":  "76dad4132b04d739afcb1935ae6bd76cc97fc6cbd8e3a25a92f0a2ce0eec1071",
-                                "sizeBytes":  59732947
+                                "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.8.0/SaveTek-0.8.0-x86_64.apk",
+                                "sha256":  "7461df13b25f3e95c327fe74b3685d7fdaea7cd3ce2a5c7dc7a0133a82d75141",
+                                "sizeBytes":  59751343
                             },
                  "universal":  {
-                                   "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.7.5/SaveTek-0.7.5-universal.apk",
-                                   "sha256":  "942fd6667881921fb2f6370977127958031d6e490fe11962840d4526bfb9d95b",
-                                   "sizeBytes":  202125673
+                                   "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.8.0/SaveTek-0.8.0-universal.apk",
+                                   "sha256":  "a33024390d0efe12b3325b001fd623212c3ce23c0dc9346dcf6ef16ce8136f7a",
+                                   "sizeBytes":  202144069
                                }
              },
     "whatsNew":  {
-                     "ar":  "• صفحة \"عن التطبيق\": تصحيح معلومات تراخيص المكونات مفتوحة المصدر، وزر جديد يفتح الكود المصدري.\n• (من 0.7.4) إصلاح تحديث التطبيق على أندرويد 9 إلى 12، ورسائل أوضح عند فشل التحديث.",
-                     "en":  "• About screen: corrected the licenses of the open-source components, and a new button that opens the source code.\n• (from 0.7.4) Fixed app updates on Android 9 to 12, with clearer messages when an update fails.",
-                     "ur":  "• \"ایپ کے بارے میں\" صفحہ: اوپن سورس اجزاء کے لائسنس کی معلومات درست کی گئیں، اور سورس کوڈ کھولنے کا نیا بٹن۔\n• (0.7.4 سے) اینڈرائیڈ 9 سے 12 پر ایپ اپ ڈیٹ درست، اور اپ ڈیٹ ناکام ہونے پر زیادہ واضح پیغامات۔",
-                     "tr":  "• Hakkında ekranı: açık kaynak bileşenlerin lisans bilgileri düzeltildi ve kaynak kodunu açan yeni bir düğme eklendi.\n• (0.7.4\u0027ten) Android 9 ile 12 arasında uygulama güncellemesi düzeltildi; güncelleme başarısız olduğunda daha açık mesajlar.",
-                     "fr":  "• Écran « À propos » : licences des composants open source corrigées, et nouveau bouton qui ouvre le code source.\n• (depuis 0.7.4) Correction des mises à jour sur Android 9 à 12, avec des messages plus clairs en cas d\u0027échec.",
-                     "es":  "• Pantalla «Acerca de»: se corrigieron las licencias de los componentes de código abierto y hay un botón nuevo que abre el código fuente.\n• (desde 0.7.4) Corregidas las actualizaciones en Android 9 a 12, con mensajes más claros cuando fallan.",
-                     "id":  "• Layar \"Tentang\": informasi lisensi komponen sumber terbuka diperbaiki, dan tombol baru untuk membuka kode sumber.\n• (sejak 0.7.4) Perbaikan pembaruan aplikasi di Android 9 sampai 12, dengan pesan yang lebih jelas saat pembaruan gagal.",
-                     "hi":  "• \"ऐप के बारे में\" स्क्रीन: ओपन-सोर्स घटकों के लाइसेंस की जानकारी ठीक की गई, और सोर्स कोड खोलने का नया बटन।\n• (0.7.4 से) Android 9 से 12 पर ऐप अपडेट ठीक, और अपडेट विफल होने पर ज़्यादा साफ़ संदेश।"
+                     "ar":  "• \"تحميلاتي\" صارت أربعة أقسام: تحميلاتي (الفيديو)، تحميلات MP3، فيديوهات الجهاز، و MP3 الجهاز الجديد لتشغيل أغاني جوالك ومشاركتها.\n• المنشورات التي هي صورة ثابتة مع موسيقى: يمكنك الآن حفظ الصورة بأعلى دقة مع رسالة توضّح أن الموسيقى لا يمكن تحميلها، والمقاطع التي يوفّر موقعها الصوت فقط تُحفظ كـ MP3 بدل أن يفشل تحميلها.",
+                     "en":  "• My downloads now has four sections: My downloads (video), MP3 downloads, Device videos, and the new Device MP3 to play and share your phone\u0027s songs.\n• Posts that are a still image with music: you can now save the image in full resolution, with a note explaining the music can\u0027t be downloaded, and clips whose site only provides audio are saved as MP3 instead of failing.",
+                     "ur":  "• \"میری ڈاؤن لوڈز\" اب چار حصوں میں: میری ڈاؤن لوڈز (ویڈیو)، MP3 ڈاؤن لوڈز، ڈیوائس کی ویڈیوز، اور نیا ڈیوائس MP3 جس میں آپ اپنے فون کے گانے چلا اور شیئر کر سکتے ہیں۔\n• موسیقی والی ساکن تصویر کی پوسٹس: اب آپ تصویر پوری ریزولیوشن میں محفوظ کر سکتے ہیں، ساتھ میں وضاحت کہ موسیقی ڈاؤن لوڈ نہیں ہو سکتی؛ اور جن کلپس کی سائٹ صرف آڈیو دیتی ہے وہ ناکام ہونے کے بجائے MP3 کے طور پر محفوظ ہوتی ہیں۔",
+                     "tr":  "• İndirdiklerim artık dört bölüm: İndirdiklerim (video), MP3 indirmeleri, Cihazdaki videolar ve telefonunuzdaki şarkıları çalıp paylaşabileceğiniz yeni Cihazdaki MP3.\n• Müzikli sabit görsel gönderileri: artık görseli tam çözünürlükte kaydedebilirsiniz, müziğin indirilemeyeceğini açıklayan bir notla; sitesi yalnızca ses sunan klipler başarısız olmak yerine MP3 olarak kaydedilir.",
+                     "fr":  "• Mes téléchargements comporte désormais quatre sections : Mes téléchargements (vidéo), Téléchargements MP3, Vidéos de l\u0027appareil et le nouveau MP3 de l\u0027appareil pour lire et partager les chansons de votre téléphone.\n• Publications constituées d\u0027une image fixe avec musique : vous pouvez désormais enregistrer l\u0027image en pleine résolution, avec une note expliquant que la musique ne peut pas être téléchargée ; les clips dont le site ne fournit que l\u0027audio sont enregistrés en MP3 au lieu d\u0027échouer.",
+                     "es":  "• Mis descargas ahora tiene cuatro secciones: Mis descargas (video), Descargas MP3, Videos del dispositivo y el nuevo MP3 del dispositivo para reproducir y compartir las canciones de tu teléfono.\n• Publicaciones que son una imagen fija con música: ahora puedes guardar la imagen en resolución completa, con una nota que explica que la música no se puede descargar; los clips cuyo sitio solo ofrece audio se guardan como MP3 en lugar de fallar.",
+                     "id":  "• Unduhan saya kini punya empat bagian: Unduhan saya (video), Unduhan MP3, Video perangkat, dan MP3 perangkat yang baru untuk memutar dan membagikan lagu di ponsel Anda.\n• Postingan berupa gambar diam dengan musik: kini Anda bisa menyimpan gambarnya dalam resolusi penuh, dengan catatan bahwa musiknya tidak bisa diunduh; klip yang situsnya hanya menyediakan audio disimpan sebagai MP3, bukan gagal.",
+                     "hi":  "• \"मेरे डाउनलोड\" अब चार हिस्सों में: मेरे डाउनलोड (वीडियो), MP3 डाउनलोड, डिवाइस के वीडियो, और नया डिवाइस MP3 जिसमें आप अपने फ़ोन के गाने चला और शेयर कर सकते हैं।\n• संगीत वाली स्थिर तस्वीर की पोस्ट: अब आप तस्वीर पूरे रिज़ॉल्यूशन में सहेज सकते हैं, साथ में यह नोट कि संगीत डाउनलोड नहीं हो सकता; और जिन क्लिप की साइट सिर्फ़ ऑडियो देती है वे विफल होने के बजाय MP3 के रूप में सहेजी जाती हैं।"
                  }
 }
