@@ -25,8 +25,8 @@ android {
         applicationId = "com.nazeeltek.savetek"
         minSdk = 24
         targetSdk = 36
-        versionCode = 14
-        versionName = "0.8.0"
+        versionCode = 15
+        versionName = "0.8.1"
         // نسخة اختبار فقط: gradlew assembleRelease -Psavetek.selftest=true
         // تعرض عند الفتح نتيجة فحص توقيع ملف التطبيق نفسه. النسخة العادية لا تحتوي هذا أبداً.
         buildConfigField("boolean", "SIGNATURE_SELFTEST", (findProperty("savetek.selftest") == "true").toString())

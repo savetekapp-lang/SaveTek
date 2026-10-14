@@ -6,6 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
 import android.widget.Toast
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.BorderStroke
@@ -28,6 +29,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Folder
 import androidx.compose.material.icons.filled.LibraryMusic
 import androidx.compose.material.icons.filled.MusicNote
 import androidx.compose.material.icons.filled.PlayArrow
@@ -51,6 +55,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -212,7 +217,17 @@ private fun FileList(
     val files by produceState<List<DeviceFile>?>(initialValue = null, reloadKey, kind) {
         value = DeviceMedia.query(context, kind)
     }
-    val list = files
+    // المجلدات بترتيب أحدث ملف فيها (الملفات مرتبة أصلاً من الأحدث للأقدم)
+    val folders = remember(files) { files?.groupBy { it.folder }?.toList() }
+    var openFolder by rememberSaveable(kind) { mutableStateOf<String?>(null) }
+    // المجلد المفتوح لم يعد موجوداً (مثلاً حُذفت ملفاته): نرجع لقائمة المجلدات
+    val folderFiles = openFolder?.let { name -> folders?.firstOrNull { it.first == name }?.second }
+    LaunchedEffect(folders) {
+        if (openFolder != null && folders != null && folders.none { it.first == openFolder }) openFolder = null
+    }
+    // زر الرجوع في الجوال: من داخل المجلد إلى قائمة المجلدات
+    BackHandler(enabled = openFolder != null) { openFolder = null }
+    val list = if (openFolder != null) folderFiles else files
 
     LazyColumn(
         contentPadding = PaddingValues(16.dp),
@@ -248,8 +263,34 @@ private fun FileList(
             list.isEmpty() -> item {
                 MutedText(stringResource(texts.empty), Modifier.fillMaxWidth().padding(32.dp))
             }
+            // قائمة المجلدات
+            openFolder == null && folders != null -> {
+                item { SectionTitle(stringResource(R.string.folders_count, folders.size)) }
+                items(folders, key = { "folder:" + it.first }) { (name, inFolder) ->
+                    FolderRow(
+                        name = name.ifEmpty { stringResource(R.string.unknown_folder) },
+                        files = inFolder,
+                        onClick = { openFolder = name },
+                    )
+                }
+            }
+            // ملفات المجلد المفتوح
             else -> {
-                item { SectionTitle(stringResource(texts.count, list.size)) }
+                item {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        IconButton(onClick = { openFolder = null }) {
+                            Icon(
+                                Icons.AutoMirrored.Filled.ArrowBack,
+                                contentDescription = stringResource(R.string.back_to_folders),
+                                tint = MaterialTheme.colorScheme.primary,
+                            )
+                        }
+                        SectionTitle(
+                            (openFolder ?: "").ifEmpty { stringResource(R.string.unknown_folder) } + " · " +
+                                stringResource(texts.count, list.size),
+                        )
+                    }
+                }
                 items(list, key = { it.id }) { file ->
                     DeviceFileRow(
                         file = file,
@@ -323,6 +364,47 @@ private fun DeviceFileRow(file: DeviceFile, onPlay: () -> Unit, onConvert: () ->
                     Icon(Icons.Filled.MusicNote, stringResource(R.string.convert_to_mp3), tint = colors.primary)
                 }
             }
+        }
+    }
+}
+
+/** صف مجلد: صورة أحدث ملف فيه (أو أيقونة مجلد)، والاسم، وعدد الملفات. */
+@Composable
+private fun FolderRow(name: String, files: List<DeviceFile>, onClick: () -> Unit) {
+    val colors = MaterialTheme.colorScheme
+    val context = LocalContext.current
+    val first = files.first()
+    val thumb by produceState<android.graphics.Bitmap?>(initialValue = null, first.id, first.kind) {
+        value = DeviceMedia.thumbnail(context, first)
+    }
+    Card(
+        colors = CardDefaults.cardColors(containerColor = colors.surface),
+        shape = RoundedCornerShape(12.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick),
+    ) {
+        Row(Modifier.padding(10.dp), verticalAlignment = Alignment.CenterVertically) {
+            Box(
+                Modifier
+                    .size(54.dp)
+                    .clip(RoundedCornerShape(8.dp))
+                    .background(colors.primary.copy(alpha = 0.15f)),
+                contentAlignment = Alignment.Center,
+            ) {
+                val bitmap = thumb
+                if (bitmap != null) {
+                    Image(bitmap.asImageBitmap(), null, contentScale = ContentScale.Crop, modifier = Modifier.fillMaxSize())
+                } else {
+                    Icon(Icons.Filled.Folder, null, tint = colors.primary)
+                }
+            }
+            Spacer(Modifier.width(12.dp))
+            Column(Modifier.weight(1f)) {
+                Text(name, maxLines = 1, overflow = TextOverflow.Ellipsis, fontSize = 15.sp, fontWeight = FontWeight.Bold, color = colors.onSurface)
+                MutedText(stringResource(R.string.folder_files, files.size) + " · " + sizeText(files.sumOf { it.sizeBytes }))
+            }
+            Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, null, tint = colors.onSurface.copy(alpha = 0.5f))
         }
     }
 }

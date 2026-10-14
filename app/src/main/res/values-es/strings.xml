@@ -220,4 +220,8 @@
     <string name="error_no_video_post">Esta publicación es una imagen fija con música, no un video. El motor de descarga no puede descargar este tipo de publicación por ahora.</string>
     <string name="quality_image">Guardar imagen</string>
     <string name="image_only_note">Esta publicación es una imagen fija con música, no un video. La música no se puede descargar, pero puedes guardar la imagen.</string>
+    <string name="folders_count">Carpetas (%1$d)</string>
+    <string name="folder_files">Archivos: %1$d</string>
+    <string name="unknown_folder">Otros</string>
+    <string name="back_to_folders">Volver a las carpetas</string>
 </resources>

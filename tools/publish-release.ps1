@@ -64,7 +64,11 @@ foreach ($abi in 'arm64-v8a', 'armeabi-v7a', 'x86_64', 'universal') {
     $apk = Join-Path $outDir "SaveTek-$versionName-$abi.apk"
     $hash = (Get-FileHash -Algorithm SHA256 $apk).Hash.ToLower()
     if ($hash -ne $info.abis.$abi.sha256) { Fail "$abi fingerprint differs from version.json" }
-    $cert = (& $apksigner verify --print-certs $apk 2>$null | Select-String 'Signer #1 certificate SHA-256 digest: (\w+)').Matches.Groups[1].Value
+    # apksigner يطبع تحذيرات Java على stderr: لا نعتبرها خطأً، ونقرأ البصمة من الناتج فقط
+    $prev = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
+    $out = & $apksigner verify --print-certs $apk 2>&1 | Out-String
+    $ErrorActionPreference = $prev
+    $cert = [regex]::Match($out, 'Signer #1 certificate SHA-256 digest: (\w+)').Groups[1].Value
     if ($cert -ne $ExpectedCert) { Fail "$abi is not signed with the official key ($cert)" }
 }
 Write-Host "  4 APKs: fingerprints match version.json, signed with the official key"

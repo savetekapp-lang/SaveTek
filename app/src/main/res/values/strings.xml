@@ -251,4 +251,8 @@
     <string name="error_no_video_post">This post is a still image with music, not a video. The download engine can\'t download this kind of post at the moment.</string>
     <string name="quality_image">Save image</string>
     <string name="image_only_note">This post is a still image with music, not a video. The music can\'t be downloaded, but you can save the image.</string>
+    <string name="folders_count">Folders (%1$d)</string>
+    <string name="folder_files">Files: %1$d</string>
+    <string name="unknown_folder">Other</string>
+    <string name="back_to_folders">Back to folders</string>
 </resources>

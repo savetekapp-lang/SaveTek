@@ -220,4 +220,8 @@
     <string name="error_no_video_post">Bu gönderi video değil, müzikli sabit bir görsel. İndirme motoru bu tür gönderileri şu anda indiremiyor.</string>
     <string name="quality_image">Görseli kaydet</string>
     <string name="image_only_note">Bu gönderi video değil, müzikli sabit bir görsel. Müzik indirilemez, ancak görseli kaydedebilirsiniz.</string>
+    <string name="folders_count">Klasörler (%1$d)</string>
+    <string name="folder_files">Dosya: %1$d</string>
+    <string name="unknown_folder">Diğer</string>
+    <string name="back_to_folders">Klasörlere dön</string>
 </resources>

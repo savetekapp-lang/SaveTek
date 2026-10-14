@@ -220,4 +220,8 @@
     <string name="error_no_video_post">Cette publication est une image fixe avec de la musique, pas une vidéo. Le moteur de téléchargement ne peut pas télécharger ce type de publication pour le moment.</string>
     <string name="quality_image">Enregistrer l\'image</string>
     <string name="image_only_note">Cette publication est une image fixe avec de la musique, pas une vidéo. La musique ne peut pas être téléchargée, mais vous pouvez enregistrer l\'image.</string>
+    <string name="folders_count">Dossiers (%1$d)</string>
+    <string name="folder_files">Fichiers : %1$d</string>
+    <string name="unknown_folder">Autres</string>
+    <string name="back_to_folders">Retour aux dossiers</string>
 </resources>

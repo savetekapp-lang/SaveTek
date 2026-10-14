@@ -1,42 +1,42 @@
 {
-    "versionCode":  14,
-    "versionName":  "0.8.0",
-    "releaseDate":  "2026-10-12",
-    "apkUrl":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.8.0/SaveTek-0.8.0-arm64-v8a.apk",
-    "sha256":  "b905a07acd8152cdeaa628817acce6125bcade1e7cdd535c1c0ac19a2fd42111",
-    "apkSizeBytes":  56759344,
+    "versionCode":  15,
+    "versionName":  "0.8.1",
+    "releaseDate":  "2026-10-15",
+    "apkUrl":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.8.1/SaveTek-0.8.1-arm64-v8a.apk",
+    "sha256":  "e626be3a2ed66808b388f644cde7d44bbd17592af86f45e8c4d987e1ef358e4b",
+    "apkSizeBytes":  56764268,
     "minSupportedVersionCode":  1,
-    "releasePage":  "https://github.com/savetekapp-lang/SaveTek/releases/tag/v0.8.0",
+    "releasePage":  "https://github.com/savetekapp-lang/SaveTek/releases/tag/v0.8.1",
     "abis":  {
                  "arm64-v8a":  {
-                                   "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.8.0/SaveTek-0.8.0-arm64-v8a.apk",
-                                   "sha256":  "b905a07acd8152cdeaa628817acce6125bcade1e7cdd535c1c0ac19a2fd42111",
-                                   "sizeBytes":  56759344
+                                   "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.8.1/SaveTek-0.8.1-arm64-v8a.apk",
+                                   "sha256":  "e626be3a2ed66808b388f644cde7d44bbd17592af86f45e8c4d987e1ef358e4b",
+                                   "sizeBytes":  56764268
                                },
                  "armeabi-v7a":  {
-                                     "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.8.0/SaveTek-0.8.0-armeabi-v7a.apk",
-                                     "sha256":  "ab4f42cdc54a6ea30a8f560aba28a41629b0160e90eb56b865dd0806e3fadc1e",
-                                     "sizeBytes":  50106210
+                                     "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.8.1/SaveTek-0.8.1-armeabi-v7a.apk",
+                                     "sha256":  "6776f56d3b78ed68759e83b501ab9a48aa7e48b17f55a78340e02ebe5fe3feb4",
+                                     "sizeBytes":  50111138
                                  },
                  "x86_64":  {
-                                "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.8.0/SaveTek-0.8.0-x86_64.apk",
-                                "sha256":  "7461df13b25f3e95c327fe74b3685d7fdaea7cd3ce2a5c7dc7a0133a82d75141",
-                                "sizeBytes":  59751343
+                                "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.8.1/SaveTek-0.8.1-x86_64.apk",
+                                "sha256":  "e237dd4f0823e16f682dc8e55e21e747858f188328c0a0deaed9939b16047f6d",
+                                "sizeBytes":  59756267
                             },
                  "universal":  {
-                                   "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.8.0/SaveTek-0.8.0-universal.apk",
-                                   "sha256":  "a33024390d0efe12b3325b001fd623212c3ce23c0dc9346dcf6ef16ce8136f7a",
-                                   "sizeBytes":  202144069
+                                   "url":  "https://github.com/savetekapp-lang/SaveTek/releases/download/v0.8.1/SaveTek-0.8.1-universal.apk",
+                                   "sha256":  "3237cd66807216123d0edc450fccd15423a232c5a0044dd8edfef5318a9a50d3",
+                                   "sizeBytes":  202148993
                                }
              },
     "whatsNew":  {
-                     "ar":  "• \"تحميلاتي\" صارت أربعة أقسام: تحميلاتي (الفيديو)، تحميلات MP3، فيديوهات الجهاز، و MP3 الجهاز الجديد لتشغيل أغاني جوالك ومشاركتها.\n• المنشورات التي هي صورة ثابتة مع موسيقى: يمكنك الآن حفظ الصورة بأعلى دقة مع رسالة توضّح أن الموسيقى لا يمكن تحميلها، والمقاطع التي يوفّر موقعها الصوت فقط تُحفظ كـ MP3 بدل أن يفشل تحميلها.",
-                     "en":  "• My downloads now has four sections: My downloads (video), MP3 downloads, Device videos, and the new Device MP3 to play and share your phone\u0027s songs.\n• Posts that are a still image with music: you can now save the image in full resolution, with a note explaining the music can\u0027t be downloaded, and clips whose site only provides audio are saved as MP3 instead of failing.",
-                     "ur":  "• \"میری ڈاؤن لوڈز\" اب چار حصوں میں: میری ڈاؤن لوڈز (ویڈیو)، MP3 ڈاؤن لوڈز، ڈیوائس کی ویڈیوز، اور نیا ڈیوائس MP3 جس میں آپ اپنے فون کے گانے چلا اور شیئر کر سکتے ہیں۔\n• موسیقی والی ساکن تصویر کی پوسٹس: اب آپ تصویر پوری ریزولیوشن میں محفوظ کر سکتے ہیں، ساتھ میں وضاحت کہ موسیقی ڈاؤن لوڈ نہیں ہو سکتی؛ اور جن کلپس کی سائٹ صرف آڈیو دیتی ہے وہ ناکام ہونے کے بجائے MP3 کے طور پر محفوظ ہوتی ہیں۔",
-                     "tr":  "• İndirdiklerim artık dört bölüm: İndirdiklerim (video), MP3 indirmeleri, Cihazdaki videolar ve telefonunuzdaki şarkıları çalıp paylaşabileceğiniz yeni Cihazdaki MP3.\n• Müzikli sabit görsel gönderileri: artık görseli tam çözünürlükte kaydedebilirsiniz, müziğin indirilemeyeceğini açıklayan bir notla; sitesi yalnızca ses sunan klipler başarısız olmak yerine MP3 olarak kaydedilir.",
-                     "fr":  "• Mes téléchargements comporte désormais quatre sections : Mes téléchargements (vidéo), Téléchargements MP3, Vidéos de l\u0027appareil et le nouveau MP3 de l\u0027appareil pour lire et partager les chansons de votre téléphone.\n• Publications constituées d\u0027une image fixe avec musique : vous pouvez désormais enregistrer l\u0027image en pleine résolution, avec une note expliquant que la musique ne peut pas être téléchargée ; les clips dont le site ne fournit que l\u0027audio sont enregistrés en MP3 au lieu d\u0027échouer.",
-                     "es":  "• Mis descargas ahora tiene cuatro secciones: Mis descargas (video), Descargas MP3, Videos del dispositivo y el nuevo MP3 del dispositivo para reproducir y compartir las canciones de tu teléfono.\n• Publicaciones que son una imagen fija con música: ahora puedes guardar la imagen en resolución completa, con una nota que explica que la música no se puede descargar; los clips cuyo sitio solo ofrece audio se guardan como MP3 en lugar de fallar.",
-                     "id":  "• Unduhan saya kini punya empat bagian: Unduhan saya (video), Unduhan MP3, Video perangkat, dan MP3 perangkat yang baru untuk memutar dan membagikan lagu di ponsel Anda.\n• Postingan berupa gambar diam dengan musik: kini Anda bisa menyimpan gambarnya dalam resolusi penuh, dengan catatan bahwa musiknya tidak bisa diunduh; klip yang situsnya hanya menyediakan audio disimpan sebagai MP3, bukan gagal.",
-                     "hi":  "• \"मेरे डाउनलोड\" अब चार हिस्सों में: मेरे डाउनलोड (वीडियो), MP3 डाउनलोड, डिवाइस के वीडियो, और नया डिवाइस MP3 जिसमें आप अपने फ़ोन के गाने चला और शेयर कर सकते हैं।\n• संगीत वाली स्थिर तस्वीर की पोस्ट: अब आप तस्वीर पूरे रिज़ॉल्यूशन में सहेज सकते हैं, साथ में यह नोट कि संगीत डाउनलोड नहीं हो सकता; और जिन क्लिप की साइट सिर्फ़ ऑडियो देती है वे विफल होने के बजाय MP3 के रूप में सहेजी जाती हैं।"
+                     "ar":  "• \"فيديوهات الجهاز\" و \"MP3 الجهاز\" صارا مرتّبين في مجلدات (مثل الكاميرا والتنزيلات وواتساب)، مع عدد الملفات وحجمها في كل مجلد. اضغط المجلد لترى ملفاته، وزر الرجوع يعيدك للمجلدات.",
+                     "en":  "• Device videos and Device MP3 are now organized in folders (like Camera, Download or WhatsApp), with the number of files and total size of each. Tap a folder to see its files; Back returns to the folders.",
+                     "ur":  "• \"ڈیوائس کی ویڈیوز\" اور \"ڈیوائس MP3\" اب فولڈرز میں ترتیب دیے گئے ہیں (جیسے کیمرہ، ڈاؤن لوڈ یا واٹس ایپ)، ہر فولڈر میں فائلوں کی تعداد اور کل سائز کے ساتھ۔ فولڈر کی فائلیں دیکھنے کے لیے اسے دبائیں؛ واپس کا بٹن فولڈرز پر لے جاتا ہے۔",
+                     "tr":  "• Cihazdaki videolar ve Cihazdaki MP3 artık klasörlere ayrıldı (Kamera, İndirilenler veya WhatsApp gibi); her klasörde dosya sayısı ve toplam boyut gösterilir. Dosyalarını görmek için bir klasöre dokunun; Geri tuşu klasörlere döner.",
+                     "fr":  "• Vidéos de l\u0027appareil et MP3 de l\u0027appareil sont désormais classés par dossiers (Appareil photo, Téléchargements, WhatsApp…), avec le nombre de fichiers et la taille totale de chacun. Touchez un dossier pour voir ses fichiers ; Retour revient aux dossiers.",
+                     "es":  "• Videos del dispositivo y MP3 del dispositivo ahora se organizan en carpetas (Cámara, Descargas, WhatsApp…), con el número de archivos y el tamaño total de cada una. Toca una carpeta para ver sus archivos; Atrás vuelve a las carpetas.",
+                     "id":  "• Video perangkat dan MP3 perangkat kini tersusun dalam folder (seperti Kamera, Download, atau WhatsApp), dengan jumlah file dan ukuran total tiap folder. Ketuk folder untuk melihat isinya; tombol Kembali membawa Anda ke daftar folder.",
+                     "hi":  "• \"डिवाइस के वीडियो\" और \"डिवाइस MP3\" अब फ़ोल्डरों में व्यवस्थित हैं (जैसे कैमरा, डाउनलोड या WhatsApp), हर फ़ोल्डर में फ़ाइलों की संख्या और कुल आकार के साथ। फ़ाइलें देखने के लिए फ़ोल्डर पर टैप करें; वापस बटन फ़ोल्डरों पर ले जाता है।"
                  }
 }

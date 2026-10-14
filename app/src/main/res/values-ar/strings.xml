@@ -220,4 +220,8 @@
     <string name="error_no_video_post">هذا المنشور صورة ثابتة مع موسيقى، وليس فيديو. محرك التحميل لا يستطيع تحميل هذا النوع من المنشورات حالياً.</string>
     <string name="quality_image">حفظ الصورة</string>
     <string name="image_only_note">هذا المنشور صورة ثابتة مع موسيقى، وليس فيديو. لا يمكن تحميل الموسيقى، لكن يمكنك حفظ الصورة.</string>
+    <string name="folders_count">المجلدات (%1$d)</string>
+    <string name="folder_files">الملفات: %1$d</string>
+    <string name="unknown_folder">أخرى</string>
+    <string name="back_to_folders">الرجوع للمجلدات</string>
 </resources>

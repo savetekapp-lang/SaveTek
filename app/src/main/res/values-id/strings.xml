@@ -220,4 +220,8 @@
     <string name="error_no_video_post">Postingan ini adalah gambar diam dengan musik, bukan video. Mesin unduhan belum bisa mengunduh jenis postingan ini.</string>
     <string name="quality_image">Simpan gambar</string>
     <string name="image_only_note">Postingan ini adalah gambar diam dengan musik, bukan video. Musiknya tidak bisa diunduh, tetapi Anda bisa menyimpan gambarnya.</string>
+    <string name="folders_count">Folder (%1$d)</string>
+    <string name="folder_files">File: %1$d</string>
+    <string name="unknown_folder">Lainnya</string>
+    <string name="back_to_folders">Kembali ke folder</string>
 </resources>

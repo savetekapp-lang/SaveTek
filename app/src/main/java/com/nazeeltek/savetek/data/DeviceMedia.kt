@@ -26,6 +26,8 @@ data class DeviceFile(
     val sizeBytes: Long,
     val mime: String?,
     val kind: MediaKind,
+    /** اسم المجلد الذي فيه الملف (مثل Camera أو Download)، أو "" إن لم يُعرف. */
+    val folder: String = "",
 )
 
 /** مستوى الوصول لملفات الجوال. */
@@ -88,12 +90,16 @@ object DeviceMedia {
             MediaKind.VIDEO -> MediaStore.Video.VideoColumns.DURATION
             MediaKind.AUDIO -> MediaStore.Audio.AudioColumns.DURATION
         }
+        // اسم المجلد: أندرويد 10+ يعطيه مباشرة، وما قبله نأخذه من مسار الملف
+        @Suppress("DEPRECATION")
+        val folderColumn = if (q) MediaStore.MediaColumns.BUCKET_DISPLAY_NAME else MediaStore.MediaColumns.DATA
         val projection = arrayOf(
             MediaStore.MediaColumns._ID,
             MediaStore.MediaColumns.DISPLAY_NAME,
             durationColumn,
             MediaStore.MediaColumns.SIZE,
             MediaStore.MediaColumns.MIME_TYPE,
+            folderColumn,
         )
         // للصوت: نستبعد نغمات الإشعارات والمنبّه والرنين
         val selection = if (kind == MediaKind.AUDIO) {
@@ -112,9 +118,12 @@ object DeviceMedia {
                 val durCol = c.getColumnIndexOrThrow(durationColumn)
                 val sizeCol = c.getColumnIndexOrThrow(MediaStore.MediaColumns.SIZE)
                 val mimeCol = c.getColumnIndexOrThrow(MediaStore.MediaColumns.MIME_TYPE)
+                val folderCol = c.getColumnIndex(folderColumn)
                 val fallbackName = if (kind == MediaKind.AUDIO) "audio" else "video"
                 while (c.moveToNext()) {
                     val id = c.getLong(idCol)
+                    val rawFolder = if (folderCol >= 0) c.getString(folderCol).orEmpty() else ""
+                    val folder = if (q) rawFolder else rawFolder.substringBeforeLast('/', "").substringAfterLast('/')
                     result += DeviceFile(
                         id = id,
                         uri = ContentUris.withAppendedId(collection, id),
@@ -123,6 +132,7 @@ object DeviceMedia {
                         sizeBytes = c.getLong(sizeCol),
                         mime = c.getString(mimeCol),
                         kind = kind,
+                        folder = folder,
                     )
                 }
             }
