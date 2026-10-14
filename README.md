@@ -35,6 +35,8 @@
 3. عند طلب أندرويد: اضغط "الإعدادات" وفعّل **"السماح من هذا المصدر"**، ثم ارجع.
 4. اضغط "تثبيت" ثم "فتح".
 
+> 🛡️ **إذا ظهرت نافذة "حماية Play" تسألك عن فحص التطبيق:** اختر **"فحص التطبيق"**. بعض الجوالات ترفض التثبيت عند اختيار "التثبيت بدون فحص" وتعرض رسالة "التطبيق ليس مثبتاً"، بينما ينجح التثبيت بعد الفحص. وإذا ظهرت رسالة "التطبيق ليس مثبتاً" لسبب آخر، فتأكد أن الملف اكتمل تحميله (حجم ملف arm64-v8a حوالي 54 ميجا)، وأنه لا توجد نسخة أحدث من SaveTek مثبتة في الجوال.
+
 يتطلب أندرويد 7.0 فما فوق. بعد التثبيت الأول، يحدّث التطبيق نفسه من داخله.
 
 ### ⚠️ تنبيه الاستخدام المسؤول
@@ -72,6 +74,8 @@ SaveTek أداة لحفظ المحتوى الذي تملكه أو المسموح
 2. Open the file from the download notification or your Files app.
 3. When Android asks, tap Settings and turn on **"Allow from this source"**, then go back.
 4. Tap Install, then Open.
+
+> 🛡️ **If a "Play Protect" window asks whether to scan the app:** choose **"Scan app"**. Some phones refuse to install with "Install without scanning" and show "App not installed", while installing works after the scan. If "App not installed" appears for another reason, make sure the file finished downloading (the arm64-v8a file is about 54 MB) and that no newer SaveTek version is already installed.
 
 Requires Android 7.0 or later. After the first install, the app updates itself.
 
