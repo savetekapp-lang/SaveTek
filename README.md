@@ -98,5 +98,19 @@ SaveTek is built on open-source projects, each under its own license:
 3. Release signing keys are **never** stored in this repository. Create your own keystore and point Gradle to a `keystore.properties` file outside the project (see the top of `app/build.gradle.kts`).
 4. Build: `gradlew assembleRelease` — or run `tools/make-release.ps1` to build, collect the APKs and regenerate `docs/version.json`.
 
+### Release process
+Releases are published in this order, so the `docs/version.json` inside each tag is exactly the one the website serves, and users never see an update before its files can be downloaded:
+
+1. `tools/make-release.ps1` — build the APKs and write `docs/version.json` locally.
+2. `tools/publish-release.ps1 -NotesFile notes.md` — then, automatically:
+   1. commit all changes (including `docs/version.json`) in one commit;
+   2. create the `vX.Y.Z` tag on that commit and push **the tag only** (not `main`);
+   3. create the release from the tag, upload the APKs, and verify every download link works, its SHA-256 matches `version.json`, and every APK is signed with the official key;
+   4. only then push `main`, which updates the website.
+
+The script stops before pushing `main` if any check fails.
+
+Official signing certificate (SHA-256): `4a66426907291f89ed2782a5c908ddab6656a8ee31088ac47dde9d4562235fa6`
+
 ### Contact
 [savetek.app@gmail.com](mailto:savetek.app@gmail.com)

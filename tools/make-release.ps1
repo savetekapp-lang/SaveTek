@@ -13,6 +13,9 @@
 #  قبل التشغيل:
 #    1. ارفع versionCode و versionName في app/build.gradle.kts
 #    2. اكتب "ما الجديد" بكل اللغات في tools/whats-new.json
+#
+#  هذه هي الخطوة (أ) فقط. النشر يكمله tools\publish-release.ps1 بالترتيب:
+#    commit واحد ← وسم على نفس الـ commit (رفع الوسم فقط) ← الإصدار والتحقق ← رفع main أخيراً.
 # =====================================================================
 param(
     [int]$MinSupported = -1,
@@ -102,7 +105,8 @@ Write-Host "Done." -ForegroundColor Green
 Write-Host "  APK files : $outDir"
 Write-Host "  version.json updated : docs\version.json"
 Write-Host ""
-Write-Host "Next steps:"
-Write-Host "  1. On GitHub, create a release with tag $tag and upload the 4 APK files from $outDir"
-Write-Host "  2. Commit and push the docs folder (docs\version.json)."
-Write-Host "  Order matters: publish the release BEFORE pushing version.json."
+Write-Host "Next step (do NOT push main yourself):"
+Write-Host "  Write the release notes, then run:"
+Write-Host "    powershell -ExecutionPolicy Bypass -File tools\publish-release.ps1 -NotesFile <notes.md>"
+Write-Host "  It commits everything (including version.json), pushes the tag $tag only,"
+Write-Host "  creates the release and verifies the downloads, and only then pushes main."
